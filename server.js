@@ -66,6 +66,11 @@ const server = http.createServer(function (req, res) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({ ok: true, service: 'ai-native-bank', time: Date.now() }));
     }
+    // 根路径 302 到工具页（页面脚本用相对路径引用，必须以 /tools/ 为基准访问）
+    if (pathname === '/') {
+      res.writeHead(302, { Location: '/tools/ai-native-bank.html' });
+      return res.end();
+    }
     // 银行 API（同步返回 false 表示未匹配，继续静态）
     if (handleAiNativeBankRequest(req, res)) return;
     return serveStatic(req, res);
