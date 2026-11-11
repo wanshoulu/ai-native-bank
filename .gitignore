@@ -35,3 +35,4 @@ Thumbs.db
 # backup
 *.bak
 *.bak-*
+data/ai-native-bank/mock-core.db
