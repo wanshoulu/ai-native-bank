@@ -1,0 +1,7 @@
+{
+  "id": "bank.wealth-management",
+  "version": "1.0.0",
+  "digest": "sha256:625a31040bf864542e4c1cf38448d80b2d4cb973e09fc57ea2924a31f911539e",
+  "requiredCapabilityIds": ["bank.wealth.product.list", "bank.account.list", "bank.wealth.purchase.create"],
+  "riskBoundary": "L2"
+}

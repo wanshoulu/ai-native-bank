@@ -1,0 +1,9 @@
+{
+  "id": "bank.cashflow-planning",
+  "version": "1.0.0",
+  "digest": "sha256:0455411ed4ea279f1c250be3f806d8264a2b925a8e2bd337ae672fd3adf539cd",
+  "requiredCapabilityIds": [
+    "bank.cashflow.salary-plan.get"
+  ],
+  "riskBoundary": "L2"
+}

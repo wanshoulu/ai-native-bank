@@ -1,0 +1,381 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-harbor.local/schemas/ai-native-bank/intent-graph.v2.json",
+  "title": "AI Native Bank Intent Graph",
+  "description": "支持 v2.0 扁平结构（nodes+edges）与 v4.0/v4.1 树结构（intentTree）。由 schemaVersion 决定走哪个分支。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "graphId", "version", "bank", "appSurface", "publishedAt", "digest"],
+  "properties": {
+    "schemaVersion": { "enum": ["2.0", "4.0", "4.1"] },
+    "graphId": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "bank": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "name_en": { "type": "string" },
+    "appSurface": { "type": "string", "minLength": 1 },
+    "publishedAt": { "type": "string", "format": "date-time" },
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "title"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+          "type": { "enum": ["channel", "menu", "intent", "business-object", "skill", "slot", "capability", "provider", "policy"] },
+          "title": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "description": { "type": "string", "maxLength": 500 },
+          "domain": { "type": "string" },
+          "menuKey": { "type": ["string", "null"] },
+          "actionId": { "type": "string" },
+          "action": { "enum": ["ASK", "QUERY", "DO", "CHANGE", "CANCEL", "HELP", "TRANSFER", "REPAY"] },
+          "sourceAction": { "enum": ["QUERY", "CREATE", "UPDATE", "APPLY", "EXPLAIN"] },
+          "businessObject": { "type": "string" },
+          "businessObjectId": { "type": "string" },
+          "aliases": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+          "recallTerms": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 2, "maxLength": 40 } },
+          "recallTermSets": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1, "maxLength": 16 }
+            }
+          },
+          "semanticPriority": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "negativeExamples": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+          "confusableIntents": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } },
+          "disambiguationHints": { "type": "string", "minLength": 1, "maxLength": 400 },
+          "requiredSlots": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+          "capabilityBindings": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } },
+          "skillBinding": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["skillId", "version", "digest"],
+            "properties": {
+              "skillId": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+              "version": { "type": "string" },
+              "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+            }
+          },
+          "slotContract": { "$ref": "#/$defs/slotContract" },
+          "taskPolicy": { "type": "object" },
+          "contextPolicy": { "type": "object" },
+          "responsePolicy": { "type": "string" },
+          "orchestrationMode": { "enum": ["deterministic", "agent", "single", "parallel", "sequential"] },
+          "executionMode": { "enum": ["read-execute", "confirm-required", "knowledge-only", "multi_intent", "navigation-only", "unavailable"] },
+          "riskLevel": { "enum": ["L0", "L1", "L2", "L3"] },
+          "readiness": { "enum": ["ready", "mock-only", "planned"] },
+          "owner": { "type": "string" },
+          "lifecycle": { "enum": ["active", "inactive", "planned", "deprecated", "retired"] },
+          "semanticVersion": { "type": "string" },
+          "effectiveAt": { "type": "string", "format": "date-time" },
+          "source": { "type": "object" }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "type": { "const": "intent" } } },
+            "then": {
+              "required": ["domain", "menuKey", "action", "businessObject", "aliases", "recallTerms", "recallTermSets", "semanticPriority", "negativeExamples", "requiredSlots", "capabilityBindings", "taskPolicy", "contextPolicy", "responsePolicy", "executionMode", "riskLevel", "readiness", "owner", "lifecycle", "semanticVersion", "effectiveAt", "source"]
+            }
+          }
+        ]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "from", "to"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "enum": ["contains", "offers", "HANDLED_BY", "TARGETS", "REQUIRES_SLOT", "REQUIRES_CAPABILITY", "PROVIDED_BY", "RESOLVED_BY", "GUARDED_BY", "USES_CAPABILITY"] },
+          "from": { "type": "string" },
+          "to": { "type": "string" }
+        }
+      }
+    },
+    "intentTree": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/v4TreeNode" }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "type", "from", "to"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "resourceRegistries": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "capabilities": { "type": "array" },
+        "faqs": { "type": "array" },
+        "policies": { "type": "array" }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "properties": { "schemaVersion": { "const": "2.0" } },
+      "required": ["nodes", "edges"]
+    },
+    {
+      "properties": { "schemaVersion": { "enum": ["4.0", "4.1"] } },
+      "required": ["intentTree"]
+    }
+  ],
+  "$defs": {
+    "slotContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "slots", "clarificationOrder", "executionBinding", "capabilityBindings"],
+      "properties": {
+        "version": { "enum": ["2.0", "4.1"] },
+        "slots": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["slotId", "name", "label", "type", "required", "extractionKeys", "resolvedField"],
+            "properties": {
+              "slotId": { "type": "string", "pattern": "^slot\\.[a-z0-9.-]+$" },
+              "name": { "type": "string", "pattern": "^[a-z][A-Za-z0-9]{0,63}$" },
+              "label": { "type": "string", "minLength": 1, "maxLength": 40 },
+              "type": { "enum": ["party_reference", "account_reference", "card_reference", "product_reference", "holding_reference", "money", "currency", "text", "enum", "settings_patch"] },
+              "required": { "type": "boolean" },
+              "extractionKeys": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+              "resolverCapabilityId": { "type": "string" },
+              "normalizer": { "type": "string" },
+              "defaultValue": { "type": ["string", "number", "boolean"] },
+              "resolvedField": { "type": "string" }
+            }
+          }
+        },
+        "clarificationOrder": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "executionBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["capabilityId", "requiresConfirmation"],
+          "properties": {
+            "capabilityId": { "type": "string" },
+            "requiresConfirmation": { "type": "boolean" }
+          }
+        },
+        "capabilityBindings": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } }
+      }
+    },
+    "v4TreeNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "node_role", "parent_intent_id", "path"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "node_role": { "enum": ["root", "domain", "category", "leaf"] },
+        "parent_intent_id": { "type": ["string", "null"] },
+        "path": { "type": "string", "minLength": 1 },
+        "scope_in": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "navigationTerms": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "bindings": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "menu": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "path": { "type": "string" }
+              }
+            },
+            "businessObjects": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "scenes": { "type": "array", "items": { "$ref": "#/$defs/v4Scene" } },
+        "observability": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "sourceRecords": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "type": { "type": "string" },
+                  "ref": { "type": "string" },
+                  "note": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "owner": { "type": "string" },
+        "lifecycle": { "enum": ["active", "inactive", "planned", "deprecated", "retired"] },
+        "semanticVersion": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "node_role": { "const": "root" } } },
+          "then": { "required": [] }
+        },
+        {
+          "if": { "properties": { "node_role": { "enum": ["domain", "category"] } } },
+          "then": { "required": ["scope_in", "navigationTerms", "bindings"] }
+        },
+        {
+          "if": { "properties": { "node_role": { "const": "leaf" } } },
+          "then": { "required": ["scenes", "scope_in", "bindings", "observability", "owner", "lifecycle", "semanticVersion"] }
+        }
+      ]
+    },
+    "v4Scene": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["scene_type", "semantic_definition", "retrieval_profile", "execution_binding", "task_binding", "decision_policy"],
+      "properties": {
+        "scene_type": { "enum": ["ASK", "QUERY", "DO", "CHANGE", "CANCEL", "HELP", "TRANSFER", "REPAY"] },
+        "semantic_definition": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["intentType", "description", "userGoal"],
+          "properties": {
+            "intentType": { "enum": ["ASK", "QUERY", "DO", "CHANGE", "CANCEL", "HELP", "TRANSFER", "REPAY"] },
+            "description": { "type": "string", "minLength": 1 },
+            "userGoal": { "type": "string", "minLength": 1 },
+            "confusableIntents": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } },
+            "disambiguationHints": { "type": "string" }
+          }
+        },
+        "retrieval_profile": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+            "recallTerms": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 40 } },
+            "recallTermSets": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "uniqueItems": true,
+                "items": { "type": "string", "minLength": 1, "maxLength": 16 }
+              }
+            },
+            "negativeExamples": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+            "semanticPriority": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "execution_binding": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["executionMode", "readiness", "riskLevel"],
+          "properties": {
+            "executionMode": { "enum": ["read-execute", "confirm-required", "knowledge-only", "multi_intent", "navigation-only", "unavailable"] },
+            "readiness": { "enum": ["ready", "mock-only", "planned"] },
+            "riskLevel": { "enum": ["L0", "L1", "L2", "L3"] }
+          }
+        },
+        "task_binding": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "slotContract": { "$ref": "#/$defs/v4SlotContract" },
+            "actionCode": { "type": "string" },
+            "skillBinding": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "skillId": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+                "version": { "type": "string" },
+                "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+              }
+            }
+          }
+        },
+        "decision_policy": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "orchestrationHint": { "enum": ["single", "parallel-safe", "sequential", "deterministic", "agent", "parallel"] },
+            "supportedShapes": { "type": "array", "items": { "enum": ["single_intent", "multi_intent", "parallel", "same_intent_multi_task"] } },
+            "contextPolicy": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "retainOnClarification": { "type": "boolean" },
+                "allowIntentSwitch": { "type": "boolean" },
+                "resumable": { "type": "boolean" }
+              }
+            },
+            "responsePolicy": { "type": "string" }
+          }
+        },
+        "knowledge_binding": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "answerRefs": { "type": "array", "items": { "type": "string" } },
+            "answerType": { "enum": ["faq", "rag"] },
+            "answerPolicy": { "enum": ["direct_answer_or_recommend_entry", "single_best"] }
+          }
+        },
+        "bindings": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "capabilities": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } },
+            "policies": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } },
+            "faqs": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "v4SlotContract": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["slots", "clarificationOrder"],
+      "properties": {
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["slotId", "name", "label", "type", "required"],
+            "properties": {
+              "slotId": { "type": "string", "pattern": "^slot\\.[a-z0-9.-]+$" },
+              "name": { "type": "string", "pattern": "^[a-z][A-Za-z0-9]{0,63}$" },
+              "label": { "type": "string", "minLength": 1, "maxLength": 40 },
+              "type": { "enum": ["party_reference", "account_reference", "card_reference", "product_reference", "holding_reference", "money", "currency", "text", "enum", "settings_patch"] },
+              "required": { "type": "boolean" },
+              "extractionKeys": { "type": "array", "items": { "type": "string" } },
+              "resolverCapabilityId": { "type": "string" },
+              "normalizer": { "type": "string" },
+              "defaultValue": { "type": ["string", "number", "boolean"] },
+              "resolvedField": { "type": "string" }
+            }
+          }
+        },
+        "clarificationOrder": { "type": "array", "items": { "type": "string" } },
+        "capabilityBindings": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" } }
+      }
+    }
+  }
+}

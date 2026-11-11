@@ -1,0 +1,12 @@
+{
+  "id": "bank.obligation-management",
+  "version": "1.0.0",
+  "digest": "sha256:d902cb658e3bcb5417545f783c884f5c30863c6c26a4d9316f311d77e2c85b3a",
+  "requiredCapabilityIds": [
+    "bank.obligation.list",
+    "bank.credit-card.repayment.create",
+    "bank.loan.repayment.create",
+    "bank.utility.payment.create"
+  ],
+  "riskBoundary": "L2"
+}

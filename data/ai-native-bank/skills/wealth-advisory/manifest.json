@@ -1,0 +1,7 @@
+{
+  "id": "bank.wealth-advisory",
+  "version": "1.0.0",
+  "digest": "sha256:402eb0dad8937719764a7241de6e09ed13eae019043af430e702cf691a397edd",
+  "requiredCapabilityIds": ["bank.wealth.advisory.context.get"],
+  "riskBoundary": "L1"
+}

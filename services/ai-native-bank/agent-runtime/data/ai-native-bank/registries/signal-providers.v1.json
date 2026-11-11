@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "1.0",
+  "signals": [
+    {
+      "id": "card.bill_due_count",
+      "providerId": "card",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "card.days_to_due_min",
+      "providerId": "card",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "loan.due_within_days",
+      "providerId": "loan",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "obligation.due_count",
+      "providerId": "obligation",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "page.channel",
+      "providerId": "page",
+      "valueType": "string",
+      "classification": "context",
+      "freshnessSeconds": 30
+    },
+    {
+      "id": "points.expiring_amount",
+      "providerId": "points",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "preference.frequent_intent_ids",
+      "providerId": "preference",
+      "valueType": "string_array",
+      "classification": "preference",
+      "freshnessSeconds": 86400
+    },
+    {
+      "id": "salary.amount_minor",
+      "providerId": "salary",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "salary.recently_credited",
+      "providerId": "salary",
+      "valueType": "boolean",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "salary.expected_day",
+      "providerId": "salary_calendar",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "salary.days_until_credit",
+      "providerId": "salary_calendar",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "salary.pre_credit_day",
+      "providerId": "salary_calendar",
+      "valueType": "boolean",
+      "classification": "financial",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "spending.anomaly_detected",
+      "providerId": "spending",
+      "valueType": "boolean",
+      "classification": "financial",
+      "freshnessSeconds": 1800
+    },
+    {
+      "id": "spending.expense_income_ratio",
+      "providerId": "spending",
+      "valueType": "number",
+      "classification": "financial",
+      "freshnessSeconds": 1800
+    },
+    {
+      "id": "input.period",
+      "providerId": "spending",
+      "valueType": "string",
+      "classification": "context",
+      "freshnessSeconds": 1800
+    },
+    {
+      "id": "time.band",
+      "providerId": "time",
+      "valueType": "string",
+      "classification": "context",
+      "freshnessSeconds": 600
+    },
+    {
+      "id": "time.weekend",
+      "providerId": "time",
+      "valueType": "boolean",
+      "classification": "context",
+      "freshnessSeconds": 600
+    },
+    {
+      "id": "utility.unpaid_count",
+      "providerId": "utility",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 300
+    },
+    {
+      "id": "wealth.idle_cash_ratio",
+      "providerId": "wealth",
+      "valueType": "number",
+      "classification": "financial",
+      "freshnessSeconds": 1800
+    },
+    {
+      "id": "wealth.holding_maturing_count",
+      "providerId": "wealth",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 1800
+    },
+    {
+      "id": "wealth.days_to_maturity_min",
+      "providerId": "wealth",
+      "valueType": "integer",
+      "classification": "financial",
+      "freshnessSeconds": 1800
+    },
+    {
+      "id": "workflow.resumable",
+      "providerId": "workflow",
+      "valueType": "boolean",
+      "classification": "workflow",
+      "freshnessSeconds": 30
+    },
+    {
+      "id": "workflow.resumable_count",
+      "providerId": "workflow",
+      "valueType": "integer",
+      "classification": "workflow",
+      "freshnessSeconds": 30
+    },
+    {
+      "id": "life.weather_condition",
+      "providerId": "life",
+      "valueType": "string",
+      "classification": "context",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "life.weather_temp_high",
+      "providerId": "life",
+      "valueType": "integer",
+      "classification": "context",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "promo.expiring_soon_count",
+      "providerId": "promo",
+      "valueType": "integer",
+      "classification": "context",
+      "freshnessSeconds": 3600
+    },
+    {
+      "id": "promo.dining_offer_count",
+      "providerId": "promo",
+      "valueType": "integer",
+      "classification": "context",
+      "freshnessSeconds": 3600
+    }
+  ]
+}

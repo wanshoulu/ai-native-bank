@@ -1,0 +1,102 @@
+[
+  {
+    "case_id": "V4-205",
+    "query": "信用卡额度能调高吗",
+    "expected": [
+      "ccb.credit.card.limit-change"
+    ],
+    "top1_recall": "ccb.credit.card.query",
+    "with_sub": {
+      "top1": "ccb.credit.card.limit-change",
+      "match": true,
+      "time": 5.859021425247192,
+      "status": "ok"
+    },
+    "no_sub": {
+      "top1": "ccb.credit.card.limit-change",
+      "match": true,
+      "time": 5.3620100021362305,
+      "status": "ok"
+    }
+  },
+  {
+    "case_id": "V4-206",
+    "query": "想降低信用卡额度",
+    "expected": [
+      "ccb.credit.card.limit-change"
+    ],
+    "top1_recall": "ccb.credit.card.query",
+    "with_sub": {
+      "top1": "ccb.credit.card.limit-change",
+      "match": true,
+      "time": 4.634636163711548,
+      "status": "ok"
+    },
+    "no_sub": {
+      "top1": "ccb.credit.card.limit-change",
+      "match": true,
+      "time": 6.004964351654053,
+      "status": "ok"
+    }
+  },
+  {
+    "case_id": "V4-211",
+    "query": "想办账单分期",
+    "expected": [
+      "ccb.credit.installment.apply"
+    ],
+    "top1_recall": "ccb.credit.bill.overview",
+    "with_sub": {
+      "top1": "ccb.credit.installment.apply",
+      "match": true,
+      "time": 4.261808156967163,
+      "status": "ok"
+    },
+    "no_sub": {
+      "top1": "ccb.credit.installment.apply",
+      "match": true,
+      "time": 5.138580322265625,
+      "status": "ok"
+    }
+  },
+  {
+    "case_id": "V4-222",
+    "query": "改下自动还款的卡",
+    "expected": [
+      "ccb.credit.auto-repay.setup"
+    ],
+    "top1_recall": "ccb.credit.auto-repay.overview",
+    "with_sub": {
+      "top1": "ccb.credit.auto-repay.setup",
+      "match": true,
+      "time": 6.105039596557617,
+      "status": "ok"
+    },
+    "no_sub": {
+      "top1": "ccb.credit.auto-repay.setup",
+      "match": true,
+      "time": 4.589988470077515,
+      "status": "ok"
+    }
+  },
+  {
+    "case_id": "V4-243",
+    "query": "还信用卡要手续费吗",
+    "expected": [
+      "ccb.credit.repay.faq"
+    ],
+    "top1_recall": "ccb.credit.repay.repay",
+    "with_sub": {
+      "top1": "ccb.home.repayment.faq",
+      "match": false,
+      "time": 6.960102558135986,
+      "status": "ok"
+    },
+    "no_sub": {
+      "top1": "ccb.home.repayment.faq",
+      "match": false,
+      "time": 7.903719902038574,
+      "status": "ok"
+    }
+  }
+]

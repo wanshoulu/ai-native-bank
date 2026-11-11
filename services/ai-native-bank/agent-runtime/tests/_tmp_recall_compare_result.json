@@ -1,0 +1,32 @@
+{
+  "buggy": {
+    "pass": 185,
+    "total": 256,
+    "rate": 0.72265625
+  },
+  "fixed": {
+    "pass": 243,
+    "total": 256,
+    "rate": 0.94921875
+  },
+  "fixed_subgraph": {
+    "pass": 248,
+    "total": 256,
+    "rate": 0.96875
+  },
+  "fixed_semantic": {
+    "pass": 227,
+    "total": 256,
+    "rate": 0.88671875
+  },
+  "fixed_all": {
+    "pass": 231,
+    "total": 256,
+    "rate": 0.90234375
+  },
+  "fixed_no_expand": {
+    "pass": 165,
+    "total": 256,
+    "rate": 0.64453125
+  }
+}

@@ -1,0 +1,60 @@
+﻿subgraph.enabled=True, semantic.enabled=True, judge.enabled=True
+_STRONG_MATCH_THRESHOLD=80
+
+测试 256 个 case(完整四层链路)
+
+=== 验证 case (5 个) ===
+  [V4-205] PASS  top1=ccb.credit.card.limit-change  expected=['ccb.credit.card.limit-change']  judged=single_intent
+  [V4-206] PASS  top1=ccb.credit.card.limit-change  expected=['ccb.credit.card.limit-change']  judged=single_intent
+  [V4-211] PASS  top1=ccb.credit.installment.apply  expected=['ccb.credit.installment.apply']  judged=single_intent
+  [V4-222] PASS  top1=ccb.credit.auto-repay.setup  expected=['ccb.credit.auto-repay.setup']  judged=single_intent
+  [V4-243] FAIL  top1=ccb.home.repayment.faq  expected=['ccb.credit.repay.faq']  judged=single_intent
+验证 case: 4/5
+
+=== 全量测试 (256 个 case) ===
+(全量测试需要 ~10 分钟 LLM 调用,跑全部 256 case)
+  进度: 20/256, 通过 18/20
+  进度: 40/256, 通过 36/40
+  进度: 60/256, 通过 56/60
+  进度: 80/256, 通过 75/80
+  进度: 100/256, 通过 92/100
+  进度: 120/256, 通过 112/120
+python : LLM judge failed: The read operation timed out
+At line:15 char:4076
++ ... pgrep\bin'; python -u tests\test_full_pipeline_v4.py > tests\test_ful ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (LLM judge faile...ation timed out:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  进度: 140/256, 通过 128/140
+LLM judge failed: The read operation timed out
+LLM judge failed: The read operation timed out
+LLM judge failed: The read operation timed out
+  进度: 160/256, 通过 147/160
+  进度: 180/256, 通过 167/180
+  进度: 200/256, 通过 187/200
+  进度: 220/256, 通过 207/220
+  进度: 240/256, 通过 226/240
+
+=== 全量结果 ===
+总通过: 242/256 (94.5%)
+  single_intent: 84/89 (94.4%)
+  multi_intent: 19/20 (95.0%)
+  ambiguous_intent: 119/127 (93.7%)
+  non_task: 20/20 (100.0%)
+
+失败 case (14 个):
+  [V4-003] ambiguous_intent  query=余额怎么样了  top1=ccb.account.balance.query  expected=['ccb.account.balance.query', 'ccb.credit.card.query']
+  [V4-004] ambiguous_intent  query=想看余额  top1=ccb.account.balance.query  expected=['ccb.account.balance.query', 'ccb.credit.card.query']
+  [V4-021] ambiguous_intent  query=查信用卡还款  top1=ccb.home.repayment.overview  expected=['ccb.home.repayment.faq', 'ccb.credit.bill.faq']
+  [V4-022] ambiguous_intent  query=看看信用卡还款  top1=ccb.home.repayment.overview  expected=['ccb.home.repayment.faq', 'ccb.credit.bill.faq']
+  [V4-079] ambiguous_intent  query=查手续费  top1=ccb.credit.repay.faq  expected=['ccb.home.transfer.faq', 'ccb.transfer.payee.query']
+  [V4-086] ambiguous_intent  query=查开通  top1=ccb.credit.card.query  expected=['ccb.credit.card.query', 'ccb.account.balance.query', 'ccb.credit.repay.overview', 'ccb.credit.bill.overview']
+  [V4-099] ambiguous_intent  query=查手续费  top1=ccb.credit.repay.faq  expected=['ccb.home.transfer.faq', 'ccb.transfer.create', 'ccb.transfer.payee.query']
+  [V4-100] ambiguous_intent  query=转账明细  top1=ccb.account.transactions.query  expected=['ccb.transfer.payee.query', 'ccb.home.transfer.faq', 'ccb.credit.card.transactions.query']
+  [V4-121] single_intent  query=还本月信用卡  top1=ccb.credit.repay.overview  expected=['ccb.credit.repay.faq']
+  [V4-129] single_intent  query=支出分析  top1=ccb.me.income-expense.overview  expected=['ccb.cashflow.spending-explain']
+  [V4-130] single_intent  query=帮我做贷款统一测额  top1=ccb.home.loan.measure  expected=['ccb.home.loan.overview']
+  [V4-138] single_intent  query=理财持仓  top1=ccb.wealth.portfolio.overview  expected=['ccb.wealth.dragon-money.overview']
+  [V4-158] multi_intent  query=查下还款计划然后还信用卡  top1=ccb.credit.repay.repay  expected=['ccb.home.loan.repayment', 'ccb.credit.repay.repay']
+  [V4-224] single_intent  query=办卡进度怎么样了  top1=ccb.credit.progress.overview  expected=['ccb.credit.apply.overview']

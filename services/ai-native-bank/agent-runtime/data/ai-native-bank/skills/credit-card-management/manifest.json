@@ -1,0 +1,7 @@
+{
+  "id": "bank.credit-card-management",
+  "version": "1.2.0",
+  "digest": "sha256:af76df101cc0e75ab04de78e4f02be8cd1f617fd998fbedc1f661179ade6a469",
+  "requiredCapabilityIds": ["bank.credit-card.list", "bank.credit-card.transactions.list", "bank.credit-card.settings.get", "bank.credit-card.activation.create", "bank.credit-card.loss-report.create", "bank.credit-card.limit-change.create", "bank.credit-card.security-settings.update", "bank.credit-card.bill.get", "bank.account.list", "bank.account.balance.get", "bank.credit-card.repayment.create"],
+  "riskBoundary": "L2"
+}

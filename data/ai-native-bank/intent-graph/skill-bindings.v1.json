@@ -1,0 +1,61 @@
+{
+  "skillBindings": {
+    "bank.account-inquiry": {
+      "version": "1.2.0",
+      "digest": "sha256:4346b9046195baf566c55f0a3154579221e0c5fdd633855c3e2df28c80cd064b"
+    },
+    "bank.cashflow-planning": {
+      "version": "1.0.0",
+      "digest": "sha256:0455411ed4ea279f1c250be3f806d8264a2b925a8e2bd337ae672fd3adf539cd"
+    },
+    "bank.credit-card-management": {
+      "version": "1.3.0",
+      "digest": "sha256:af76df101cc0e75ab04de78e4f02be8cd1f617fd998fbedc1f661179ade6a469"
+    },
+    "bank.customer-profile": {
+      "version": "1.0.0",
+      "digest": "sha256:b82bb8cbb6b89c398826ca8b071b05dba5654c457fd94d5d7fc5a9690d88f709"
+    },
+    "bank.obligation-management": {
+      "version": "1.0.0",
+      "digest": "sha256:d902cb658e3bcb5417545f783c884f5c30863c6c26a4d9316f311d77e2c85b3a"
+    },
+    "bank.spending-analysis": {
+      "version": "1.0.0",
+      "digest": "sha256:c56461eb373e6d0481435a736bd4f22a8aec2b7996ea9910b659f0cf37bb3d2"
+    },
+    "bank.transfer-remittance": {
+      "version": "1.0.1",
+      "digest": "sha256:1cb54226f4a6386f205a937a74ea54e1d81a8e25db7290cd0f6e49e66d35433d"
+    },
+    "bank.wealth-advisory": {
+      "version": "1.0.0",
+      "digest": "sha256:402eb0dad8937719764a7241de6e09ed13eae019043af430e702cf691a397edd"
+    },
+    "bank.wealth-management": {
+      "version": "1.0.0",
+      "digest": "sha256:625a31040bf864542e4c1cf38448d80b2d4cb973e09fc57ea2924a31f911539e"
+    }
+  },
+  "intentToSkill": {
+    "ccb.account.balance.query": "bank.account-inquiry",
+    "ccb.account.detail.query": "bank.account-inquiry",
+    "ccb.account.transactions.query": "bank.account-inquiry",
+    "ccb.cashflow.salary-plan": "bank.cashflow-planning",
+    "ccb.cashflow.spending-explain": "bank.spending-analysis",
+    "ccb.credit.card.activation": "bank.credit-card-management",
+    "ccb.credit.card.limit-change": "bank.credit-card-management",
+    "ccb.credit.card.loss-report": "bank.credit-card-management",
+    "ccb.credit.card.security-settings.update": "bank.credit-card-management",
+    "ccb.credit.card.transactions.query": "bank.credit-card-management",
+    "ccb.customer.profile.query": "bank.customer-profile",
+    "ccb.home.repayment.repay": "bank.credit-card-management",
+    "ccb.obligation.pay-selected": "bank.obligation-management",
+    "ccb.obligation.repay-all": "bank.obligation-management",
+    "ccb.transfer.create": "bank.transfer-remittance",
+    "ccb.wealth.advisor.recommend": "bank.wealth-advisory",
+    "ccb.wealth.dragon-money.buy": "bank.wealth-management",
+    "ccb.wealth.redeem": "bank.wealth-management",
+    "ccb.wealth.wealth-product.buy": "bank.wealth-management"
+  }
+}

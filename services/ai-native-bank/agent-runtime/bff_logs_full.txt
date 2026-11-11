@@ -1,0 +1,34 @@
+﻿[ai-native-bank:agent-runtime-client] agent.result delivery {
+  agentRunId: 'abr_83ea9fdf-53ff-4845-a529-b531f1a54b63',
+  status: 'clarification_required',
+  userResponseType: 'clarification',
+  userResponseTitle: '补全转账信息',
+  userResponses: null
+}
+docker : [ai-native-bank:agent-runtime-client] rejected runtime event stream: intent graph 候选数量不一致
+At line:15 char:4076
++ ... pgrep\bin'; docker logs ai-harbor --since 30m 2>&1 > d:\project\vscod ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([ai-native-bank...t graph 候选数量不一致:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[ai-native-bank] stage=stream_postprocess code=agent_runtime_response_invalid name=AgentRuntimeClientError requestId=ab
+r_22caab9b-5b6c-4d8c-980e-19dda2a592a4 traceId=trace_4615e04d-b4aa-4300-bad8-2621e13672bd message=智能服务事件流无法识别
+[ai-native-bank] stage=stream_postprocess stack=at clientError (/app/services/ai-native-bank/agent-runtime-client.js:58
+:10) | at Object.streamAgentRun (/app/services/ai-native-bank/agent-runtime-client.js:313:15) | at process.processTicks
+AndRejections (node:internal/process/task_queues:103:5) | at async streamAgentRunResponse (/app/routes/ai-native-bank-a
+pi.js:3019:5) | at async dispatch (/app/routes/ai-native-bank-api.js:1163:18)
+[ai-native-bank:agent-runtime-client] agent.result delivery {
+  agentRunId: 'abr_6d946b05-08d5-4e9a-8361-96dd44ad6e33',
+  status: 'clarification_required',
+  userResponseType: 'clarification',
+  userResponseTitle: '补全转账信息',
+  userResponses: null
+}
+[ai-native-bank:agent-runtime-client] rejected runtime event stream: intent graph 候选数量不一致
+[ai-native-bank] stage=stream_postprocess code=agent_runtime_response_invalid name=AgentRuntimeClientError requestId=ab
+r_4d373e7e-6529-472c-82e5-0cb6563c7c9e traceId=trace_161b7e3d-bf8c-48ac-acad-d16cef2872b7 message=智能服务事件流无法识别
+[ai-native-bank] stage=stream_postprocess stack=at clientError (/app/services/ai-native-bank/agent-runtime-client.js:58
+:10) | at Object.streamAgentRun (/app/services/ai-native-bank/agent-runtime-client.js:313:15) | at process.processTicks
+AndRejections (node:internal/process/task_queues:103:5) | at async streamAgentRunResponse (/app/routes/ai-native-bank-a
+pi.js:3019:5) | at async dispatch (/app/routes/ai-native-bank-api.js:1163:18)

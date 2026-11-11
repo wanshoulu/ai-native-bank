@@ -1,0 +1,9 @@
+{
+  "id": "bank.customer-profile",
+  "version": "1.0.0",
+  "digest": "sha256:b82bb8cbb6b89c398826ca8b071b05dba5654c457fd94d5d7fc5a9690d88f709",
+  "requiredCapabilityIds": [
+    "bank.customer.profile.get"
+  ],
+  "riskBoundary": "L1"
+}

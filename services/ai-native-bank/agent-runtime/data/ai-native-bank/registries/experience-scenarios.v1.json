@@ -1,0 +1,1036 @@
+{
+  "schemaVersion": "1.0",
+  "scenarios": [
+    {
+      "id": "card-bill-due",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "信用卡账单待还",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.credit.card.query",
+      "requiredSkillIds": [
+        "bank.credit-card-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.credit-card.bill.get"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": "obligation-repayment",
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "card.bill_due_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent",
+        "channel"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "high",
+      "reasonCode": "CARD_BILL_DUE_SOON",
+      "reasonTextTemplate": "信用卡账单已出，请在到期日前处理",
+      "legacyType": "bill-alert",
+      "catalogAction": {
+        "channel": "home",
+        "item": "repayment",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "card_repayment_guidance",
+        "predicates": [
+          "preferred_repayment_timing"
+        ],
+        "sensitivityCeiling": "L1",
+        "maxItems": 1,
+        "reasonTextTemplate": "信用卡账单已出，按你常用的{preferred_repayment_timing}方式，请在到期日前处理"
+      }
+    },
+    {
+      "id": "loan-payment",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "贷款还款日临近",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.obligation.repay-all",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [
+        "bank.loan.repayment.list"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": "obligation-repayment",
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "loan.due_within_days",
+            "operator": "lte",
+            "value": 7
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "high",
+      "reasonCode": "LOAN_PAYMENT_DUE_SOON",
+      "reasonTextTemplate": "贷款扣款日临近，请确认扣款账户余额",
+      "legacyType": "loan-payment",
+      "catalogAction": {
+        "channel": "home",
+        "item": "loan",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "obligation-repayment",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "处理全部待还事项",
+      "status": "active",
+      "type": "next_intent",
+      "targetIntentId": "ccb.obligation.repay-all",
+      "requiredSkillIds": [
+        "bank.obligation-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.obligation.list",
+        "bank.credit-card.repayment.create",
+        "bank.loan.repayment.create",
+        "bank.utility.payment.create"
+      ],
+      "workflowTemplateId": "obligation-repayment-v1",
+      "entryMessage": "查询并整理我名下已到期的信用卡、贷款和生活缴费账单，生成还款计划，实际扣款前逐项向我确认",
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "obligation.due_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 12,
+      "action": "START_ASSISTANCE",
+      "priority": "critical",
+      "reasonCode": "OBLIGATIONS_DUE",
+      "reasonTextTemplate": "有多项待还事项，可汇总核对后逐项处理",
+      "legacyType": null,
+      "catalogAction": null,
+      "memory": {
+        "purpose": "obligation_settlement",
+        "predicates": [
+          "preferred_repayment_timing"
+        ],
+        "sensitivityCeiling": "L1",
+        "maxItems": 1,
+        "reasonTextTemplate": "有多项待还事项，按你常用的{preferred_repayment_timing}节奏，可汇总核对后逐项处理"
+      }
+    },
+    {
+      "id": "obligation-selected-payment",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "办理所选账单",
+      "status": "active",
+      "type": "next_intent",
+      "targetIntentId": "ccb.obligation.pay-selected",
+      "requiredSkillIds": [
+        "bank.obligation-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.obligation.list",
+        "bank.credit-card.repayment.create",
+        "bank.loan.repayment.create",
+        "bank.utility.payment.create"
+      ],
+      "workflowTemplateId": "obligation-selected-payment-v1",
+      "entryMessage": "核对并办理已选择的账单，实际扣款前向我确认金额和付款影响",
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "obligation.due_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "agent"
+      ],
+      "cooldownHours": 0,
+      "action": "START_ASSISTANCE",
+      "priority": "critical",
+      "reasonCode": "OBLIGATION_SELECTED",
+      "reasonTextTemplate": "已选择一笔待还账单，可核对金额后办理",
+      "legacyType": null,
+      "catalogAction": null
+    },
+    {
+      "id": "credit-card-repayment",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "信用卡还款",
+      "status": "active",
+      "type": "next_intent",
+      "targetIntentId": "ccb.home.repayment.repay",
+      "requiredSkillIds": [
+        "bank.credit-card-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.credit-card.list",
+        "bank.credit-card.bill.get",
+        "bank.account.list",
+        "bank.account.balance.get",
+        "bank.credit-card.repayment.create"
+      ],
+      "workflowTemplateId": "credit-card-repayment-v1",
+      "entryMessage": "核对所选信用卡账单并通过对话选择还款金额和付款账户，实际扣款前向我确认",
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "obligation.due_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "agent"
+      ],
+      "cooldownHours": 0,
+      "action": "START_ASSISTANCE",
+      "priority": "critical",
+      "reasonCode": "CREDIT_CARD_REPAYMENT_SELECTED",
+      "reasonTextTemplate": "信用卡账单待还，可核对金额和付款账户后办理",
+      "legacyType": null,
+      "catalogAction": null,
+      "memory": {
+        "purpose": "card_repayment_guidance",
+        "predicates": [
+          "preferred_repayment_timing"
+        ],
+        "sensitivityCeiling": "L1",
+        "maxItems": 1,
+        "reasonTextTemplate": "信用卡账单待还，按你常用的{preferred_repayment_timing}方式，可核对金额和付款账户后办理"
+      }
+    },
+    {
+      "id": "points-expiry",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "龙积分即将到期",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.credit.card.query",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "points.expiring_amount",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 168,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "POINTS_EXPIRING",
+      "reasonTextTemplate": "部分龙积分即将到期",
+      "legacyType": "point-expiry",
+      "catalogAction": {
+        "channel": "credit",
+        "item": "points",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "service_personalization",
+        "predicates": [
+          "points_usage_preference"
+        ],
+        "sensitivityCeiling": "L1",
+        "maxItems": 1,
+        "reasonTextTemplate": "部分龙积分即将到期，按你常用的{points_usage_preference}方式安排兑换"
+      }
+    },
+    {
+      "id": "salary-plan-tomorrow",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "明天发薪，提前规划",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.cashflow.salary-plan",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "salary.pre_credit_day",
+            "operator": "eq",
+            "value": true
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 168,
+      "action": "OPEN_CATALOG",
+      "priority": "normal",
+      "reasonCode": "SALARY_DAY_TOMORROW",
+      "reasonTextTemplate": "明天是发薪日，可提前想想本月资金怎么安排",
+      "legacyType": null,
+      "catalogAction": {
+        "channel": "me",
+        "item": "income-expense",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "monthly_fund_planning",
+        "predicates": [
+          "monthly_living_budget"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 1,
+        "reasonTextTemplate": "明天是发薪日，可按你设定的 {monthly_living_budget} 预算提前做好本月安排"
+      }
+    },
+    {
+      "id": "salary-invest",
+      "complianceClass": "marketing",
+      "version": "1.0.0",
+      "title": "发薪日智能理财建议",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.wealth.dragon-money.buy",
+      "requiredSkillIds": [
+        "bank.wealth-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.wealth.recommendations.get"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "salary.recently_credited",
+            "operator": "eq",
+            "value": true
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 168,
+      "action": "OPEN_CATALOG",
+      "priority": "normal",
+      "reasonCode": "SALARY_INVESTMENT_AVAILABLE",
+      "reasonTextTemplate": "工资已到账，可查看适合当前现金流的配置建议",
+      "legacyType": "salary-invest",
+      "catalogAction": {
+        "channel": "wealth",
+        "item": "dragon-money",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "wealth_guidance",
+        "predicates": [
+          "preferred_wealth_product_type"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 1,
+        "reasonTextTemplate": "工资已到账，可看看匹配你{preferred_wealth_product_type}偏好的配置建议"
+      }
+    },
+    {
+      "id": "salary-monthly-plan",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "安排本月工资",
+      "status": "active",
+      "type": "next_intent",
+      "targetIntentId": "ccb.cashflow.salary-plan",
+      "requiredSkillIds": [
+        "bank.cashflow-planning"
+      ],
+      "requiredCapabilityIds": [
+        "bank.cashflow.salary-plan.get"
+      ],
+      "workflowTemplateId": "salary-allocation-v1",
+      "entryMessage": "查询本月已到账工资和待还事项，先保留生活预算与应急资金，再生成可调整的本月资金安排",
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "salary.recently_credited",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "signal": "salary.amount_minor",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 168,
+      "action": "START_ASSISTANCE",
+      "priority": "high",
+      "reasonCode": "SALARY_RECENTLY_CREDITED",
+      "reasonTextTemplate": "工资已到账，可先安排待还、生活费和可配置资金",
+      "legacyType": null,
+      "catalogAction": null,
+      "memory": {
+        "purpose": "monthly_fund_planning",
+        "predicates": [
+          "monthly_living_budget",
+          "emergency_reserve_preference",
+          "salary_allocation_habit"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 3,
+        "reasonTextTemplate": "工资已到账，按你设定的 {monthly_living_budget} 预算和{salary_allocation_habit}的习惯，先安排待还、生活费和可配置资金"
+      }
+    },
+    {
+      "id": "spending-explanation",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "解释本月支出变化",
+      "status": "active",
+      "type": "next_intent",
+      "targetIntentId": "ccb.cashflow.spending-explain",
+      "requiredSkillIds": [
+        "bank.spending-analysis"
+      ],
+      "requiredCapabilityIds": [
+        "bank.cashflow.spending-analysis.get"
+      ],
+      "workflowTemplateId": "spending-explanation-v1",
+      "entryMessage": "分析本月与上月的收支明细，排除内部转账并冲抵退款，解释本月资金支出变化",
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "spending.anomaly_detected",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "signal": "input.period",
+            "operator": "exists",
+            "value": true
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 72,
+      "action": "START_ASSISTANCE",
+      "priority": "high",
+      "reasonCode": "SPENDING_ANOMALY_DETECTED",
+      "reasonTextTemplate": "本月支出变化明显，可查看可追溯的消费归因",
+      "legacyType": null,
+      "catalogAction": null,
+      "memory": {
+        "purpose": "cashflow_explanation",
+        "predicates": [
+          "spending_explanation_preference"
+        ],
+        "sensitivityCeiling": "L1",
+        "maxItems": 1,
+        "reasonTextTemplate": "本月支出变化明显，可按「{spending_explanation_preference}」查看消费归因"
+      }
+    },
+    {
+      "id": "spending-insight",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "本月消费占收入比偏高",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.cashflow.spending-explain",
+      "requiredSkillIds": [
+        "bank.spending-analysis"
+      ],
+      "requiredCapabilityIds": [
+        "bank.cashflow.spending-analysis.get"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "spending.expense_income_ratio",
+            "operator": "gt",
+            "value": 0.8
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 72,
+      "action": "OPEN_CATALOG",
+      "priority": "normal",
+      "reasonCode": "SPENDING_RATIO_HIGH",
+      "reasonTextTemplate": "近期支出占收入比例偏高",
+      "legacyType": "spending-insight",
+      "catalogAction": {
+        "channel": "me",
+        "item": "income-expense",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "cashflow_explanation",
+        "predicates": [
+          "monthly_spending_pattern"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 1,
+        "reasonTextTemplate": "近期支出占收入比例偏高，你的支出特点是{monthly_spending_pattern}，可查看可追溯的消费归因"
+      }
+    },
+    {
+      "id": "utility-unpaid",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "生活账单待缴",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.obligation.repay-all",
+      "requiredSkillIds": [
+        "bank.obligation-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.utility.bill.list"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": "obligation-repayment",
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "utility.unpaid_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "high",
+      "reasonCode": "UTILITY_BILL_UNPAID",
+      "reasonTextTemplate": "有生活账单尚未缴纳",
+      "legacyType": "utility-unpaid",
+      "catalogAction": {
+        "channel": "home",
+        "item": "utility",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "bill_payment_reminder",
+        "predicates": [
+          "utility_payment_habit"
+        ],
+        "sensitivityCeiling": "L1",
+        "maxItems": 1,
+        "reasonTextTemplate": "有生活账单尚未缴纳，你常用{utility_payment_habit}，可按习惯安排缴纳"
+      }
+    },
+    {
+      "id": "wealth-rebalance",
+      "complianceClass": "marketing",
+      "version": "1.0.0",
+      "title": "活期资金占比偏高",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.wealth.dragon-money.buy",
+      "requiredSkillIds": [
+        "bank.wealth-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.wealth.holding.list",
+        "bank.wealth.recommendations.get"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "wealth.idle_cash_ratio",
+            "operator": "gt",
+            "value": 0.6
+          }
+        ]
+      },
+      "surfaces": [
+        "home",
+        "agent",
+        "channel"
+      ],
+      "cooldownHours": 168,
+      "action": "OPEN_CATALOG",
+      "priority": "normal",
+      "reasonCode": "IDLE_CASH_RATIO_HIGH",
+      "reasonTextTemplate": "活期资金占比较高，可查看流动性配置建议",
+      "legacyType": "wealth-rebalance",
+      "catalogAction": {
+        "channel": "wealth",
+        "item": "overview",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "wealth_guidance",
+        "predicates": [
+          "investment_goal_preference"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 1,
+        "reasonTextTemplate": "活期资金占比较高，按你{investment_goal_preference}的目标，可查看流动性配置建议"
+      }
+    },
+    {
+      "id": "care-morning-greeting",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "早安，今天也安心开局",
+      "status": "active",
+      "type": "care",
+      "targetIntentId": "ccb.cashflow.salary-plan",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 20,
+      "trigger": {
+        "all": [
+          {
+            "signal": "time.band",
+            "operator": "eq",
+            "value": "morning"
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 0,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "CARE_MORNING_GREETING",
+      "reasonTextTemplate": "早安问候，附一条今日安心提示",
+      "legacyType": "care-greeting",
+      "catalogAction": {
+        "channel": "me",
+        "item": "income-expense",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "care-evening-greeting",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "晚上好，回顾今天的收支",
+      "status": "active",
+      "type": "care",
+      "targetIntentId": "ccb.cashflow.spending-explain",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 20,
+      "trigger": {
+        "all": [
+          {
+            "signal": "time.band",
+            "operator": "eq",
+            "value": "evening"
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 0,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "CARE_EVENING_GREETING",
+      "reasonTextTemplate": "晚间问候，看看今天的收支小结",
+      "legacyType": "care-greeting",
+      "catalogAction": {
+        "channel": "me",
+        "item": "income-expense",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "care-budget-progress",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "本月生活预算进度",
+      "status": "active",
+      "type": "care",
+      "targetIntentId": "ccb.cashflow.spending-explain",
+      "requiredSkillIds": [
+        "bank.spending-analysis"
+      ],
+      "requiredCapabilityIds": [
+        "bank.cashflow.spending-analysis.get"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 24,
+      "memory": {
+        "purpose": "monthly_fund_planning",
+        "predicates": [
+          "monthly_living_budget"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 1,
+        "reasonTextTemplate": "按你设定的 {monthly_living_budget} 生活预算，看看本月支出节奏是否合适"
+      },
+      "trigger": {
+        "all": [
+          {
+            "signal": "spending.expense_income_ratio",
+            "operator": "gte",
+            "value": 0.6
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "CARE_BUDGET_PROGRESS",
+      "reasonTextTemplate": "按你设定的生活预算检查本月支出节奏",
+      "legacyType": "care-budget",
+      "catalogAction": {
+        "channel": "me",
+        "item": "income-expense",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "life-wealth-maturing",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "有理财产品即将到期",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.wealth.dragon-money.buy",
+      "requiredSkillIds": [
+        "bank.wealth-management"
+      ],
+      "requiredCapabilityIds": [
+        "bank.wealth.holding.list",
+        "bank.wealth.recommendations.get"
+      ],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": null,
+      "trigger": {
+        "all": [
+          {
+            "signal": "wealth.holding_maturing_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 72,
+      "action": "OPEN_CATALOG",
+      "priority": "normal",
+      "reasonCode": "WEALTH_MATURING",
+      "reasonTextTemplate": "有持仓产品临近到期，可提前安排资金衔接",
+      "legacyType": "wealth-maturing",
+      "catalogAction": {
+        "channel": "wealth",
+        "item": "portfolio",
+        "action": "overview"
+      },
+      "memory": {
+        "purpose": "wealth_guidance",
+        "predicates": [
+          "investment_goal_preference",
+          "preferred_wealth_product_type"
+        ],
+        "sensitivityCeiling": "L2",
+        "maxItems": 2,
+        "reasonTextTemplate": "有持仓产品临近到期，按你{investment_goal_preference}的目标和{preferred_wealth_product_type}偏好，提前安排资金衔接"
+      }
+    },
+    {
+      "id": "life-weather-rain",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "雨天出行提示",
+      "status": "active",
+      "type": "care",
+      "targetIntentId": "ccb.life.travel.overview",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 12,
+      "trigger": {
+        "all": [
+          {
+            "signal": "life.weather_condition",
+            "operator": "in",
+            "value": [
+              "rain",
+              "snow"
+            ]
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "LIFE_WEATHER_RAIN",
+      "reasonTextTemplate": "今天有雨，出门记得带伞，出行注意路滑",
+      "legacyType": "weather-rain",
+      "catalogAction": {
+        "channel": "life",
+        "item": "travel",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "life-weather-coldsnap",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "降温添衣提醒",
+      "status": "active",
+      "type": "care",
+      "targetIntentId": "ccb.life.health.overview",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 12,
+      "trigger": {
+        "all": [
+          {
+            "signal": "life.weather_temp_high",
+            "operator": "lt",
+            "value": 10
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "LIFE_WEATHER_COLDSNAP",
+      "reasonTextTemplate": "今天最高气温较低，注意添衣保暖，预防感冒",
+      "legacyType": "weather-coldsnap",
+      "catalogAction": {
+        "channel": "life",
+        "item": "health",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "life-weather-weekend-outing",
+      "complianceClass": "service",
+      "version": "1.0.0",
+      "title": "周末好天气",
+      "status": "active",
+      "type": "care",
+      "targetIntentId": "ccb.life.car.overview",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 24,
+      "trigger": {
+        "all": [
+          {
+            "signal": "time.weekend",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "signal": "life.weather_condition",
+            "operator": "in",
+            "value": [
+              "clear",
+              "cloudy"
+            ]
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 24,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "LIFE_WEEKEND_OUTING",
+      "reasonTextTemplate": "周末天气不错，适合出门走走，自驾出行还有加油优惠",
+      "legacyType": "weather-weekend",
+      "catalogAction": {
+        "channel": "life",
+        "item": "car",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "promo-offers-expiring",
+      "complianceClass": "marketing",
+      "version": "1.0.0",
+      "title": "优惠即将到期",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.life.coupon.overview",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 48,
+      "trigger": {
+        "all": [
+          {
+            "signal": "promo.expiring_soon_count",
+            "operator": "gt",
+            "value": 0
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 72,
+      "action": "OPEN_CATALOG",
+      "priority": "normal",
+      "reasonCode": "PROMO_OFFERS_EXPIRING",
+      "reasonTextTemplate": "你有几张优惠活动即将到期，别忘了在有效期内使用",
+      "legacyType": "offers-expiring",
+      "catalogAction": {
+        "channel": "life",
+        "item": "coupon",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "promo-offers-dining",
+      "complianceClass": "marketing",
+      "version": "1.0.0",
+      "title": "美食优惠推荐",
+      "status": "active",
+      "type": "proactive_service",
+      "targetIntentId": "ccb.life.food.overview",
+      "requiredSkillIds": [],
+      "requiredCapabilityIds": [],
+      "workflowTemplateId": null,
+      "entryMessage": null,
+      "supersededBy": null,
+      "reshowAfterHours": 72,
+      "trigger": {
+        "all": [
+          {
+            "signal": "promo.dining_offer_count",
+            "operator": "gte",
+            "value": 1
+          }
+        ]
+      },
+      "surfaces": [
+        "home"
+      ],
+      "cooldownHours": 168,
+      "action": "OPEN_CATALOG",
+      "priority": "low",
+      "reasonCode": "PROMO_OFFERS_DINING",
+      "reasonTextTemplate": "有你可用的美食优惠，就餐时可以省一点",
+      "legacyType": "offers-dining",
+      "catalogAction": {
+        "channel": "life",
+        "item": "food",
+        "action": "overview"
+      }
+    }
+  ]
+}

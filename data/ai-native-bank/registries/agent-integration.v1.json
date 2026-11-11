@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0",
+  "capabilities": [
+    { "capabilityId": "bank.customer.profile.get", "status": "enabled", "reason": "客户资料查询 Skill、意图与只读 Provider 已完成受控接入" },
+    { "capabilityId": "bank.account.list", "status": "enabled", "reason": "账户查询与转账流程的受控发现能力" },
+    { "capabilityId": "bank.account.detail.get", "status": "enabled", "reason": "账户详情结果投影已完成，作为受控读取接入账户查询 Skill" },
+    { "capabilityId": "bank.account.balance.get", "status": "enabled", "reason": "账户余额查询闭环已验证" },
+    { "capabilityId": "bank.account.transactions.list", "status": "enabled", "reason": "账户明细查询闭环已验证" },
+    { "capabilityId": "bank.payee.list", "status": "enabled", "reason": "转账收款人发现与查询闭环已验证" },
+    { "capabilityId": "bank.payee.validate", "status": "enabled", "reason": "转账收款人校验闭环已验证" },
+    { "capabilityId": "bank.transfer.order.create", "status": "enabled", "reason": "转账创建经本人确认后受控执行" },
+    { "capabilityId": "bank.transfer.order.validate", "status": "platform-only", "reason": "由转账受控执行器内部调用，不直接暴露给业务智能体" },
+    { "capabilityId": "bank.transfer.confirmation.request", "status": "platform-only", "reason": "由确认网关内部创建挑战，不直接暴露给业务智能体" },
+    { "capabilityId": "bank.transfer.confirmation.invalidate", "status": "platform-only", "reason": "系统控制能力，禁止智能体直接调用" },
+    { "capabilityId": "bank.transfer.authorize", "status": "platform-only", "reason": "仅接受本人确认令牌，禁止模型调用" },
+    { "capabilityId": "bank.transfer.execute", "status": "platform-only", "reason": "核心资金执行能力，仅由系统执行器调用" },
+    { "capabilityId": "bank.transfer.order.cancel", "status": "deferred", "reason": "取消流程尚未建立状态机与用户结果投影" },
+    { "capabilityId": "bank.transfer.status.get", "status": "enabled", "reason": "转账进度结果投影已完成，接入转账汇款 Skill 支持办理后进度查询" },
+    { "capabilityId": "bank.transfer.receipt.get", "status": "deferred", "reason": "电子回单结果投影已就绪，待转账执行记录发现能力与独立回单意图批次后接入" },
+    { "capabilityId": "bank.credit-card.list", "status": "enabled", "reason": "信用卡查询和卡片选择闭环已验证" },
+    { "capabilityId": "bank.credit-card.detail.get", "status": "enabled", "reason": "卡片详情结果投影已完成，作为卡片类意图的受控读取能力接入信用卡管理 Skill" },
+    { "capabilityId": "bank.credit-card.transactions.list", "status": "enabled", "reason": "信用卡明细查询闭环已验证" },
+    { "capabilityId": "bank.credit-card.settings.get", "status": "enabled", "reason": "安全设置变更前的受控读取能力" },
+    { "capabilityId": "bank.credit-card.activation.create", "status": "enabled", "reason": "卡片激活经本人确认后受控执行" },
+    { "capabilityId": "bank.credit-card.loss-report.create", "status": "enabled", "reason": "卡片挂失经本人确认后受控执行" },
+    { "capabilityId": "bank.credit-card.limit-change.create", "status": "enabled", "reason": "额度调整经本人确认后受控执行" },
+    { "capabilityId": "bank.credit-card.security-settings.update", "status": "enabled", "reason": "安全设置经本人确认后受控执行" },
+    { "capabilityId": "bank.credit-card.bill.get", "status": "enabled", "reason": "信用卡还款前由业务智能体读取当期账单并生成还款金额选择" },
+    { "capabilityId": "bank.credit-card.repayment.create", "status": "enabled", "reason": "逐项还款确认与独立回单流程已接入统一待还 Skill" },
+    { "capabilityId": "bank.wealth.product.list", "status": "enabled", "reason": "龙钱宝申购前的产品发现能力" },
+    { "capabilityId": "bank.wealth.product.detail.get", "status": "enabled", "reason": "产品详情结果投影已完成，作为申购前受控读取接入财富管理 Skill" },
+    { "capabilityId": "bank.wealth.holding.list", "status": "enabled", "reason": "龙钱宝持仓查询能力" },
+    { "capabilityId": "bank.wealth.transaction.list", "status": "enabled", "reason": "申赎记录结果投影已完成，作为持仓上下文受控读取接入财富管理 Skill" },
+    { "capabilityId": "bank.wealth.salary-insights.get", "status": "enabled", "reason": "发薪洞察结果投影已完成，作为购买决策上下文接入财富管理 Skill" },
+    { "capabilityId": "bank.wealth.recommendations.get", "status": "enabled", "reason": "推荐结果投影已完成，作为顾问上下文接入财富管理 Skill" },
+    { "capabilityId": "bank.wealth.advisory.context.get", "status": "enabled", "reason": "财富顾问 Skill 使用的只读聚合上下文与适当性筛选能力" },
+    { "capabilityId": "bank.wealth.purchase.create", "status": "enabled", "reason": "龙钱宝申购经本人确认后受控执行" },
+    { "capabilityId": "bank.wealth.redeem.create", "status": "enabled", "reason": "理财赎回经本人确认后受控执行，持仓选择与赎回意图已完成接入" },
+    { "capabilityId": "bank.loan.list", "status": "enabled", "reason": "贷款列表结果投影已完成，作为受控读取接入统一待还 Skill" },
+    { "capabilityId": "bank.loan.detail.get", "status": "enabled", "reason": "贷款详情结果投影已完成，作为受控读取接入统一待还 Skill" },
+    { "capabilityId": "bank.loan.repayment.list", "status": "enabled", "reason": "还款计划结果投影已完成，作为受控读取接入统一待还 Skill" },
+    { "capabilityId": "bank.loan.precalculate.create", "status": "enabled", "reason": "提前还款试算投影已完成，作为无账务副作用的只读试算接入统一待还 Skill" }
+    ,{ "capabilityId": "bank.cashflow.salary-plan.get", "status": "enabled", "reason": "现金流规划 Skill、意图和只读 Provider 已完成受控接入" }
+    ,{ "capabilityId": "bank.cashflow.spending-analysis.get", "status": "enabled", "reason": "支出分析 Skill、意图和只读 Provider 已完成受控接入" }
+    ,{ "capabilityId": "bank.obligation.list", "status": "enabled", "reason": "统一待还 Skill、意图和聚合 Provider 已完成受控接入" }
+    ,{ "capabilityId": "bank.loan.repayment.create", "status": "enabled", "reason": "贷款逐项还款确认、账务和独立回单流程已完成" }
+    ,{ "capabilityId": "bank.utility.bill.list", "status": "enabled", "reason": "待还管理 Skill 与意图节点已就绪，账单查询作为受控读取接入" }
+    ,{ "capabilityId": "bank.utility.payment.create", "status": "enabled", "reason": "生活缴费逐项确认、账务和独立回单流程已完成" }
+  ]
+}

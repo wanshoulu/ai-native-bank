@@ -1,0 +1,1606 @@
+{
+  "ccb.channel.credit.apply.apply": {
+    "aliases": [
+      "申请信用卡·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办申请信用卡·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.apply.faq": {
+    "confusableIntents": [
+      "ccb.channel.credit.apply.overview",
+      "ccb.channel.credit.card-manage.query"
+    ]
+  },
+  "ccb.channel.credit.apply.overview": {
+    "recallTerms": [
+      "申请进度",
+      "申请进度怎么样",
+      "办卡进度"
+    ],
+    "aliases": [
+      "我的信用卡申请到哪一步了",
+      "看看信用卡申请进度",
+      "查下信用卡申请状态",
+      "信用卡申请记录在哪看",
+      "我的办卡进度怎么样了",
+      "查一下信用卡申请情况",
+      "信用卡申请到哪了",
+      "看看我的办卡记录",
+      "查查办卡进度",
+      "看看申卡进度",
+      "我的申卡记录",
+      "查下申卡状态",
+      "信用卡申请情况",
+      "我的信用卡申请进度",
+      "看看办卡记录",
+      "申卡进度在哪看",
+      "查查信用卡申请",
+      "办卡到哪一步了",
+      "我的申卡进度",
+      "信用卡申请记录",
+      "查下办卡进度",
+      "看看申卡记录",
+      "信用卡申请进度怎么查",
+      "看看我的办卡进度",
+      "信用卡申请进度怎么样了",
+      "申请进度怎么样了"
+    ],
+    "disambiguationHints": "用户查看信用卡申请进度、申请记录时选本意图；办理新卡申请选信用卡办理；查看其他业务申请进度选申请进度查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.apply.apply",
+      "ccb.channel.credit.progress.overview"
+    ]
+  },
+  "ccb.channel.credit.auto-repay.overview": {
+    "recallTerms": [
+      "自动还款",
+      "自动扣款",
+      "约定还款",
+      "扣款"
+    ],
+    "disambiguationHints": "用户查看自动还款规则、扣款账户、还款方式时选本意图；设置自动还款选约定还款设置；查看当前应还金额选还款试算。",
+    "confusableIntents": [
+      "ccb.channel.credit.auto-repay.setup",
+      "ccb.channel.credit.repay.overview",
+      "ccb.channel.credit.repay.repay"
+    ]
+  },
+  "ccb.channel.credit.auto-repay.setup": {
+    "recallTerms": [
+      "自动还款",
+      "自动扣款",
+      "约定还款"
+    ],
+    "disambiguationHints": "用户明确要求设置或开通自动还款（约定还款）时选本意图；查看已有自动还款规则选约定还款查询；手动执行一次性还款选一键还款。",
+    "confusableIntents": [
+      "ccb.channel.credit.auto-repay.overview",
+      "ccb.channel.credit.repay.repay"
+    ]
+  },
+  "ccb.channel.credit.benefits.apply": {
+    "aliases": [
+      "卡权益·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办卡权益·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.benefits.overview": {
+    "recallTerms": [
+      "卡权益",
+      "权益",
+      "权益记录",
+      "活动",
+      "有什么活动",
+      "优惠活动"
+    ],
+    "aliases": [
+      "我的卡权益",
+      "看看权益状态",
+      "权益记录在哪",
+      "查一下权益",
+      "权益信息",
+      "卡权益管理",
+      "权益历史",
+      "当前权益情况",
+      "权益发放记录",
+      "看看有啥权益",
+      "权益管理在哪",
+      "我的权益记录",
+      "权益状态怎么样",
+      "查一下权益信息",
+      "当前权益有哪些",
+      "权益领取记录",
+      "我的卡有啥权益",
+      "权益使用记录在哪",
+      "看看权益发放情况",
+      "管理我的权益",
+      "权益情况查询",
+      "查权益发放记录",
+      "我的权益管理",
+      "权益使用情况查询",
+      "看看信用卡有没有什么活动",
+      "信用卡有什么活动"
+    ],
+    "disambiguationHints": "用户关注卡权益、权益状态、权益记录时选本意图；查看积分选龙积分查询；查询卡片状态选卡片管理查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.points.overview",
+      "ccb.channel.credit.card-manage.query"
+    ]
+  },
+  "ccb.channel.credit.bill.faq": {
+    "disambiguationHints": "用户询问账单规则、出账周期、账单日等知识时选本意图；查看具体账单金额选账单查询；询问还款规则选还款FAQ或首页还款FAQ。",
+    "confusableIntents": [
+      "ccb.channel.credit.bill.overview",
+      "ccb.channel.credit.repay.faq",
+      "ccb.channel.home.repayment.faq"
+    ]
+  },
+  "ccb.channel.credit.bill.overview": {
+    "recallTerms": [
+      "信用卡账单",
+      "查账单",
+      "未出账单",
+      "本期账单",
+      "账单",
+      "欠款",
+      "开通"
+    ],
+    "aliases": [
+      "查信用卡账单",
+      "查账单",
+      "信用卡账单",
+      "本期账单",
+      "未出账单",
+      "账单查询",
+      "这期账单多少",
+      "本期账单在哪看",
+      "查一下本期账单",
+      "最低还款额多少",
+      "账单到期日",
+      "未还金额多少",
+      "看看本期账单",
+      "本期账单信息",
+      "这期要还多少",
+      "账单还差多少",
+      "最低还款多少",
+      "账单啥时候到期",
+      "查查未还金额",
+      "账单到期日是哪天",
+      "这月账单多少",
+      "还欠多少没还",
+      "最低还款额是多少",
+      "账单还款截止日",
+      "本期账单金额",
+      "未还金额还剩多少",
+      "账单最后还款日",
+      "这期账单还多少",
+      "查一下欠款多少",
+      "未还金额还有多少",
+      "账单"
+    ],
+    "disambiguationHints": "用户关注账单内容、出账、账单日等账单事实时选本意图；关注应还金额与还款安排选还款概览；询问账单规则类知识选账单 FAQ。"
+  },
+  "ccb.channel.credit.bill.repay": {
+    "disambiguationHints": "用户明确要求从账单页面执行还款动作时选本意图；仅查看账单内容选账单查询；关注应还金额试算选还款试算；从首页还款入口还款选首页立即还款。",
+    "confusableIntents": [
+      "ccb.channel.credit.bill.overview",
+      "ccb.channel.credit.repay.repay",
+      "ccb.channel.home.repayment.repay"
+    ]
+  },
+  "ccb.channel.credit.card-manage.activation": {
+    "disambiguationHints": "用户明确要求激活新卡或开卡时选本意图；查询卡片状态或额度选卡片管理查询；询问卡片功能知识选卡片FAQ。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.credit.card-manage.faq"
+    ]
+  },
+  "ccb.channel.credit.card-manage.faq": {
+    "recallTerms": [
+      "信用卡常见问题",
+      "信用卡规则",
+      "信用卡费用",
+      "开通"
+    ],
+    "disambiguationHints": "用户询问信用卡功能、用卡知识、安全问题时选本意图；查询卡片状态或额度选卡片管理查询；要求激活卡片选卡片激活。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.credit.card-manage.activation"
+    ]
+  },
+  "ccb.channel.credit.card-manage.limit-change": {
+    "recallTerms": [
+      "调额",
+      "额度调整",
+      "提高额度",
+      "降低额度",
+      "提额",
+      "想提额"
+    ],
+    "aliases": [
+      "信用卡调额",
+      "额度调整",
+      "提高额度",
+      "降低额度",
+      "想提高信用卡额度",
+      "额度不够用怎么办",
+      "怎么申请调额",
+      "信用卡额度能调吗",
+      "我要申请提额",
+      "降低信用卡额度",
+      "调整信用额度",
+      "申请额度调整",
+      "额度能调高吗",
+      "想调一下额度",
+      "额度不够用了",
+      "怎么改额度",
+      "申请调整额度",
+      "额度可以调吗",
+      "我要调额度",
+      "额度调整申请",
+      "提高一下额度",
+      "降低一下额度",
+      "额度怎么调整",
+      "调整一下额度",
+      "额度不够花",
+      "想改一下额度",
+      "申请调额度",
+      "额度能改吗",
+      "想给我信用卡提额",
+      "想提额",
+      "信用卡提额"
+    ],
+    "disambiguationHints": "用户明确要求调整信用卡额度（提额/降额）时选本意图；仅查询当前额度选卡片管理查询；查看额度申请进度选额度管理查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.credit.limit.overview"
+    ]
+  },
+  "ccb.channel.credit.card-manage.loss-report": {
+    "recallTerms": [
+      "挂失",
+      "丢卡",
+      "卡丢",
+      "被盗",
+      "卡不见了",
+      "不见了",
+      "卡片丢失",
+      "信用卡状态"
+    ],
+    "disambiguationHints": "用户明确要求挂失信用卡时选本意图；查询卡片状态选卡片管理查询；询问卡片安全问题选卡片FAQ。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.credit.card-manage.faq"
+    ]
+  },
+  "ccb.channel.credit.card-manage.query": {
+    "recallTerms": [
+      "我的信用卡",
+      "信用卡额度",
+      "信用卡状态",
+      "开通",
+      "开通了没"
+    ],
+    "aliases": [
+      "我的信用卡",
+      "信用卡列表",
+      "信用卡额度",
+      "信用卡状态",
+      "查一下我的信用卡",
+      "信用卡额度多少",
+      "我的信用卡状态",
+      "看看我的信用卡",
+      "信用卡额度查询",
+      "查询信用卡信息",
+      "我的信用卡有哪些",
+      "信用卡状态查询",
+      "我的信用卡情况",
+      "信用卡的状态",
+      "查查我的信用卡",
+      "卡片信息查询",
+      "我的信用卡额度",
+      "查一下信用卡状态",
+      "我的信用卡怎么样了",
+      "信用卡情况",
+      "查查信用卡额度",
+      "我的信用卡信息",
+      "看看信用卡状态",
+      "查一下信用卡",
+      "卡片状态查询",
+      "看看我的信用卡状态",
+      "信用卡开通了没",
+      "开通了没",
+      "信用卡开通了吗",
+      "我的卡"
+    ],
+    "disambiguationHints": "用户关注信用卡卡片状态、额度或卡片列表时选本意图；关注存款账户余额选账户查询；关注信用卡应还金额选还款试算；关注信用卡账单内容选账单查询。",
+    "confusableIntents": [
+      "ccb.channel.home.account.query",
+      "ccb.channel.credit.repay.overview",
+      "ccb.channel.credit.bill.overview",
+      "ccb.channel.credit.limit.overview",
+      "ccb.channel.credit.points.overview",
+      "ccb.channel.credit.card-manage.faq",
+      "ccb.channel.credit.card-manage.transactions.query",
+      "ccb.channel.credit.card-manage.loss-report",
+      "ccb.channel.credit.card-manage.activation"
+    ]
+  },
+  "ccb.channel.credit.card-manage.transactions.query": {
+    "recallTerms": [
+      "信用卡明细",
+      "信用卡交易",
+      "消费记录",
+      "消费",
+      "最近消费",
+      "花了哪些钱",
+      "花了多少钱",
+      "退款",
+      "退款到账",
+      "流水",
+      "开通"
+    ],
+    "aliases": [
+      "信用卡明细",
+      "信用卡交易",
+      "消费记录",
+      "查一下消费记录",
+      "信用卡交易明细",
+      "看看退款到账没",
+      "消费明细查询",
+      "信用卡消费记录",
+      "查询交易明细",
+      "退款状态查询",
+      "入账状态查询",
+      "看看消费明细",
+      "退款到账了吗",
+      "查一下流水",
+      "消费记录查询",
+      "交易明细看看",
+      "入账了没有",
+      "查查消费记录",
+      "退款状态",
+      "消费流水查询",
+      "查一下消费明细",
+      "交易记录查询",
+      "入账状态",
+      "查查退款到账没",
+      "信用卡流水",
+      "我的消费记录",
+      "信用卡进出账",
+      "信用卡最近消费了哪些",
+      "消费了哪些",
+      "最近消费"
+    ],
+    "disambiguationHints": "用户关注消费记录、交易明细、退款状态时选本意图；查询卡片状态或额度选卡片管理查询；查看账单金额选账单查询；查询储蓄卡交易明细选账户详情查询。用户提到“这张卡/信用卡”+“花了多少钱/消费了哪些”时选本意图；用户要求解释支出构成或消费归因（如“钱花哪了”“支出分析”）选支出分析。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.credit.bill.overview",
+      "ccb.channel.home.account.detail.query",
+      "ccb.channel.home.transfer.query",
+      "ccb.channel.home.details.spending-explain"
+    ]
+  },
+  "ccb.channel.credit.cash-installment.apply": {
+    "aliases": [
+      "现金分期·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办现金分期·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.cash.apply": {
+    "aliases": [
+      "现金转出·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办现金转出·在线办理"
+    ],
+    "disambiguationHints": "用户明确要求办理现金转出时选本意图；查看现金转出进度选现金转出查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.cash.overview"
+    ],
+    "lifecycle": "active"
+  },
+  "ccb.channel.credit.cash.overview": {
+    "recallTerms": [
+      "现金转出",
+      "取现",
+      "预借现金",
+      "取多少现金",
+      "能取多少",
+      "现金"
+    ],
+    "aliases": [
+      "现金转出进度怎么查",
+      "我的现金转出到哪了",
+      "现金转出记录在哪看",
+      "查一下现金转出情况",
+      "现金转出现在什么状态",
+      "看看现金转出办得怎么样了",
+      "现金转出历史在哪里",
+      "现金转出信息查询",
+      "现金转出办到哪了",
+      "查现金转出进度",
+      "现金转出明细",
+      "现金转出还剩多少",
+      "我现金转出还欠多少",
+      "现金转出还款情况",
+      "现金转出设置在哪",
+      "现金转出怎么管理",
+      "现金转出申请记录",
+      "现金转出还了几期",
+      "现金转出剩余期数",
+      "现金转出账单",
+      "现金转出状态查询",
+      "现金转出办理情况",
+      "现金转出在哪里看",
+      "现金转出还剩几期",
+      "查下信用卡能取多少现金",
+      "能取多少现金"
+    ],
+    "disambiguationHints": "用户查看现金转出进度、记录、状态时选本意图；办理现金转出选现金转出办理；询问现金转出知识选现金转出FAQ。",
+    "confusableIntents": [
+      "ccb.channel.credit.cash.apply",
+      "ccb.channel.credit.cash.faq"
+    ]
+  },
+  "ccb.channel.credit.installment.apply": {
+    "recallTerms": [
+      "账单分期",
+      "分期还款",
+      "申请分期",
+      "分期",
+      "把信用卡分期"
+    ],
+    "aliases": [
+      "我想办账单分期",
+      "账单分期怎么申请",
+      "申请账单分期",
+      "账单分期办理入口",
+      "我要分期还款",
+      "账单分期选几期好",
+      "帮我办账单分期",
+      "账单分期申请流程",
+      "账单分期怎么弄",
+      "我要办账单分期",
+      "账单分期在哪办",
+      "帮我申请账单分期",
+      "账单分期办理",
+      "我想账单分期",
+      "账单分期怎么操作",
+      "申请账单分期还款",
+      "账单分期入口",
+      "账单分期怎么办理",
+      "我要账单分期",
+      "账单分期申请",
+      "怎么办账单分期",
+      "账单分期办理流程",
+      "账单分期申请入口",
+      "账单分期怎么取消",
+      "把信用卡分期了",
+      "把分期办了"
+    ],
+    "disambiguationHints": "用户明确要求办理账单分期时选本意图；查看可分期额度和费率选分期试算；直接还款选账单还款。",
+    "confusableIntents": [
+      "ccb.channel.credit.installment.overview",
+      "ccb.channel.credit.bill.repay"
+    ]
+  },
+  "ccb.channel.credit.installment.overview": {
+    "recallTerms": [
+      "可分期",
+      "分期手续费",
+      "分期期数",
+      "分期",
+      "能分期",
+      "分几期",
+      "能分几期"
+    ],
+    "aliases": [
+      "查一下可分期金额",
+      "我能分多少期",
+      "账单分期手续费多少",
+      "看看分期期数",
+      "可分期额度查询",
+      "账单分期试算",
+      "查分期手续费",
+      "我能分期多少钱",
+      "查账单分期费率",
+      "账单分期能分几期",
+      "账单分期额度查询",
+      "账单分期期数",
+      "账单分期费用",
+      "账单分期利息多少",
+      "账单分期能分多少钱",
+      "账单分期费率查询",
+      "账单分期可选期数",
+      "账单分期手续费查询",
+      "账单分期能分多少期",
+      "账单分期试算一下",
+      "账单分期怎么管理",
+      "账单分期明细",
+      "账单分期账单",
+      "账单分期还款计划",
+      "分期",
+      "看下信用卡能分期多少"
+    ],
+    "disambiguationHints": "用户查看可分期金额、分期费率、期数选择时选本意图；办理分期选分期申请；查看账单内容选账单查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.installment.apply",
+      "ccb.channel.credit.bill.overview"
+    ]
+  },
+  "ccb.channel.credit.limit.apply": {
+    "aliases": [
+      "额度管理·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办额度管理·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.limit.overview": {
+    "recallTerms": [
+      "开通"
+    ],
+    "disambiguationHints": "用户查看额度申请进度、提额记录时选本意图；查询当前额度选卡片管理查询；要求调整额度选额度管理办理。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.credit.card-manage.limit-change"
+    ]
+  },
+  "ccb.channel.credit.points.overview": {
+    "recallTerms": [
+      "积分",
+      "龙积分",
+      "积分余额",
+      "开通"
+    ],
+    "disambiguationHints": "用户关注积分余额、积分获取、积分过期时选本意图；查看卡权益选卡权益查询；查询卡片状态选卡片管理查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.benefits.overview",
+      "ccb.channel.credit.card-manage.query"
+    ]
+  },
+  "ccb.channel.credit.profile.apply": {
+    "aliases": [
+      "资料管理·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办资料管理·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.progress.apply": {
+    "aliases": [
+      "办卡进度·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办办卡进度·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.repay.faq": {
+    "recallTerms": [
+      "怎么还",
+      "怎么还款",
+      "如何还款",
+      "手续费",
+      "还欠",
+      "还款"
+    ],
+    "aliases": [
+      "还本月信用卡",
+      "一键还款常见问题",
+      "还款要手续费吗",
+      "还款多久到账",
+      "一键还款有啥条件",
+      "还款安全吗",
+      "一键还款要注意什么",
+      "还款时效",
+      "还款费用怎么算",
+      "一键还款问题解答",
+      "还款收手续费吗",
+      "还款到账时间",
+      "一键还款需要什么条件",
+      "还款安全不安全",
+      "一键还款注意事项",
+      "还款处理时间",
+      "还款试算怎么弄",
+      "扣款顺序是什么",
+      "还款怎么收费",
+      "还款有什么限制",
+      "还款常见问题",
+      "怎么还",
+      "怎么还款",
+      "如何还款"
+    ],
+    "disambiguationHints": "用户询问还款规则、到账时效、手续费等知识时选本意图；查看具体应还金额选还款试算。",
+    "confusableIntents": [
+      "ccb.channel.credit.repay.overview",
+      "ccb.channel.home.repayment.faq",
+      "ccb.channel.credit.repay.repay"
+    ]
+  },
+  "ccb.channel.credit.repay.overview": {
+    "recallTerms": [
+      "还欠",
+      "未还金额",
+      "最低还款",
+      "应还",
+      "还多少",
+      "欠多少",
+      "欠多少钱",
+      "这个月还",
+      "信用卡欠",
+      "欠款",
+      "还差",
+      "还差多少",
+      "扣款",
+      "开通",
+      "还款"
+    ],
+    "aliases": [
+      "还本月信用卡",
+      "查查还欠多少",
+      "这月要还多少钱",
+      "最低还款是多少",
+      "未还金额怎么查",
+      "看看信用卡还差多少",
+      "还款金额在哪里看",
+      "我总共欠多少",
+      "最低要还多少",
+      "信用卡还欠多少",
+      "查一下未还金额",
+      "这期账单还差多少",
+      "总共还欠银行多少",
+      "本月应还多少",
+      "还欠信用卡多少钱",
+      "未还账单在哪看",
+      "信用卡欠款还剩多少",
+      "最低要还多少钱",
+      "查查信用卡还差多少",
+      "这月信用卡还欠多少",
+      "未还金额有多少",
+      "信用卡账单还欠多少",
+      "最低还款额在哪查",
+      "还差银行多少钱",
+      "查查信用卡还欠多少",
+      "信用卡这个月还多少",
+      "我的信用卡这个月还多少",
+      "信用卡这个月要还多少",
+      "信用卡本月要还多少",
+      "看看信用卡欠多少",
+      "查下信用卡欠多少钱"
+    ],
+    "disambiguationHints": "用户关注信用卡应还金额、未还金额或最低还款额时选本意图；关注信用卡卡片状态或额度选卡片管理查询；关注账单出账内容选账单查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.home.repayment.overview",
+      "ccb.channel.credit.bill.overview",
+      "ccb.channel.home.loan.repayment",
+      "ccb.channel.credit.repay.faq",
+      "ccb.channel.credit.repay.repay"
+    ]
+  },
+  "ccb.channel.credit.repay.repay": {
+    "recallTerms": [
+      "还信用卡",
+      "还钱",
+      "还完",
+      "帮我还",
+      "还完信用卡",
+      "还欠",
+      "自动还款"
+    ],
+    "aliases": [
+      "还本月信用卡",
+      "现在就把信用卡还了",
+      "用储蓄卡还信用卡",
+      "马上还信用卡",
+      "从借记卡扣款还款",
+      "我要还信用卡的钱",
+      "把信用卡欠款还上",
+      "立即还款",
+      "用我的借记卡还",
+      "从借记卡扣款还信用卡",
+      "把信用卡欠款还清",
+      "马上还款",
+      "用我的借记卡还款",
+      "从储蓄卡扣钱还信用卡",
+      "现在把信用卡还上",
+      "立即还清信用卡",
+      "把信用卡的钱还了",
+      "帮我还一下信用卡",
+      "把信用卡账单还了",
+      "还信用卡",
+      "还钱",
+      "还完信用卡",
+      "帮我还信用卡"
+    ],
+    "disambiguationHints": "用户明确要求执行还款动作（立即还款、马上还款）时选本意图；仅查看应还金额选还款试算。",
+    "confusableIntents": [
+      "ccb.channel.credit.repay.overview",
+      "ccb.channel.home.repayment.repay",
+      "ccb.channel.credit.bill.repay"
+    ]
+  },
+  "ccb.channel.credit.security.apply": {
+    "aliases": [
+      "支付安全·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办支付安全·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.service.apply": {
+    "aliases": [
+      "信用卡客服·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办信用卡客服·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.credit.transactions.apply": {
+    "aliases": [
+      "查信用卡交易明细",
+      "交易明细·在线办理",
+      "查看办理流程、条件和所需材料"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.account.query": {
+    "recallTerms": [
+      "余额",
+      "可用余额",
+      "卡里多少钱",
+      "卡里"
+    ],
+    "aliases": [
+      "查一下我的工资卡余额",
+      "查余额",
+      "余额查询",
+      "可用余额",
+      "工资卡余额",
+      "卡里还有多少钱",
+      "我的账户余额是多少",
+      "查下卡上余额",
+      "看看账户里有多少钱",
+      "现在卡上还剩多少",
+      "账户余额怎么查",
+      "帮我查查余额",
+      "卡上还有多少可用",
+      "卡上还有多少",
+      "查查账户余额",
+      "我卡里剩多少钱",
+      "账户里还有多少",
+      "余额还有多少",
+      "看看卡上余额",
+      "卡内余额多少",
+      "我账户上还有钱吗",
+      "查查卡里余额",
+      "账户余额有多少",
+      "卡上还剩多少",
+      "我的余额是多少",
+      "查一下余额",
+      "看看账户余额",
+      "账户还有多少余额",
+      "账户里还有多少钱",
+      "帮我查询账户余额",
+      "帮我查账户余额",
+      "查询余额",
+      "帮我查询余额",
+      "帮我看看余额",
+      "帮我看看账户余额",
+      "帮我查下余额",
+      "帮我查下账户余额",
+      "帮我查一下余额",
+      "帮我查一下账户余额",
+      "查一下账户余额",
+      "卡里还剩多少钱",
+      "银行卡还能用多少钱",
+      "银行卡里还有多少钱",
+      "银行卡里还剩多少",
+      "查下卡里多少钱",
+      "卡里多少钱",
+      "我的卡"
+    ],
+    "disambiguationHints": "用户关注存款账户可用余额时选本意图；关注信用卡额度或卡片状态选信用卡查询。",
+    "confusableIntents": [
+      "ccb.channel.credit.card-manage.query",
+      "ccb.channel.home.account.apply",
+      "ccb.channel.home.account.faq",
+      "ccb.channel.credit.bill.overview"
+    ]
+  },
+  "ccb.channel.home.account.detail.query": {
+    "recallTerms": [
+      "账户详情",
+      "账户信息",
+      "明细",
+      "余额"
+    ],
+    "aliases": [
+      "查询账户详情",
+      "账户详情",
+      "查看账户信息",
+      "看看我的账户信息",
+      "查下账户的详细情况",
+      "我的账户详情在哪看",
+      "账户信息怎么查",
+      "帮我查下账户资料",
+      "看看账户的具体信息",
+      "查一下账户的详情",
+      "账户的详细信息在哪",
+      "查查账户信息",
+      "看看账户资料",
+      "账户的详情",
+      "查下账户信息",
+      "我账户的信息",
+      "账户资料在哪看",
+      "看看账户详情",
+      "查一下账户信息",
+      "账户情况怎么查",
+      "我的账户资料",
+      "查查账户详情",
+      "账户信息在哪",
+      "查下账户详情",
+      "账户的具体情况",
+      "我账户的详情",
+      "账户信息在哪看",
+      "查下明细"
+    ],
+    "disambiguationHints": "用户查看收支明细、交易详情、账户明细时选本意图；查询账户余额选账户查询；查看收支说明选收支说明；查看信用卡交易明细选交易明细查询。",
+    "confusableIntents": [
+      "ccb.channel.home.account.query",
+      "ccb.channel.home.details.spending-explain",
+      "ccb.channel.credit.card-manage.transactions.query"
+    ]
+  },
+  "ccb.channel.home.account.apply": {
+    "recallTerms": [
+      "余额"
+    ],
+    "disambiguationHints": "用户明确要求开户或办理账户时选本意图；查询账户余额选账户查询；询问账户知识选账户FAQ。",
+    "confusableIntents": [
+      "ccb.channel.home.account.query",
+      "ccb.channel.home.account.faq"
+    ]
+  },
+  "ccb.channel.home.account.faq": {
+    "recallTerms": [
+      "账户知识",
+      "账户类型",
+      "账户安全",
+      "余额"
+    ],
+    "disambiguationHints": "用户询问账户功能、类型、安全等知识时选本意图；查询余额选账户查询；开户选账户办理。",
+    "confusableIntents": [
+      "ccb.channel.home.account.query",
+      "ccb.channel.home.account.apply"
+    ]
+  },
+  "ccb.channel.home.benefit.apply": {
+    "aliases": [
+      "权益中心·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办权益中心·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.branch.apply": {
+    "aliases": [
+      "网点服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办网点服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.calendar.apply": {
+    "aliases": [
+      "待办日历·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办待办日历·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.crossborder.apply": {
+    "aliases": [
+      "跨境服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办跨境服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.custom.apply": {
+    "aliases": [
+      "我的应用·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办我的应用·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.details.query": {
+    "recallTerms": [
+      "账户流水",
+      "账户明细",
+      "银行卡流水",
+      "明细",
+      "流水",
+      "交易记录",
+      "余额"
+    ],
+    "aliases": [
+      "查看账户明细",
+      "查看明细",
+      "查看流水",
+      "查看交易明细",
+      "查看账户流水",
+      "查看交易记录",
+      "查看进出账",
+      "查看账户进出账",
+      "看下明细",
+      "看下账户明细",
+      "看下流水",
+      "查一下账户明细",
+      "查流水",
+      "账户流水",
+      "账户明细",
+      "交易明细",
+      "查下最近的交易记录",
+      "看看账户的进出账",
+      "帮我查查流水",
+      "最近的明细在哪看",
+      "查一下交易记录",
+      "看看账户的流水",
+      "最近的进出账记录",
+      "查查银行卡的交易明细",
+      "查查交易记录",
+      "看看交易明细",
+      "查下账户明细",
+      "账户的交易记录",
+      "查查进出账",
+      "看看流水记录",
+      "交易记录在哪看",
+      "查一下账户流水",
+      "看看交易记录",
+      "查查账户明细",
+      "进出账明细",
+      "我的交易记录",
+      "查下交易流水",
+      "看看账户明细",
+      "查查进出账记录",
+      "账户交易明细"
+    ],
+    "disambiguationHints": "用户查看收支明细、交易详情时选本意图；查询账户余额选账户查询；查看收支说明选收支说明。",
+    "confusableIntents": [
+      "ccb.channel.home.account.query",
+      "ccb.channel.home.details.spending-explain"
+    ]
+  },
+  "ccb.channel.home.details.spending-explain": {
+    "recallTerms": [
+      "支出分析",
+      "支出情况",
+      "消费分析",
+      "钱花哪了",
+      "钱花得快",
+      "本月支出",
+      "支出对比",
+      "收支概览",
+      "本月收支",
+      "支出归因",
+      "钱花得太多",
+      "花得太多",
+      "花钱太多"
+    ],
+    "disambiguationHints": "用户要求解释支出构成或消费归因时选本意图；仅查看收支流水汇总选收支总览；围绕工资安排资金选工资规划。用户提到“这张卡/信用卡”+“花了多少钱/消费了哪些”时选信用卡交易明细，不选本意图。",
+    "confusableIntents": [
+      "ccb.channel.me.income-expense.overview",
+      "ccb.channel.home.account.salary-plan",
+      "ccb.channel.credit.card-manage.transactions.query"
+    ]
+  },
+  "ccb.channel.home.family.apply": {
+    "aliases": [
+      "亲子服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办亲子服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.fund.apply": {
+    "aliases": [
+      "基金投资·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办基金投资·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.housing.apply": {
+    "aliases": [
+      "住房服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办住房服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.limit.apply": {
+    "aliases": [
+      "帮我做贷款统一测额",
+      "额度测算·在线办理",
+      "查看办理流程、条件和所需材料"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.loan.overview": {
+    "recallTerms": [
+      "贷款",
+      "贷款概览",
+      "贷款情况"
+    ],
+    "disambiguationHints": "用户查看贷款概览、贷款情况时选本意图；测算贷款额度选贷款测算；查询还款计划选贷款还款。",
+    "confusableIntents": [
+      "ccb.channel.home.loan.measure",
+      "ccb.channel.home.loan.repayment"
+    ]
+  },
+  "ccb.channel.home.loan.repayment": {
+    "recallTerms": [
+      "贷款还款",
+      "还款计划",
+      "贷款还款计划",
+      "还款",
+      "每期还多少",
+      "还欠"
+    ],
+    "disambiguationHints": "用户查看贷款还款计划、还款进度时选本意图；查看贷款概览选贷款概览；查看信用卡还款选还款概览。",
+    "confusableIntents": [
+      "ccb.channel.home.loan.overview",
+      "ccb.channel.home.repayment.overview",
+      "ccb.channel.credit.repay.overview"
+    ]
+  },
+  "ccb.channel.home.medical.apply": {
+    "aliases": [
+      "医保服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办医保服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.pension.apply": {
+    "aliases": [
+      "养老金融·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办养老金融·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.repayment.faq": {
+    "recallTerms": [
+      "信用卡还款",
+      "还款规则",
+      "还款手续费",
+      "跨行"
+    ],
+    "disambiguationHints": "用户询问信用卡还款规则、到账时效、手续费等知识时选本意图；查看应还金额选还款概览；询问一键还款知识选还款FAQ。",
+    "confusableIntents": [
+      "ccb.channel.home.repayment.overview",
+      "ccb.channel.credit.repay.faq"
+    ]
+  },
+  "ccb.channel.home.repayment.overview": {
+    "recallTerms": [
+      "未还金额",
+      "信用卡欠款",
+      "还款",
+      "查下还款",
+      "欠款",
+      "还欠",
+      "账单"
+    ],
+    "aliases": [
+      "还本月信用卡",
+      "信用卡未还金额",
+      "查信用卡欠款",
+      "账单金额",
+      "这个月要还多少",
+      "还款日是哪天",
+      "本期还要还多少",
+      "信用卡账单出来没",
+      "这期账单多少钱",
+      "信用卡还差多少",
+      "本期应还多少",
+      "还款日几号",
+      "本期账单出了吗",
+      "账单金额查一下",
+      "账单出来没",
+      "信用卡账单金额",
+      "最低还款额查一下",
+      "信用卡欠多少钱",
+      "这个月信用卡要还多少",
+      "查一下信用卡账单",
+      "本期应还金额",
+      "账单出来了吗",
+      "信用卡账单查询",
+      "最低还款额怎么查",
+      "还款日怎么查",
+      "信用卡本期账单",
+      "查下还款"
+    ],
+    "disambiguationHints": "用户关注应还金额、最低还款、还款日等还款义务本身时选本意图；仅查看账单内容或出账状态选账单查询；明确要求执行还款动作选还款办理。",
+    "confusableIntents": [
+      "ccb.channel.credit.bill.overview",
+      "ccb.channel.credit.bill.repay",
+      "ccb.channel.home.repayment.repay",
+      "ccb.channel.credit.repay.overview"
+    ]
+  },
+  "ccb.channel.home.repayment.repay": {
+    "recallTerms": [
+      "信用卡还款",
+      "还信用卡",
+      "还本月账单",
+      "还钱"
+    ],
+    "aliases": [
+      "还本月信用卡",
+      "信用卡还款",
+      "立即还款",
+      "从借记卡还信用卡",
+      "把信用卡还上",
+      "赶紧还信用卡",
+      "信用卡还一下",
+      "信用卡还款操作",
+      "还信用卡账单",
+      "信用卡还款办理",
+      "还信用卡欠款",
+      "信用卡还款入口",
+      "还本期信用卡",
+      "还别人信用卡",
+      "帮还信用卡",
+      "信用卡现在还款",
+      "借记卡还信用卡",
+      "还钱"
+    ],
+    "disambiguationHints": "用户从首页还款入口明确要求执行还款动作时选本意图；查看应还金额选还款概览；从信用卡还款入口还款选信用卡还款。",
+    "confusableIntents": [
+      "ccb.channel.home.repayment.overview",
+      "ccb.channel.credit.repay.repay",
+      "ccb.channel.credit.bill.repay"
+    ],
+    "negativeExamples": [
+      "账单金额",
+      "还款日几号",
+      "我还信用卡，顺便看看有没有新卡可以申请"
+    ]
+  },
+  "ccb.channel.home.scan.apply": {
+    "aliases": [
+      "扫一扫·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办扫一扫·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.social.apply": {
+    "aliases": [
+      "社保服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办社保服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.home.transfer.faq": {
+    "disambiguationHints": "用户询问转账规则、到账时效、手续费等知识时选本意图；办理转账选转账办理；查看转账记录选转账查询。",
+    "confusableIntents": [
+      "ccb.channel.home.transfer.create",
+      "ccb.channel.home.transfer.query"
+    ]
+  },
+  "ccb.channel.home.transfer.create": {
+    "disambiguationHints": "用户表达转账意图（收款人、金额、转出）时选本意图；仅查看或维护收款人列表选收款人查询。"
+  },
+  "ccb.channel.home.transfer.query": {
+    "recallTerms": [
+      "常用收款人",
+      "收款人列表",
+      "转账记录",
+      "转账明细",
+      "消费"
+    ],
+    "aliases": [
+      "给张伟转账1000元",
+      "常用收款人",
+      "收款人列表",
+      "查询收款人",
+      "查一下收款人",
+      "转账进度在哪看",
+      "看看转账到哪了",
+      "收款人信息",
+      "查转账状态",
+      "我的收款人",
+      "转账记录查询",
+      "查常用收款人",
+      "收款人",
+      "转账进度",
+      "转账到哪了",
+      "收款人查询",
+      "转账状态查询",
+      "常用收款人列表",
+      "查一下常用收款人",
+      "转账进度怎么查",
+      "收款人怎么管理",
+      "我的收款人列表",
+      "常用收款人在哪",
+      "收款人信息查询",
+      "查看收款人",
+      "转账进度查询",
+      "收款人列表在哪",
+      "查一下转账进度",
+      "转账记录",
+      "查下转账记录"
+    ],
+    "disambiguationHints": "用户查看转账记录、转账明细、转账状态时选本意图；办理转账选转账办理；询问转账规则选转账FAQ；查看信用卡交易明细选交易明细查询。",
+    "confusableIntents": [
+      "ccb.channel.home.transfer.create",
+      "ccb.channel.home.transfer.faq",
+      "ccb.channel.credit.card-manage.transactions.query"
+    ]
+  },
+  "ccb.channel.life.campus.apply": {
+    "aliases": [
+      "校园教育·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办校园教育·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.car.apply": {
+    "aliases": [
+      "车主服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办车主服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.coupon.apply": {
+    "aliases": [
+      "领券中心·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办领券中心·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.electric.apply": {
+    "aliases": [
+      "电费·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办电费·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.food.apply": {
+    "aliases": [
+      "智慧就餐·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办智慧就餐·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.gas.apply": {
+    "aliases": [
+      "交本月燃气费",
+      "燃气费·在线办理",
+      "查看办理流程、条件和所需材料"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.government.apply": {
+    "aliases": [
+      "政务服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办政务服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.health.apply": {
+    "aliases": [
+      "医疗健康·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办医疗健康·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.heating.apply": {
+    "aliases": [
+      "供暖费·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办供暖费·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.history.apply": {
+    "aliases": [
+      "缴费记录·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办缴费记录·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.medical.apply": {
+    "aliases": [
+      "医保·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办医保·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.mobile.apply": {
+    "aliases": [
+      "交100元手机话费",
+      "话费充值·在线办理",
+      "查看办理流程、条件和所需材料"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.movie.apply": {
+    "aliases": [
+      "电影票·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办电影票·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.my-payment.apply": {
+    "aliases": [
+      "我的缴费·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办我的缴费·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.property.apply": {
+    "aliases": [
+      "物业费·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办物业费·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.travel.apply": {
+    "aliases": [
+      "出行服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办出行服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.video.apply": {
+    "aliases": [
+      "影音会员·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办影音会员·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.life.water.apply": {
+    "aliases": [
+      "水费·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办水费·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.about.apply": {
+    "aliases": [
+      "关于与协议·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办关于与协议·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.accounts.apply": {
+    "aliases": [
+      "我的账户·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办我的账户·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.address.apply": {
+    "aliases": [
+      "收件地址·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办收件地址·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.benefits.apply": {
+    "aliases": [
+      "权益中心·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办权益中心·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.branch.apply": {
+    "aliases": [
+      "网点服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办网点服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.cards.apply": {
+    "aliases": [
+      "银行卡管理·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办银行卡管理·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.cards.faq": {
+    "negativeExamples": [
+      "我有哪些卡",
+      "查查我的卡",
+      "银行卡怎么办"
+    ]
+  },
+  "ccb.channel.me.help.apply": {
+    "aliases": [
+      "帮助与客服·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办帮助与客服·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.logout.apply": {
+    "aliases": [
+      "安全退出·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办安全退出·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.manager.apply": {
+    "aliases": [
+      "客户经理·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办客户经理·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.privacy.apply": {
+    "aliases": [
+      "隐私管理·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办隐私管理·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.proof.apply": {
+    "aliases": [
+      "证明服务·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办证明服务·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.security.apply": {
+    "aliases": [
+      "安全中心·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办安全中心·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.senior.apply": {
+    "aliases": [
+      "长辈版·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办长辈版·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.settings.apply": {
+    "aliases": [
+      "设置·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办设置·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.tasks.apply": {
+    "aliases": [
+      "任务中心·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办任务中心·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.me.version.apply": {
+    "aliases": [
+      "版本切换·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办版本切换·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.advisor.apply": {
+    "aliases": [
+      "智能顾问·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办智能顾问·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.bond.apply": {
+    "aliases": [
+      "债券·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办债券·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.dragon-money.overview": {
+    "disambiguationHints": "用户关注自己已持有的现金管理类持仓与收益时选本意图；浏览在售产品列表选产品列表；表达购买动作选购买。"
+  },
+  "ccb.channel.wealth.easy-repay.apply": {
+    "aliases": [
+      "轻松还·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办轻松还·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.favorites.apply": {
+    "aliases": [
+      "我的关注·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办我的关注·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.fx.apply": {
+    "aliases": [
+      "外汇买卖·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办外汇买卖·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.guide.apply": {
+    "aliases": [
+      "新手宝典·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办新手宝典·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.member.apply": {
+    "aliases": [
+      "财富会员·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办财富会员·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.pension.apply": {
+    "aliases": [
+      "个人养老金·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办个人养老金·在线办理"
+    ],
+    "lifecycle": "planned"
+  },
+  "ccb.channel.wealth.settlement.apply": {
+    "aliases": [
+      "结售汇·在线办理",
+      "查看办理流程、条件和所需材料",
+      "办结售汇·在线办理"
+    ],
+    "lifecycle": "planned"
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "schemaVersion": "1.0",
+  "skills": [
+    {
+      "id": "bank.account-inquiry",
+      "version": "1.2.0",
+      "digest": "sha256:4346b9046195baf566c55f0a3154579221e0c5fdd633855c3e2df28c80cd064b",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.account.balance.query",
+        "ccb.account.transactions.query",
+        "ccb.account.detail.query"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.account.balance.query": [
+          "bank.account.list",
+          "bank.account.balance.get",
+          "bank.account.detail.get"
+        ],
+        "ccb.account.transactions.query": [
+          "bank.account.list",
+          "bank.account.transactions.list",
+          "bank.account.detail.get"
+        ],
+        "ccb.account.detail.query": [
+          "bank.account.list",
+          "bank.account.detail.get"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.account"
+      ],
+      "requiredCapabilityIds": [
+        "bank.account.list",
+        "bank.account.balance.get",
+        "bank.account.transactions.list",
+        "bank.account.detail.get"
+      ],
+      "riskBoundary": "L1",
+      "compatibleGraphVersions": [
+        "1.2.0",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/account-inquiry/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.credit-card-management",
+      "version": "1.3.0",
+      "digest": "sha256:af76df101cc0e75ab04de78e4f02be8cd1f617fd998fbedc1f661179ade6a469",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.credit.bill.overview",
+        "ccb.credit.card-manage.security-query",
+        "ccb.credit.card.activation",
+        "ccb.credit.card.limit-change",
+        "ccb.credit.card.loss-report",
+        "ccb.credit.card.query",
+        "ccb.credit.card.security-settings.update",
+        "ccb.credit.card.transactions.query",
+        "ccb.credit.repay.overview",
+        "ccb.home.repayment.overview",
+        "ccb.home.repayment.repay"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.credit.bill.overview": [
+          "bank.credit-card.list",
+          "bank.credit-card.bill.get"
+        ],
+        "ccb.credit.card-manage.security-query": [
+          "bank.credit-card.list",
+          "bank.credit-card.settings.get"
+        ],
+        "ccb.credit.card.activation": [
+          "bank.credit-card.list",
+          "bank.credit-card.activation.create"
+        ],
+        "ccb.credit.card.limit-change": [
+          "bank.credit-card.list",
+          "bank.credit-card.limit-change.create"
+        ],
+        "ccb.credit.card.loss-report": [
+          "bank.credit-card.list",
+          "bank.credit-card.loss-report.create"
+        ],
+        "ccb.credit.card.query": [
+          "bank.credit-card.list"
+        ],
+        "ccb.credit.card.security-settings.update": [
+          "bank.credit-card.list",
+          "bank.credit-card.detail.get",
+          "bank.credit-card.settings.get",
+          "bank.credit-card.security-settings.update"
+        ],
+        "ccb.credit.card.transactions.query": [
+          "bank.credit-card.list",
+          "bank.credit-card.detail.get",
+          "bank.credit-card.transactions.list"
+        ],
+        "ccb.credit.repay.overview": [
+          "bank.credit-card.list",
+          "bank.credit-card.bill.get"
+        ],
+        "ccb.home.repayment.overview": [
+          "bank.credit-card.list",
+          "bank.credit-card.bill.get"
+        ],
+        "ccb.home.repayment.repay": [
+          "bank.credit-card.list",
+          "bank.credit-card.detail.get",
+          "bank.credit-card.bill.get",
+          "bank.account.list",
+          "bank.account.balance.get",
+          "bank.credit-card.repayment.create"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.credit-card",
+        "bank.credit-card-bill"
+      ],
+      "requiredCapabilityIds": [
+        "bank.credit-card.list",
+        "bank.credit-card.detail.get",
+        "bank.credit-card.transactions.list",
+        "bank.credit-card.settings.get",
+        "bank.credit-card.activation.create",
+        "bank.credit-card.loss-report.create",
+        "bank.credit-card.limit-change.create",
+        "bank.credit-card.security-settings.update",
+        "bank.credit-card.bill.get",
+        "bank.account.list",
+        "bank.account.balance.get",
+        "bank.credit-card.repayment.create"
+      ],
+      "riskBoundary": "L2",
+      "compatibleGraphVersions": [
+        "1.2.0",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/credit-card-management/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.transfer-remittance",
+      "version": "1.0.1",
+      "digest": "sha256:1cb54226f4a6386f205a937a74ea54e1d81a8e25db7290cd0f6e49e66d35433d",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.transfer.create",
+        "ccb.transfer.payee.query"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.transfer.create": [
+          "bank.account.list",
+          "bank.payee.list",
+          "bank.payee.validate",
+          "bank.transfer.order.create",
+          "bank.transfer.status.get"
+        ],
+        "ccb.transfer.payee.query": [
+          "bank.payee.list"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.transfer-order",
+        "bank.payee"
+      ],
+      "requiredCapabilityIds": [
+        "bank.account.list",
+        "bank.payee.list",
+        "bank.payee.validate",
+        "bank.transfer.order.create",
+        "bank.transfer.status.get"
+      ],
+      "riskBoundary": "L2",
+      "compatibleGraphVersions": [
+        "1.2.0",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/transfer-remittance/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.wealth-management",
+      "version": "1.0.0",
+      "digest": "sha256:625a31040bf864542e4c1cf38448d80b2d4cb973e09fc57ea2924a31f911539e",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.wealth.deposit.overview",
+        "ccb.wealth.dragon-money.buy",
+        "ccb.wealth.dragon-money.overview",
+        "ccb.wealth.fund.overview",
+        "ccb.wealth.overview.overview",
+        "ccb.wealth.portfolio.overview",
+        "ccb.wealth.redeem",
+        "ccb.wealth.wealth-product.buy",
+        "ccb.wealth.wealth-product.overview"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.wealth.deposit.overview": [
+          "bank.wealth.product.list"
+        ],
+        "ccb.wealth.dragon-money.buy": [
+          "bank.wealth.product.list",
+          "bank.wealth.product.detail.get",
+          "bank.wealth.holding.list",
+          "bank.wealth.transaction.list",
+          "bank.wealth.salary-insights.get",
+          "bank.wealth.recommendations.get",
+          "bank.account.list",
+          "bank.wealth.purchase.create"
+        ],
+        "ccb.wealth.dragon-money.overview": [
+          "bank.wealth.holding.list"
+        ],
+        "ccb.wealth.fund.overview": [
+          "bank.wealth.product.list"
+        ],
+        "ccb.wealth.overview.overview": [
+          "bank.wealth.holding.list"
+        ],
+        "ccb.wealth.portfolio.overview": [
+          "bank.wealth.holding.list"
+        ],
+        "ccb.wealth.redeem": [
+          "bank.wealth.holding.list",
+          "bank.wealth.redeem.create"
+        ],
+        "ccb.wealth.wealth-product.buy": [
+          "bank.wealth.product.list",
+          "bank.wealth.product.detail.get",
+          "bank.wealth.holding.list",
+          "bank.wealth.transaction.list",
+          "bank.wealth.salary-insights.get",
+          "bank.wealth.recommendations.get",
+          "bank.account.list",
+          "bank.wealth.purchase.create"
+        ],
+        "ccb.wealth.wealth-product.overview": [
+          "bank.wealth.product.list"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.wealth-holding",
+        "bank.wealth-order"
+      ],
+      "requiredCapabilityIds": [
+        "bank.wealth.product.list",
+        "bank.wealth.product.detail.get",
+        "bank.wealth.holding.list",
+        "bank.wealth.transaction.list",
+        "bank.wealth.salary-insights.get",
+        "bank.wealth.recommendations.get",
+        "bank.account.list",
+        "bank.wealth.purchase.create",
+        "bank.wealth.redeem.create"
+      ],
+      "riskBoundary": "L2",
+      "compatibleGraphVersions": [
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/wealth-management/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.wealth-advisory",
+      "version": "1.0.0",
+      "digest": "sha256:402eb0dad8937719764a7241de6e09ed13eae019043af430e702cf691a397edd",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.wealth.advisor.recommend"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.wealth.advisor.recommend": [
+          "bank.wealth.advisory.context.get"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.wealth-advice"
+      ],
+      "requiredCapabilityIds": [
+        "bank.wealth.advisory.context.get"
+      ],
+      "riskBoundary": "L1",
+      "compatibleGraphVersions": [
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/wealth-advisory/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.cashflow-planning",
+      "version": "1.0.0",
+      "digest": "sha256:0455411ed4ea279f1c250be3f806d8264a2b925a8e2bd337ae672fd3adf539cd",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.cashflow.salary-plan"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.cashflow.salary-plan": [
+          "bank.cashflow.salary-plan.get"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.cashflow-plan"
+      ],
+      "requiredCapabilityIds": [
+        "bank.cashflow.salary-plan.get"
+      ],
+      "riskBoundary": "L2",
+      "compatibleGraphVersions": [
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/cashflow-planning/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.spending-analysis",
+      "version": "1.0.0",
+      "digest": "sha256:c56461eb373e6d0481435a736bd4f22a8aec2b799c6ea9910b659f0cf37bb3d2",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.cashflow.spending-explain"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.cashflow.spending-explain": [
+          "bank.cashflow.spending-analysis.get"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.spending-analysis"
+      ],
+      "requiredCapabilityIds": [
+        "bank.cashflow.spending-analysis.get"
+      ],
+      "riskBoundary": "L1",
+      "compatibleGraphVersions": [
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/spending-analysis/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.obligation-management",
+      "version": "1.0.0",
+      "digest": "sha256:d902cb658e3bcb5417545f783c884f5c30863c6c26a4d9316f311d77e2c85b3a",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.obligation.repay-all",
+        "ccb.obligation.pay-selected"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.obligation.repay-all": [
+          "bank.obligation.list",
+          "bank.loan.list",
+          "bank.loan.detail.get",
+          "bank.loan.repayment.list",
+          "bank.loan.precalculate.create",
+          "bank.utility.bill.list",
+          "bank.credit-card.repayment.create",
+          "bank.loan.repayment.create",
+          "bank.utility.payment.create"
+        ],
+        "ccb.obligation.pay-selected": [
+          "bank.obligation.list",
+          "bank.loan.list",
+          "bank.loan.detail.get",
+          "bank.loan.repayment.list",
+          "bank.loan.precalculate.create",
+          "bank.utility.bill.list",
+          "bank.credit-card.repayment.create",
+          "bank.loan.repayment.create",
+          "bank.utility.payment.create"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.obligation-plan"
+      ],
+      "requiredCapabilityIds": [
+        "bank.obligation.list",
+        "bank.loan.list",
+        "bank.loan.detail.get",
+        "bank.loan.repayment.list",
+        "bank.loan.precalculate.create",
+        "bank.utility.bill.list",
+        "bank.credit-card.repayment.create",
+        "bank.loan.repayment.create",
+        "bank.utility.payment.create"
+      ],
+      "riskBoundary": "L2",
+      "compatibleGraphVersions": [
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/obligation-management/SKILL.md",
+      "owner": "ai-native-bank"
+    },
+    {
+      "id": "bank.customer-profile",
+      "version": "1.0.0",
+      "digest": "sha256:b82bb8cbb6b89c398826ca8b071b05dba5654c457fd94d5d7fc5a9690d88f709",
+      "status": "active",
+      "handledIntentIds": [
+        "ccb.customer.profile.query"
+      ],
+      "intentCapabilityBindings": {
+        "ccb.customer.profile.query": [
+          "bank.customer.profile.get"
+        ]
+      },
+      "businessObjectIds": [
+        "bank.customer"
+      ],
+      "requiredCapabilityIds": [
+        "bank.customer.profile.get"
+      ],
+      "riskBoundary": "L1",
+      "compatibleGraphVersions": [
+        "2.0.0",
+        "2.1.0"
+      ],
+      "compatibleRuntimeVersions": [
+        "0.1.17.post1"
+      ],
+      "entrypoint": "data/ai-native-bank/skills/customer-profile/SKILL.md",
+      "owner": "ai-native-bank"
+    }
+  ]
+}

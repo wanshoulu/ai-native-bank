@@ -1,0 +1,1 @@
+{"id":"bank.spending-analysis","version":"1.0.0","digest":"sha256:c56461eb373e6d0481435a736bd4f22a8aec2b799c6ea9910b659f0cf37bb3d2","requiredCapabilityIds":["bank.cashflow.spending-analysis.get"],"riskBoundary":"L1"}

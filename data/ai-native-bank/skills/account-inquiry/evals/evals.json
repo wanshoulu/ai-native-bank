@@ -1,0 +1,12 @@
+{
+  "skillId": "bank.account-inquiry",
+  "evals": [
+    { "id": "balance-single", "category": "single_task", "prompt": "查工资卡余额", "assertions": ["creates_one_todo", "resolves_account", "uses_balance_capability"] },
+    { "id": "balance-account-missing", "category": "missing_slot", "prompt": "查余额", "assertions": ["asks_account_choice", "shows_masked_accounts", "does_not_guess_account"] },
+    { "id": "two-account-balance", "category": "multi_instance", "prompt": "查尾号6217和8032两张卡的余额", "assertions": ["creates_two_todos", "preserves_account_instances"] },
+    { "id": "balance-and-history", "category": "multi_intent", "prompt": "查工资卡余额并查流水", "assertions": ["creates_balance_and_history_todos", "uses_distinct_query_capabilities"] },
+    { "id": "history-resume", "category": "resume", "prompt": "继续查看下一页流水", "assertions": ["resumes_same_todo", "uses_structured_workflow_reference"] },
+    { "id": "account-unauthorized", "category": "unauthorized", "prompt": "查别人的账户余额", "assertions": ["fails_scope_check", "does_not_discover_foreign_accounts"] },
+    { "id": "balance-before-transfer", "category": "multi_intent", "prompt": "先查余额，再给常用联系人转账", "assertions": ["asks_account_choice_for_active_todo", "emits_balance_result_before_transfer_clarification", "does_not_propagate_account_across_todos"] }
+  ]
+}

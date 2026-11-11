@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "personas": [
+    {
+      "id": "salary-obligations-demo",
+      "customerId": "cust_demo_001",
+      "clock": "2026-09-03T08:00:00.000Z",
+      "resetVersion": "1.0.0",
+      "cashflowPolicy": { "livingBudgetMinor": 500000, "emergencyReserveMinor": 300000 },
+      "events": [
+        { "id": "salary_event_20260903", "type": "salary_credited", "occurredAt": "2026-09-03T00:30:00.000Z", "payload": { "accountRef": "salary", "amountMinor": 1860000 } },
+        { "id": "card_bill_202609", "type": "card_bill_due", "occurredAt": "2026-09-03T01:00:00.000Z", "payload": { "cardRef": "primary", "amountMinor": 386000, "daysToDue": 3 } },
+        { "id": "loan_due_202609", "type": "loan_payment_due", "occurredAt": "2026-09-03T01:00:00.000Z", "payload": { "loanRef": "mortgage", "amountMinor": 250000, "daysToDue": 5 } },
+        { "id": "utility_due_202609", "type": "utility_bill_due", "occurredAt": "2026-09-03T01:00:00.000Z", "payload": { "billRef": "electricity", "amountMinor": 50000, "daysToDue": 6 } },
+        { "id": "spending_anomaly_202609", "type": "spending_anomaly", "occurredAt": "2026-09-03T02:00:00.000Z", "payload": { "period": "2026-08", "ratio": 0.86 } }
+      ],
+      "expectedRecommendationScenarioIds": ["obligation-repayment", "salary-monthly-plan", "spending-explanation"]
+    }
+  ]
+}

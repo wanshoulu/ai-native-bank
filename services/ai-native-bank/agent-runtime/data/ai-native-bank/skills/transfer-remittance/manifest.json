@@ -1,0 +1,7 @@
+{
+  "id": "bank.transfer-remittance",
+  "version": "1.0.1",
+  "digest": "sha256:1cb54226f4a6386f205a937a74ea54e1d81a8e25db7290cd0f6e49e66d35433d",
+  "requiredCapabilityIds": ["bank.account.list", "bank.payee.list", "bank.payee.validate", "bank.transfer.order.create"],
+  "riskBoundary": "L2"
+}

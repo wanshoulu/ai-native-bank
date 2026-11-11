@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "1.0",
+  "providers": [
+    {
+      "providerId": "provider.ccb-mock-core.account-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.account.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:7a3e654d5d67714a68c029d21e30054e4e5af0cf83baa713033e937ff7cf8d95",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "account:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_account_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.account-balance-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.account.balance.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:945f6704f56d2ffb261e4e67ec0f37ccab3c964a3b110b5e80e55e242d7c74db",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "account:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_account_balance_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.account-detail-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.account.detail.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:b65bdcc22a34cc18bbcbd4ae9923c791873f3d844b6be322857d8be999986a47",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "account:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_account_detail_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.account-transactions-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.account.transactions.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:8eae39f581b50c8090e32bd4a1260a835310e46e7f6c3d7e6fcec6c02ae14396",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "account:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_account_transactions_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.payee-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.payee.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:0ba57817f5852bf7b0b3032bcc1ca74f45d508283cf65a47c7704e8b40f7f79e",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "payee:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_payee_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.payee-validate",
+      "providerType": "mcp",
+      "capabilityId": "bank.payee.validate",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:6ae08a03ce15200c810b15927c5d971d335570678074db4215ff5055700f6c96",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "payee:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_payee_validate"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.transfer-order-create",
+      "providerType": "mcp",
+      "capabilityId": "bank.transfer.order.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:1bb090c5539ca2ef0031afcfd0c1e08ff309dc0c25b88e49c0f9dc09d6e39260",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "transfer:create"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_transfer_order_create"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.credit-card-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.credit-card.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:df48340153bc8fa44f81ff2604fe2878f32314b382bb3f77ff4a776d8cbc9f7c",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "credit-card:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_credit_card_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.credit-card-transactions-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.credit-card.transactions.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:ee5c5b1b1c14369a30747c51086d23e6b5a4578a49710fbf2033e978fc03908a",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "credit-card:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_credit_card_transactions_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.credit-card-settings-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.credit-card.settings.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:c48dc9bed35352524c09a565b5a7644dde510944e6cbb75b433cc983ecbbb6fb",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "credit-card:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_credit_card_settings_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.credit-card-activation",
+      "providerType": "user-action",
+      "capabilityId": "bank.credit-card.activation.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:6db95d924c5380122586bcc283fc2471adc384057bc2bf269370ea830ced6264",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "credit-card:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "credit-card-activation"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.credit-card-loss-report",
+      "providerType": "user-action",
+      "capabilityId": "bank.credit-card.loss-report.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:4886a40cc0e51a6b6a87db1ac56de27b854cfba8f17fc6b3ebb0082bd9edcf6a",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "credit-card:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "credit-card-loss-report"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.credit-card-limit-change",
+      "providerType": "user-action",
+      "capabilityId": "bank.credit-card.limit-change.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:6dd53709a490979329b0adff47ea84aaf26ae9f5fea36a8a498d1437db71d4c8",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "credit-card:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "credit-card-limit-change"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.credit-card-security-settings",
+      "providerType": "user-action",
+      "capabilityId": "bank.credit-card.security-settings.update",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:d6a9ffb9ed1cf0ac950138000510575c60af9c261167a9fb43c4a4b0119f72a8",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "credit-card:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "credit-card-security-settings-update"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-product-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.product.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:d0268dcede549fdbe7c4a8df823f63274548a4f0f1ea6bd6f8beb9d95a2778bb",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_product_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-holding-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.holding.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:f0c3a47e438b2f716b7dd0ff01af621850d7ddea0f4980dea724d1c9a1e4a222",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_holding_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.wealth-purchase",
+      "providerType": "user-action",
+      "capabilityId": "bank.wealth.purchase.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:68610283ab4202d18041b555a22165915ccce344b0491c20452331c3e0fe4cf4",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "wealth:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "wealth-purchase"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.cashflow-salary-plan",
+      "providerType": "mcp",
+      "capabilityId": "bank.cashflow.salary-plan.get",
+      "version": "1.2.0",
+      "schemaDigest": "sha256:867f75745bde9d495f64d47173f3da6be0cf871d6fdc54ca2bbe32a5657ee75f",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "cashflow:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_cashflow_salary_plan_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.cashflow-spending-analysis",
+      "providerType": "mcp",
+      "capabilityId": "bank.cashflow.spending-analysis.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:a99030f0a4cf029bb5d8549a737d7b0e2b85732c1347ec7025c803841ac0af64",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "cashflow:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_cashflow_spending_analysis_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.obligation-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.obligation.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:9609bf6bc95d12fb529fb9a5b976e70250723ba5a16e1d0e1ffdea61b9a01e2c",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "obligation:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_obligation_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.credit-card-bill",
+      "providerType": "mcp",
+      "capabilityId": "bank.credit-card.bill.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:ca0844f13b3f7bad1b7cf6c7713a24c536ac350679e0877ddd768be191dc67cd",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "credit-card:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_credit_card_bill_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.credit-card-repayment",
+      "providerType": "user-action",
+      "capabilityId": "bank.credit-card.repayment.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:b3a68502359d85e911c448d0d1e35fb53a48afe424f5d08b2cb7d31e5842127e",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "credit-card:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "credit-card-repayment"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.loan-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.loan.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:621e6f0befa9212d17bf7c7bbe52a78d930eb5b576529ccdc7d038dd33547f89",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "loan:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_loan_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.loan-repayment-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.loan.repayment.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:b169a9c0f215826c4b2a4b0ebc33712753bf402742d6c677d3af42180fb19302",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "loan:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_loan_repayment_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.loan-repayment",
+      "providerType": "user-action",
+      "capabilityId": "bank.loan.repayment.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:f0d6e8817897e58495ddabb15e6ff387fa40ac9c2a98c81d6cd6c9b4044741df",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "loan:repay"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "loan-repayment"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.utility-bill-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.utility.bill.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:2c599bfa2c4fe95017b69e2dfeb372349ac4db26b22ff19ec9e1d2f076316011",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "utility:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_utility_bill_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.utility-payment",
+      "providerType": "user-action",
+      "capabilityId": "bank.utility.payment.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:5bdba8583396251cdcaec89d46667afb7026d468acfe26f517de5a2ed1714805",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "utility:pay"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "utility-payment"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-salary-insights",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.salary-insights.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:04fc46a7ec10738c18f8ea8917e8aada7d27001a879951f078cb142ca8aa5e54",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_salary_insights_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-recommendations",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.recommendations.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:ab3275c8bf5f835d24181c14b09ccb9daaa52130374633e02f9fffb2ca4193cb",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_recommendations_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-advisory-context",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.advisory.context.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:819ff216d0fb00cfb7c39f7db332a07d447578b01d2b75ee93e29b25ff9155ea",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_advisory_context_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-product-detail-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.product.detail.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:727e5e6303b2917280178bcdbf6f5af0946fb8397f49c9aa60efaab52c4c908a",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_product_detail_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.wealth-transaction-list",
+      "providerType": "mcp",
+      "capabilityId": "bank.wealth.transaction.list",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:c9046c2ed258628ad7f0f50d5e59fcbe419da86a333760bccd7210db5b1e8a86",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "wealth:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_wealth_transaction_list"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.credit-card-detail-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.credit-card.detail.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:ba30f6ac75406c8bcfab4b5d7175f7f1f63a63ae7e22c409b8b85b647c4acc25",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "credit-card:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_credit_card_detail_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.loan-detail-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.loan.detail.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:07c8ad9a7b014e4d2e3da8545974d3abad6225da083328d7846aefe3fd879523",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "loan:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_loan_detail_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.loan-precalculate-create",
+      "providerType": "mcp",
+      "capabilityId": "bank.loan.precalculate.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:50618807ef291178d233a89552ff90dffcc08702165fe5bc3871dc90ec76a499",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "loan:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_loan_precalculate_create"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.transfer-receipt-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.transfer.receipt.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:cd44c276925159b7429ea6026366e105ded5072600660d201d3954a84adcdf7c",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "transfer:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_transfer_receipt_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.transfer-status-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.transfer.status.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:2c5211958dfa353db747c457ad492e5ebec04d67948a4aac6d320e2a6760c332",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "transfer:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_transfer_status_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-mock-core.customer-profile-get",
+      "providerType": "mcp",
+      "capabilityId": "bank.customer.profile.get",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:3e8e13e9beea553d45c085de9f232671f0746e0a4fcf5e62258dbe15cef343a6",
+      "exposure": "model-callable",
+      "requiredScopes": [
+        "customer:read"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "serverId": "ccb-mock-core",
+        "toolName": "bank_customer_profile_get"
+      }
+    },
+    {
+      "providerId": "provider.ccb-user-action.wealth-redeem",
+      "providerType": "user-action",
+      "capabilityId": "bank.wealth.redeem.create",
+      "version": "1.0.0",
+      "schemaDigest": "sha256:af308b39eddd243472f8392ec6ae99565d23c13693fcfb3da3a56ff26575e0eb",
+      "exposure": "user-action",
+      "requiredScopes": [
+        "wealth:manage"
+      ],
+      "health": "ready",
+      "endpointBinding": {
+        "gatewayId": "ccb-confirmation-gateway",
+        "action": "wealth-redeem"
+      }
+    }
+  ]
+}

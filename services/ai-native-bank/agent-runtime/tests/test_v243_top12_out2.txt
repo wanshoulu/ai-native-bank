@@ -1,0 +1,55 @@
+﻿subgraph.enabled=True, judge.enabled=True
+
+case_id=V4-243
+query=还信用卡要手续费吗
+expected=['ccb.credit.repay.faq']
+
+召回候选 (8):
+  [1] ccb.credit.repay.repay  score=120  title=一键还款·一键还款
+  [2] ccb.home.repayment.faq  score=80  title=信用卡还款·常见问题
+  [3] ccb.credit.auto-repay.overview  score=70  title=约定还款·约定还款
+  [4] ccb.credit.bill.repay  score=70  title=账单查询·立即还款
+  [5] ccb.credit.repay.overview  score=70  title=一键还款·还款试算
+  [6] ccb.credit.bill.faq  score=68  title=账单查询·常见问题
+  [7] ccb.home.repayment.overview  score=68  title=信用卡还款·本期账单
+  [8] ccb.credit.repay.faq  score=65  title=一键还款·常见问题 <-- expected
+
+top12 (按 score 降序):
+  [1] ccb.credit.repay.repay  score=120
+  [2] ccb.home.repayment.faq  score=80
+  [3] ccb.credit.auto-repay.overview  score=70
+  [4] ccb.credit.bill.repay  score=70
+  [5] ccb.credit.repay.overview  score=70
+  [6] ccb.credit.bill.faq  score=68
+  [7] ccb.home.repayment.overview  score=68
+  [8] ccb.credit.repay.faq  score=65 <-- expected
+
+子图上下文 entry_path 检查:
+  --- ccb.credit.repay.faq ---
+  entry_path: 信用卡>一键还款
+  disambiguation_hints: 本意图聚焦「信用卡频道>一键还款」入口的还款规则知识(到账时效、手续费、扣款顺序)。用户从「信用卡>一键还款」入口问还款规则/手续费/到账时效选本意图；但若用户从「首页>信用卡还款」入口问相同问题,选
+    confusable: 一键还款·还款试算(ccb.credit.repay.overview)
+      entry_path: 信用卡>一键还款
+      differentiator: 同入口,需按动作/对象区分
+    confusable: 一键还款·一键还款(ccb.credit.repay.repay)
+      entry_path: 信用卡>一键还款
+      differentiator: 同入口,需按动作/对象区分
+    confusable: 信用卡还款·常见问题(ccb.home.repayment.faq)
+      entry_path: 首页>信用卡还款
+      differentiator: 入口不同(本意图:信用卡>一键还款 vs 首页>信用卡还款)
+
+======================================================================
+LLM 裁决 (graph_expand=True + with_sub, top12) x3
+======================================================================
+
+[run 1] PASS
+  selected: ['ccb.credit.repay.faq']
+
+[run 2] PASS
+  selected: ['ccb.credit.repay.faq']
+
+[run 3] PASS
+  selected: ['ccb.credit.repay.faq']
+
+通过率: 3/3
+结论: graph_expand=True + with_sub 可用

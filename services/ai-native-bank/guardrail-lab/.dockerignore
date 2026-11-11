@@ -1,0 +1,8 @@
+upstream/.git
+upstream/.venv
+upstream/**/__pycache__
+upstream/**/*.pyc
+upstream/data/*.db
+upstream/logs/*
+reports
+.planning

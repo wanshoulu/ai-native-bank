@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ai-harbor/schemas/predicate-policy.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "policyVersion", "predicates"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "policyVersion": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "predicates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["display", "allowedPurposes", "usagePolicy", "retentionDays"],
+        "properties": {
+          "display": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "displayType", "workbenchVisible", "traceVisible", "summaryTemplate", "redaction"],
+            "properties": {
+              "title": {"type": "string", "minLength": 1, "maxLength": 80},
+              "displayType": {"enum": ["text", "currency", "integer", "boolean", "date", "enum", "masked_reference"]},
+              "workbenchVisible": {"type": "boolean"},
+              "traceVisible": {"type": "boolean"},
+              "summaryTemplate": {"type": "string", "minLength": 7, "maxLength": 120},
+              "redaction": {"enum": ["none", "mask", "restricted"]},
+              "booleanLabels": {"type": "object"},
+              "enumLabels": {"type": "object"}
+            }
+          },
+          "allowedPurposes": {"type": "array", "items": {"type": "string"}, "maxItems": 20},
+          "usagePolicy": {"type": "string"},
+          "retentionDays": {"type": "integer", "minimum": 1, "maximum": 3650},
+          "requiresCoreRefresh": {"type": "boolean"},
+          "requiresConfirmation": {"type": "boolean"},
+          "sensitivity": {"enum": ["L0", "L1", "L2", "L3"]}
+        }
+      }
+    }
+  }
+}

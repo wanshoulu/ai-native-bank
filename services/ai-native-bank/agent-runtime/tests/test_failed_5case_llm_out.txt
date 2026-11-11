@@ -1,0 +1,50 @@
+﻿subgraph.enabled=True, judge.enabled=True
+
+测试 5 个词法召回失败的 single_intent case
+================================================================================
+
+[V4-205] PASS
+  query: 信用卡额度能调高吗
+  expected: ['ccb.credit.card.limit-change']
+  词法 top1: ccb.credit.card.query (score=120)
+  正确答案在 top12: 是
+    正确答案排在第 5 位 (score=55)
+  LLM 选择: ['ccb.credit.card.limit-change']
+
+[V4-206] PASS
+  query: 想降低信用卡额度
+  expected: ['ccb.credit.card.limit-change']
+  词法 top1: ccb.credit.card.query (score=120)
+  正确答案在 top12: 是
+    正确答案排在第 5 位 (score=55)
+  LLM 选择: ['ccb.credit.card.limit-change']
+
+[V4-211] PASS
+  query: 想办账单分期
+  expected: ['ccb.credit.installment.apply']
+  词法 top1: ccb.credit.bill.overview (score=120)
+  正确答案在 top12: 是
+    正确答案排在第 2 位 (score=120)
+  LLM 选择: ['ccb.credit.installment.apply']
+
+[V4-222] PASS
+  query: 改下自动还款的卡
+  expected: ['ccb.credit.auto-repay.setup']
+  词法 top1: ccb.credit.auto-repay.overview (score=65)
+  正确答案在 top12: 是
+    正确答案排在第 2 位 (score=65)
+  LLM 选择: ['ccb.credit.auto-repay.setup']
+
+[V4-243] FAIL
+  query: 还信用卡要手续费吗
+  expected: ['ccb.credit.repay.faq']
+  词法 top1: ccb.credit.repay.repay (score=120)
+  正确答案在 top12: 是
+    正确答案排在第 8 位 (score=65)
+  LLM 选择: ['ccb.home.repayment.faq']
+    - ccb.home.repayment.faq  confidence=0.95
+      reason: 
+
+================================================================================
+LLM 消歧救回测试: 4/5 通过
+================================================================================

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-harbor.local/schemas/ai-native-bank/mock-persona.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "personas"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "personas": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "customerId", "clock", "cashflowPolicy", "events", "expectedRecommendationScenarioIds", "resetVersion"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,63}$" },
+          "customerId": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$", "maxLength": 96 },
+          "clock": { "type": "string", "format": "date-time" },
+          "resetVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+          "cashflowPolicy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["livingBudgetMinor", "emergencyReserveMinor"],
+            "properties": {
+              "livingBudgetMinor": { "type": "integer", "minimum": 0 },
+              "emergencyReserveMinor": { "type": "integer", "minimum": 0 }
+            }
+          },
+          "expectedRecommendationScenarioIds": { "type": "array", "maxItems": 16, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,95}$" } },
+          "events": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "type", "occurredAt", "payload"],
+              "properties": {
+                "id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$", "maxLength": 96 },
+                "type": { "enum": ["salary_credited", "card_bill_due", "utility_bill_due", "loan_payment_due", "spending_anomaly"] },
+                "occurredAt": { "type": "string", "format": "date-time" },
+                "payload": { "type": "object", "maxProperties": 16 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

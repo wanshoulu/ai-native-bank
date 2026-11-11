@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "workflowTemplates": [
+    {
+      "id": "credit-card-repayment-v1", "version": "1.0.0", "title": "信用卡还款",
+      "assistancePolicy": { "mode": "smart_companion", "activation": "on_user_start", "complexityReasons": ["multi_step", "high_impact"], "homeVisible": true, "maxInactiveHours": 24 },
+      "steps": [
+        { "id": "select_card", "title": "选择还款信用卡", "dependsOn": [], "requiredCapabilityIds": ["bank.credit-card.list"], "confirmationLevel": "none", "optional": false, "order": 1 },
+        { "id": "choose_account", "title": "核对付款账户", "dependsOn": ["select_card"], "requiredCapabilityIds": ["bank.account.list"], "confirmationLevel": "plan", "optional": false, "order": 2 },
+        { "id": "review_bill", "title": "核对账单与付款余额", "dependsOn": ["choose_account"], "requiredCapabilityIds": ["bank.credit-card.bill.get", "bank.account.balance.get"], "confirmationLevel": "none", "optional": false, "order": 3 },
+        { "id": "choose_amount", "title": "选择还款金额", "dependsOn": ["review_bill"], "requiredCapabilityIds": [], "confirmationLevel": "plan", "optional": false, "order": 4 },
+        { "id": "confirm_repayment", "title": "确认信用卡还款", "dependsOn": ["choose_amount"], "requiredCapabilityIds": [], "confirmationLevel": "transaction", "optional": false, "order": 5 },
+        { "id": "execute_repayment", "title": "执行信用卡还款", "dependsOn": ["confirm_repayment"], "requiredCapabilityIds": ["bank.credit-card.repayment.create"], "confirmationLevel": "transaction", "optional": false, "order": 6 },
+        { "id": "verify_receipt", "title": "核验还款回执", "dependsOn": ["execute_repayment"], "requiredCapabilityIds": [], "confirmationLevel": "none", "optional": false, "order": 7 }
+      ]
+    },
+    {
+      "id": "obligation-repayment-v1", "version": "1.0.0", "title": "多项账单还款安排",
+      "assistancePolicy": { "mode": "smart_companion", "activation": "on_user_start", "complexityReasons": ["cross_product", "multi_step", "high_impact"], "homeVisible": true, "maxInactiveHours": 168 },
+      "steps": [
+        { "id": "load_obligations", "title": "汇总待还事项", "dependsOn": [], "requiredCapabilityIds": ["bank.obligation.list"], "confirmationLevel": "none", "optional": false, "order": 1 },
+        { "id": "select_obligations", "title": "选择本次处理事项", "dependsOn": ["load_obligations"], "requiredCapabilityIds": [], "confirmationLevel": "plan", "optional": false, "order": 2 },
+        { "id": "confirm_total", "title": "确认总额与逐项金额", "dependsOn": ["select_obligations"], "requiredCapabilityIds": [], "confirmationLevel": "transaction", "optional": false, "order": 3 },
+        { "id": "execute_selected", "title": "逐项执行待还任务", "dependsOn": ["confirm_total"], "requiredCapabilityIds": ["bank.credit-card.repayment.create", "bank.loan.repayment.create", "bank.utility.payment.create"], "confirmationLevel": "transaction", "optional": false, "order": 4 },
+        { "id": "verify_receipts", "title": "核验独立回执", "dependsOn": ["execute_selected"], "requiredCapabilityIds": [], "confirmationLevel": "none", "optional": false, "order": 5 }
+      ]
+    },
+    {
+      "id": "obligation-selected-payment-v1", "version": "1.0.0", "title": "单笔账单办理",
+      "assistancePolicy": { "mode": "smart_companion", "activation": "on_user_start", "complexityReasons": ["multi_step", "high_impact"], "homeVisible": true, "maxInactiveHours": 24 },
+      "steps": [
+        { "id": "load_selected_obligation", "title": "核验所选账单", "dependsOn": [], "requiredCapabilityIds": ["bank.obligation.list"], "confirmationLevel": "none", "optional": false, "order": 1 },
+        { "id": "review_funding", "title": "核对金额与付款影响", "dependsOn": ["load_selected_obligation"], "requiredCapabilityIds": [], "confirmationLevel": "plan", "optional": false, "order": 2 },
+        { "id": "confirm_payment", "title": "本人确认本次办理", "dependsOn": ["review_funding"], "requiredCapabilityIds": [], "confirmationLevel": "transaction", "optional": false, "order": 3 },
+        { "id": "execute_payment", "title": "执行所选账单", "dependsOn": ["confirm_payment"], "requiredCapabilityIds": ["bank.credit-card.repayment.create", "bank.loan.repayment.create", "bank.utility.payment.create"], "confirmationLevel": "transaction", "optional": false, "order": 4 },
+        { "id": "verify_receipt", "title": "返回办理结果与回执", "dependsOn": ["execute_payment"], "requiredCapabilityIds": [], "confirmationLevel": "none", "optional": false, "order": 5 }
+      ]
+    },
+    {
+      "id": "salary-allocation-v1", "version": "1.0.0", "title": "本月工资安排",
+      "assistancePolicy": { "mode": "smart_companion", "activation": "on_user_start", "complexityReasons": ["multi_step", "decision_support"], "homeVisible": true, "maxInactiveHours": 168 },
+      "steps": [
+        { "id": "load_cashflow", "title": "读取工资与现金流", "dependsOn": [], "requiredCapabilityIds": ["bank.cashflow.salary-plan.get"], "confirmationLevel": "none", "optional": false, "order": 1 },
+        { "id": "prepare_plan", "title": "生成可编辑资金方案", "dependsOn": ["load_cashflow"], "requiredCapabilityIds": [], "confirmationLevel": "plan", "optional": false, "order": 2 },
+        { "id": "confirm_plan", "title": "确认选中的执行项", "dependsOn": ["prepare_plan"], "requiredCapabilityIds": [], "confirmationLevel": "transaction", "optional": false, "order": 3 },
+        { "id": "execute_selected", "title": "执行还款或资金配置", "dependsOn": ["confirm_plan"], "requiredCapabilityIds": [], "confirmationLevel": "transaction", "optional": true, "order": 4 },
+        { "id": "verify_results", "title": "核验余额与办理结果", "dependsOn": ["execute_selected"], "requiredCapabilityIds": [], "confirmationLevel": "none", "optional": false, "order": 5 }
+      ]
+    },
+    {
+      "id": "spending-explanation-v1", "version": "1.0.0", "title": "本月消费解释", "assistancePolicy": null,
+      "steps": [
+        { "id": "load_analysis", "title": "读取可比消费事实", "dependsOn": [], "requiredCapabilityIds": ["bank.cashflow.spending-analysis.get"], "confirmationLevel": "none", "optional": false, "order": 1 },
+        { "id": "explain_changes", "title": "解释类别与商户变化", "dependsOn": ["load_analysis"], "requiredCapabilityIds": [], "confirmationLevel": "none", "optional": false, "order": 2 },
+        { "id": "verify_sources", "title": "关联原始流水依据", "dependsOn": ["explain_changes"], "requiredCapabilityIds": [], "confirmationLevel": "none", "optional": false, "order": 3 }
+      ]
+    }
+  ]
+}

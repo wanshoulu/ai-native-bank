@@ -1,0 +1,11 @@
+openjiuwen==0.1.17.post1
+# 4.0.2+ 的锁生命周期与 openjiuwen fs rwlock 不兼容（业务智能体读 SKILL.md 报 not held by this task）
+filelock==4.0.1
+pydantic==2.11.7
+aiosqlite==0.21.0
+fastapi==0.116.1
+uvicorn==0.35.0
+httpx==0.28.1
+coverage==7.10.5
+opentelemetry-sdk==1.44.0
+neo4j==6.3.1

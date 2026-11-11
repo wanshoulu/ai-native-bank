@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "1.0",
+  "scenarios": [
+    {
+      "id": "account",
+      "version": "1.0.0",
+      "title": "账户查询",
+      "domain": "account",
+      "owner": "ai-native-bank",
+      "status": "active",
+      "intentIds": ["ccb.account.balance.query", "ccb.account.transactions.query"],
+      "menuIds": ["ccb.menu.home.account", "ccb.menu.home.details"],
+      "requiredCapabilityIds": ["bank.account.list", "bank.account.balance.get", "bank.account.transactions.list"],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "transfer",
+      "version": "1.0.0",
+      "title": "转账汇款",
+      "domain": "transfer",
+      "owner": "ai-native-bank",
+      "status": "active",
+      "intentIds": ["ccb.transfer.create", "ccb.transfer.payee.query"],
+      "menuIds": ["ccb.menu.home.transfer"],
+      "requiredCapabilityIds": ["bank.account.list", "bank.payee.list", "bank.payee.validate", "bank.transfer.order.create"],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "wealth",
+      "version": "1.0.0",
+      "title": "财富管理",
+      "domain": "wealth",
+      "owner": "ai-native-bank",
+      "status": "active",
+      "intentIds": ["ccb.wealth.dragon-money.overview", "ccb.wealth.dragon-money.buy"],
+      "menuIds": ["ccb.menu.wealth.dragon-money"],
+      "requiredCapabilityIds": ["bank.account.list", "bank.wealth.product.list", "bank.wealth.holding.list", "bank.wealth.purchase.create"],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "credit",
+      "version": "1.0.0",
+      "title": "信用卡管理",
+      "domain": "credit-card",
+      "owner": "ai-native-bank",
+      "status": "active",
+      "intentIds": [
+        "ccb.credit.card.activation",
+        "ccb.credit.card.limit-change",
+        "ccb.credit.card.loss-report",
+        "ccb.credit.card.query",
+        "ccb.credit.card.security-settings.update",
+        "ccb.credit.card.transactions.query"
+      ],
+      "menuIds": ["ccb.menu.credit.card-manage"],
+      "requiredCapabilityIds": [
+        "bank.credit-card.list",
+        "bank.credit-card.transactions.list",
+        "bank.credit-card.settings.get",
+        "bank.credit-card.activation.create",
+        "bank.credit-card.loss-report.create",
+        "bank.credit-card.limit-change.create",
+        "bank.credit-card.security-settings.update"
+      ],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "loan",
+      "version": "1.0.0",
+      "title": "贷款服务",
+      "domain": "loan",
+      "owner": "ai-native-bank",
+      "status": "planned",
+      "intentIds": [],
+      "menuIds": ["ccb.menu.home.loan"],
+      "requiredCapabilityIds": ["bank.loan.list", "bank.loan.detail.get", "bank.loan.repayment.list", "bank.loan.precalculate.create"],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "life",
+      "version": "1.0.0",
+      "title": "生活缴费",
+      "domain": "life",
+      "owner": "ai-native-bank",
+      "status": "planned",
+      "intentIds": [],
+      "menuIds": ["ccb.menu.home.utility"],
+      "requiredCapabilityIds": [],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "benefit",
+      "version": "1.0.0",
+      "title": "权益中心",
+      "domain": "benefit",
+      "owner": "ai-native-bank",
+      "status": "planned",
+      "intentIds": [],
+      "menuIds": ["ccb.menu.home.benefit"],
+      "requiredCapabilityIds": [],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    },
+    {
+      "id": "assistant",
+      "version": "1.0.0",
+      "title": "智能服务总览",
+      "domain": "assistant",
+      "owner": "ai-native-bank",
+      "status": "active",
+      "intentIds": [
+        "ccb.account.balance.query",
+        "ccb.account.transactions.query",
+        "ccb.credit.card.activation",
+        "ccb.credit.card.limit-change",
+        "ccb.credit.card.loss-report",
+        "ccb.credit.card.query",
+        "ccb.credit.card.security-settings.update",
+        "ccb.credit.card.transactions.query",
+        "ccb.transfer.create",
+        "ccb.transfer.payee.query",
+        "ccb.wealth.dragon-money.buy",
+        "ccb.wealth.dragon-money.overview"
+      ],
+      "menuIds": [],
+      "requiredCapabilityIds": [
+        "bank.account.list",
+        "bank.account.balance.get",
+        "bank.account.transactions.list",
+        "bank.payee.list",
+        "bank.payee.validate",
+        "bank.transfer.order.create",
+        "bank.credit-card.list",
+        "bank.credit-card.transactions.list",
+        "bank.credit-card.settings.get",
+        "bank.credit-card.activation.create",
+        "bank.credit-card.loss-report.create",
+        "bank.credit-card.limit-change.create",
+        "bank.credit-card.security-settings.update",
+        "bank.wealth.product.list",
+        "bank.wealth.holding.list",
+        "bank.wealth.purchase.create"
+      ],
+      "evalDatasetId": "ccb-intent-conformance-v1"
+    }
+  ]
+}

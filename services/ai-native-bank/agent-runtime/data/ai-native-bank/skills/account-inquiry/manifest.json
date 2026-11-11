@@ -1,0 +1,12 @@
+{
+  "id": "bank.account-inquiry",
+  "version": "1.2.0",
+  "digest": "sha256:4346b9046195baf566c55f0a3154579221e0c5fdd633855c3e2df28c80cd064b",
+  "requiredCapabilityIds": [
+    "bank.account.list",
+    "bank.account.balance.get",
+    "bank.account.transactions.list",
+    "bank.account.detail.get"
+  ],
+  "riskBoundary": "L1"
+}

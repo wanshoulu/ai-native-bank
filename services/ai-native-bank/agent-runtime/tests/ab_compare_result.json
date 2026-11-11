@@ -1,0 +1,557 @@
+{
+  "summary": {
+    "total": 256,
+    "A_no_subgraph": {
+      "pass": 241,
+      "fail": 15,
+      "rate": 94.140625
+    },
+    "B_with_subgraph": {
+      "pass": 253,
+      "fail": 3,
+      "rate": 98.828125
+    },
+    "delta": 12,
+    "llm_calls": 236,
+    "elapsed_s": 1201.199964761734
+  },
+  "a_fail_cases": [
+    {
+      "case_id": "V4-021",
+      "query": "查信用卡还款",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.faq",
+        "ccb.credit.bill.faq"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.repay.overview",
+        "ccb.home.repayment.faq",
+        "ccb.home.repayment.repay",
+        "ccb.credit.repay.repay"
+      ]
+    },
+    {
+      "case_id": "V4-022",
+      "query": "看看信用卡还款",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.faq",
+        "ccb.credit.bill.faq"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.repay.faq",
+        "ccb.home.repayment.faq",
+        "ccb.home.repayment.repay",
+        "ccb.credit.repay.repay"
+      ]
+    },
+    {
+      "case_id": "V4-077",
+      "query": "查未还金额",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.overview",
+        "ccb.home.repayment.repay"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.card.query"
+      ]
+    },
+    {
+      "case_id": "V4-087",
+      "query": "查下消费",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.credit.card.transactions.query",
+        "ccb.credit.card.query",
+        "ccb.credit.bill.overview",
+        "ccb.account.detail.query"
+      ],
+      "top1": "ccb.credit.card.transactions.query",
+      "llm": true,
+      "cands": [
+        "ccb.credit.card.transactions.query",
+        "ccb.credit.bill.overview",
+        "ccb.me.income-expense.apply",
+        "ccb.transfer.payee.query",
+        "ccb.account.detail.query"
+      ]
+    },
+    {
+      "case_id": "V4-090",
+      "query": "看看还欠",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.credit.repay.overview",
+        "ccb.credit.card.query",
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.overview",
+        "ccb.home.loan.repayment"
+      ],
+      "top1": "ccb.credit.repay.overview",
+      "llm": true,
+      "cands": [
+        "ccb.credit.repay.overview",
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.faq",
+        "ccb.credit.repay.repay",
+        "ccb.home.loan.repayment"
+      ]
+    },
+    {
+      "case_id": "V4-097",
+      "query": "查未还金额",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.repay",
+        "ccb.home.repayment.repay"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.card.query"
+      ]
+    },
+    {
+      "case_id": "V4-127",
+      "query": "查下账户类型",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.home.account.faq"
+      ],
+      "top1": "ccb.account.detail.query",
+      "llm": true,
+      "cands": [
+        "ccb.account.detail.query",
+        "ccb.home.account.faq",
+        "ccb.account.balance.query",
+        "ccb.home.account.apply",
+        "ccb.me.accounts.overview"
+      ]
+    },
+    {
+      "case_id": "V4-158",
+      "query": "查下还款计划然后还信用卡",
+      "shape": "multi_intent",
+      "expected": [
+        "ccb.home.loan.repayment",
+        "ccb.credit.repay.repay"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.repay.repay",
+        "ccb.credit.auto-repay.overview",
+        "ccb.credit.auto-repay.setup"
+      ]
+    },
+    {
+      "case_id": "V4-196",
+      "query": "看看信用卡本月要还多少",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.credit.repay.overview"
+      ],
+      "top1": "ccb.credit.bill.overview",
+      "llm": true,
+      "cands": [
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.card.query",
+        "ccb.credit.repay.faq"
+      ]
+    },
+    {
+      "case_id": "V4-197",
+      "query": "信用卡还差多少没还",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.credit.repay.overview"
+      ],
+      "top1": "ccb.credit.bill.overview",
+      "llm": true,
+      "cands": [
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.card.query",
+        "ccb.credit.repay.faq",
+        "ccb.home.repayment.overview"
+      ]
+    },
+    {
+      "case_id": "V4-231",
+      "query": "钱花哪去了",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.cashflow.spending-explain"
+      ],
+      "top1": "ccb.me.income-expense.overview",
+      "llm": true,
+      "cands": [
+        "ccb.me.income-expense.overview",
+        "ccb.cashflow.spending-explain",
+        "ccb.cashflow.salary-plan",
+        "ccb.credit.card.transactions.query"
+      ]
+    },
+    {
+      "case_id": "V4-232",
+      "query": "这个月钱花得太多了",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.cashflow.spending-explain"
+      ],
+      "top1": "ccb.me.income-expense.overview",
+      "llm": true,
+      "cands": [
+        "ccb.me.income-expense.overview",
+        "ccb.cashflow.spending-explain",
+        "ccb.cashflow.salary-plan",
+        "ccb.credit.card.transactions.query",
+        "ccb.me.income-expense.apply"
+      ]
+    },
+    {
+      "case_id": "V4-235",
+      "query": "每期还多少",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.home.loan.repayment"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.home.loan.repayment",
+        "ccb.home.loan.overview",
+        "ccb.credit.repay.overview",
+        "ccb.home.loan.faq"
+      ]
+    },
+    {
+      "case_id": "V4-243",
+      "query": "还信用卡要手续费吗",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.credit.repay.faq"
+      ],
+      "top1": "ccb.home.repayment.faq",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.faq",
+        "ccb.credit.repay.repay",
+        "ccb.credit.auto-repay.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.repay.overview"
+      ]
+    },
+    {
+      "case_id": "V4-244",
+      "query": "信用卡还款规则是什么",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.home.repayment.faq"
+      ],
+      "top1": "ccb.credit.repay.faq",
+      "llm": true,
+      "cands": [
+        "ccb.credit.repay.faq",
+        "ccb.home.repayment.faq",
+        "ccb.home.repayment.repay",
+        "ccb.credit.bill.faq",
+        "ccb.credit.repay.repay"
+      ]
+    }
+  ],
+  "b_fail_cases": [
+    {
+      "case_id": "V4-021",
+      "query": "查信用卡还款",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.faq",
+        "ccb.credit.bill.faq"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.repay.overview",
+        "ccb.home.repayment.repay",
+        "ccb.credit.repay.repay",
+        "ccb.credit.repay.faq"
+      ]
+    },
+    {
+      "case_id": "V4-022",
+      "query": "看看信用卡还款",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.faq",
+        "ccb.credit.bill.faq"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.repay.faq",
+        "ccb.home.repayment.faq",
+        "ccb.home.repayment.repay",
+        "ccb.credit.repay.repay"
+      ]
+    },
+    {
+      "case_id": "V4-158",
+      "query": "查下还款计划然后还信用卡",
+      "shape": "multi_intent",
+      "expected": [
+        "ccb.home.loan.repayment",
+        "ccb.credit.repay.repay"
+      ],
+      "top1": "ccb.credit.repay.repay",
+      "llm": true,
+      "cands": [
+        "ccb.credit.repay.repay",
+        "ccb.home.repayment.overview",
+        "ccb.credit.auto-repay.overview",
+        "ccb.credit.auto-repay.setup",
+        "ccb.credit.bill.overview"
+      ]
+    }
+  ],
+  "b_only_rescued": [
+    {
+      "case_id": "V4-077",
+      "query": "查未还金额",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.overview",
+        "ccb.home.repayment.repay"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.card.query"
+      ]
+    },
+    {
+      "case_id": "V4-087",
+      "query": "查下消费",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.credit.card.transactions.query",
+        "ccb.credit.card.query",
+        "ccb.credit.bill.overview",
+        "ccb.account.detail.query"
+      ],
+      "top1": "ccb.credit.card.transactions.query",
+      "llm": true,
+      "cands": [
+        "ccb.credit.card.transactions.query",
+        "ccb.credit.bill.overview",
+        "ccb.me.income-expense.apply",
+        "ccb.transfer.payee.query",
+        "ccb.account.detail.query"
+      ]
+    },
+    {
+      "case_id": "V4-090",
+      "query": "看看还欠",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.credit.repay.overview",
+        "ccb.credit.card.query",
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.overview",
+        "ccb.home.loan.repayment"
+      ],
+      "top1": "ccb.credit.repay.overview",
+      "llm": true,
+      "cands": [
+        "ccb.credit.repay.overview",
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.faq",
+        "ccb.credit.repay.repay",
+        "ccb.home.loan.repayment"
+      ]
+    },
+    {
+      "case_id": "V4-097",
+      "query": "查未还金额",
+      "shape": "ambiguous_intent",
+      "expected": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.repay",
+        "ccb.home.repayment.repay"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.card.query"
+      ]
+    },
+    {
+      "case_id": "V4-127",
+      "query": "查下账户类型",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.home.account.faq"
+      ],
+      "top1": "ccb.account.detail.query",
+      "llm": true,
+      "cands": [
+        "ccb.account.detail.query",
+        "ccb.home.account.faq",
+        "ccb.account.balance.query",
+        "ccb.home.account.apply",
+        "ccb.me.accounts.overview"
+      ]
+    },
+    {
+      "case_id": "V4-196",
+      "query": "看看信用卡本月要还多少",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.credit.repay.overview"
+      ],
+      "top1": "ccb.credit.bill.overview",
+      "llm": true,
+      "cands": [
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.card.query",
+        "ccb.credit.repay.faq"
+      ]
+    },
+    {
+      "case_id": "V4-197",
+      "query": "信用卡还差多少没还",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.credit.repay.overview"
+      ],
+      "top1": "ccb.credit.bill.overview",
+      "llm": true,
+      "cands": [
+        "ccb.credit.bill.overview",
+        "ccb.credit.repay.overview",
+        "ccb.credit.card.query",
+        "ccb.credit.repay.faq",
+        "ccb.home.repayment.overview"
+      ]
+    },
+    {
+      "case_id": "V4-231",
+      "query": "钱花哪去了",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.cashflow.spending-explain"
+      ],
+      "top1": "ccb.me.income-expense.overview",
+      "llm": true,
+      "cands": [
+        "ccb.me.income-expense.overview",
+        "ccb.cashflow.spending-explain",
+        "ccb.cashflow.salary-plan",
+        "ccb.credit.card.transactions.query"
+      ]
+    },
+    {
+      "case_id": "V4-232",
+      "query": "这个月钱花得太多了",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.cashflow.spending-explain"
+      ],
+      "top1": "ccb.me.income-expense.overview",
+      "llm": true,
+      "cands": [
+        "ccb.me.income-expense.overview",
+        "ccb.cashflow.spending-explain",
+        "ccb.cashflow.salary-plan",
+        "ccb.credit.card.transactions.query",
+        "ccb.me.income-expense.apply"
+      ]
+    },
+    {
+      "case_id": "V4-235",
+      "query": "每期还多少",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.home.loan.repayment"
+      ],
+      "top1": "ccb.home.repayment.overview",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.overview",
+        "ccb.home.loan.repayment",
+        "ccb.home.loan.overview",
+        "ccb.credit.repay.overview",
+        "ccb.home.loan.faq"
+      ]
+    },
+    {
+      "case_id": "V4-243",
+      "query": "还信用卡要手续费吗",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.credit.repay.faq"
+      ],
+      "top1": "ccb.home.repayment.faq",
+      "llm": true,
+      "cands": [
+        "ccb.home.repayment.faq",
+        "ccb.credit.repay.repay",
+        "ccb.credit.auto-repay.overview",
+        "ccb.credit.bill.repay",
+        "ccb.credit.repay.overview"
+      ]
+    },
+    {
+      "case_id": "V4-244",
+      "query": "信用卡还款规则是什么",
+      "shape": "single_intent",
+      "expected": [
+        "ccb.home.repayment.faq"
+      ],
+      "top1": "ccb.credit.repay.faq",
+      "llm": true,
+      "cands": [
+        "ccb.credit.repay.faq",
+        "ccb.home.repayment.faq",
+        "ccb.home.repayment.repay",
+        "ccb.credit.bill.faq",
+        "ccb.credit.repay.repay"
+      ]
+    }
+  ],
+  "a_only_rescued": []
+}

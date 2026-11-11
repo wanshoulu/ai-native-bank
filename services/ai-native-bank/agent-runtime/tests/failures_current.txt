@@ -1,0 +1,226 @@
+﻿总失败: 46/256
+
+=== ambiguous_intent (27条失败) ===
+  V4-016 [hard  ] q='看看自动还款'
+    expected: [ccb.credit.auto-repay.setup, ccb.credit.repay.repay]
+    top1: ccb.credit.auto-repay.overview
+    candidates: [ccb.credit.auto-repay.overview, ccb.credit.auto-repay.setup, ccb.home.loan.repayment, ccb.home.repayment.overview, ccb.credit.repay.overview, ccb.credit.auto-repay.faq]
+    MISSING: ccb.credit.repay.repay
+  V4-032 [ultra ] q='查还完'
+    expected: [ccb.credit.repay.repay, ccb.credit.bill.repay]
+    top1: ccb.credit.repay.repay
+    candidates: [ccb.credit.repay.repay, ccb.credit.auto-repay.setup, ccb.credit.repay.overview, ccb.home.repayment.repay]
+    MISSING: ccb.credit.bill.repay
+  V4-033 [hard  ] q='看看还完'
+    expected: [ccb.credit.repay.repay, ccb.credit.bill.repay]
+    top1: ccb.credit.repay.repay
+    candidates: [ccb.credit.repay.repay, ccb.credit.auto-repay.setup, ccb.credit.repay.overview, ccb.home.repayment.repay]
+    MISSING: ccb.credit.bill.repay
+  V4-040 [ultra ] q='查开通'
+    expected: [ccb.credit.card.query, ccb.credit.limit.overview]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.limit.overview
+  V4-041 [hard  ] q='看看开通'
+    expected: [ccb.credit.card.query, ccb.credit.limit.overview]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.limit.overview
+  V4-042 [ultra ] q='查开通'
+    expected: [ccb.credit.card.query, ccb.credit.points.overview]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.points.overview
+  V4-043 [hard  ] q='看看开通'
+    expected: [ccb.credit.card.query, ccb.credit.points.overview]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.points.overview
+  V4-046 [hard  ] q='查下消费'
+    expected: [ccb.credit.card.transactions.query, ccb.transfer.payee.query]
+    top1: ccb.credit.card.transactions.query
+    candidates: [ccb.credit.card.transactions.query, ccb.account.detail.query, ccb.credit.bill.overview, ccb.credit.card.query]
+    MISSING: ccb.transfer.payee.query
+  V4-047 [hard  ] q='帮我查消费'
+    expected: [ccb.credit.card.transactions.query, ccb.transfer.payee.query]
+    top1: ccb.credit.card.transactions.query
+    candidates: [ccb.credit.card.transactions.query, ccb.account.detail.query, ccb.credit.bill.overview, ccb.credit.card.query]
+    MISSING: ccb.transfer.payee.query
+  V4-050 [hard  ] q='看看还欠'
+    expected: [ccb.credit.repay.overview, ccb.home.loan.repayment]
+    top1: ccb.credit.repay.overview
+    candidates: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.credit.card.query, ccb.home.repayment.overview]
+    MISSING: ccb.home.loan.repayment
+  V4-051 [hard  ] q='查下还欠'
+    expected: [ccb.credit.repay.overview, ccb.home.loan.repayment]
+    top1: ccb.credit.repay.overview
+    candidates: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.credit.card.query, ccb.home.repayment.overview]
+    MISSING: ccb.home.loan.repayment
+  V4-059 [hard  ] q='余额怎么样了'
+    expected: [ccb.account.balance.query, ccb.home.account.apply]
+    top1: ccb.account.balance.query
+    candidates: [ccb.account.balance.query, ccb.account.detail.query, ccb.account.transactions.query, ccb.credit.card.query]
+    MISSING: ccb.home.account.apply
+  V4-060 [hard  ] q='余额怎么样了'
+    expected: [ccb.account.balance.query, ccb.home.account.faq]
+    top1: ccb.account.balance.query
+    candidates: [ccb.account.balance.query, ccb.account.detail.query, ccb.account.transactions.query, ccb.credit.card.query]
+    MISSING: ccb.home.account.faq
+  V4-066 [ultra ] q='查开通'
+    expected: [ccb.credit.card.query, ccb.credit.card.faq]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.card.faq
+  V4-069 [ultra ] q='查开通'
+    expected: [ccb.credit.card.query, ccb.credit.card.transactions.query]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.card.transactions.query
+  V4-072 [hard  ] q='看看还欠'
+    expected: [ccb.credit.repay.overview, ccb.credit.repay.faq]
+    top1: ccb.credit.repay.overview
+    candidates: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.credit.card.query, ccb.home.repayment.overview]
+    MISSING: ccb.credit.repay.faq
+  V4-073 [hard  ] q='看看还欠'
+    expected: [ccb.credit.repay.overview, ccb.credit.repay.repay]
+    top1: ccb.credit.repay.overview
+    candidates: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.credit.card.query, ccb.home.repayment.overview]
+    MISSING: ccb.credit.repay.repay
+  V4-090 [hard  ] q='看看还欠'
+    expected: [ccb.credit.repay.overview, ccb.credit.card.query, ccb.home.repayment.overview, ccb.credit.bill.overview, ccb.home.loan.repayment]
+    top1: ccb.credit.repay.overview
+    candidates: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.credit.card.query, ccb.home.repayment.overview]
+    MISSING: ccb.home.loan.repayment
+  V4-179 [ultra ] q='还款'
+    expected: [ccb.credit.repay.overview, ccb.home.repayment.overview]
+    top1: ccb.home.loan.repayment
+    candidates: [ccb.home.loan.repayment, ccb.home.repayment.overview, ccb.home.loan.measure, ccb.credit.auto-repay.faq, ccb.credit.auto-repay.overview, ccb.credit.auto-repay.setup]
+    MISSING: ccb.credit.repay.overview
+  V4-180 [ultra ] q='账单'
+    expected: [ccb.credit.bill.overview, ccb.home.repayment.overview]
+    top1: ccb.credit.bill.overview
+    candidates: [ccb.credit.bill.overview, ccb.credit.card.query, ccb.credit.card.transactions.query, ccb.credit.bill.faq, ccb.credit.bill.repay, ccb.credit.cash-installment.overview]
+    MISSING: ccb.home.repayment.overview
+  V4-246 [hard  ] q='查下还款'
+    expected: [ccb.credit.repay.overview, ccb.home.repayment.overview, ccb.home.loan.repayment]
+    top1: ccb.home.repayment.overview
+    candidates: [ccb.home.repayment.overview, ccb.home.loan.repayment, ccb.credit.bill.overview, ccb.credit.bill.repay, ccb.home.repayment.repay, ccb.home.loan.overview]
+    MISSING: ccb.credit.repay.overview
+  V4-247 [hard  ] q='怎么还款'
+    expected: [ccb.credit.repay.faq, ccb.credit.repay.repay, ccb.home.repayment.faq]
+    top1: ccb.credit.repay.faq
+    candidates: [ccb.credit.repay.faq, ccb.home.loan.repayment, ccb.home.repayment.overview, ccb.credit.bill.faq, ccb.credit.repay.overview, ccb.home.repayment.faq]
+    MISSING: ccb.credit.repay.repay
+  V4-249 [hard  ] q='查下欠款'
+    expected: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.home.repayment.overview]
+    top1: None
+    candidates: []
+    MISSING: ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.home.repayment.overview
+  V4-251 [hard  ] q='信用卡状态'
+    expected: [ccb.credit.card.query, ccb.credit.card.loss-report, ccb.credit.card.activation]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview]
+    MISSING: ccb.credit.card.loss-report, ccb.credit.card.activation
+  V4-253 [hard  ] q='查下账'
+    expected: [ccb.credit.bill.overview, ccb.account.transactions.query, ccb.account.detail.query]
+    top1: ccb.account.balance.query
+    candidates: [ccb.account.balance.query, ccb.account.detail.query, ccb.account.transactions.query, ccb.cashflow.spending-explain, ccb.credit.card.query, ccb.credit.card.transactions.query]
+    MISSING: ccb.credit.bill.overview
+  V4-255 [hard  ] q='信用卡办理'
+    expected: [ccb.credit.apply.overview, ccb.credit.card.query]
+    top1: ccb.credit.apply.faq
+    candidates: [ccb.credit.apply.faq]
+    MISSING: ccb.credit.apply.overview, ccb.credit.card.query
+  V4-256 [hard  ] q='查下扣款'
+    expected: [ccb.credit.auto-repay.overview, ccb.credit.repay.overview]
+    top1: None
+    candidates: []
+    MISSING: ccb.credit.auto-repay.overview, ccb.credit.repay.overview
+
+=== non_task (1条失败) ===
+  V4-178 [medium] q='银行卡怎么办'
+    expected: []
+    top1: ccb.me.cards.faq
+    candidates: [ccb.me.cards.faq]
+
+=== single_intent (18条失败) ===
+  V4-115 [easy  ] q='现金转出·在线办理'
+    expected: [ccb.credit.cash.apply]
+    top1: ccb.credit.cash.overview
+    candidates: [ccb.credit.cash.overview, ccb.credit.cash.apply, ccb.credit.cash.faq]
+  V4-126 [easy  ] q='查一下我的工资卡余额'
+    expected: [ccb.home.account.apply]
+    top1: ccb.account.balance.query
+    candidates: [ccb.account.balance.query, ccb.home.account.apply, ccb.home.account.faq, ccb.account.detail.query, ccb.account.transactions.query, ccb.credit.card.query]
+  V4-127 [easy  ] q='查一下我的工资卡余额'
+    expected: [ccb.home.account.faq]
+    top1: ccb.account.balance.query
+    candidates: [ccb.account.balance.query, ccb.home.account.apply, ccb.home.account.faq, ccb.account.detail.query, ccb.account.transactions.query, ccb.credit.card.query]
+  V4-197 [medium] q='信用卡还差多少没还'
+    expected: [ccb.credit.repay.overview]
+    top1: ccb.home.repayment.overview
+    candidates: [ccb.home.repayment.overview, ccb.credit.bill.overview, ccb.credit.bill.repay, ccb.home.repayment.repay]
+    MISSING: ccb.credit.repay.overview
+  V4-201 [medium] q='帮我查下信用卡流水'
+    expected: [ccb.credit.card.transactions.query]
+    top1: ccb.account.transactions.query
+    candidates: [ccb.account.transactions.query, ccb.account.balance.query, ccb.cashflow.spending-explain, ccb.credit.card.transactions.query, ccb.account.detail.query, ccb.credit.bill.overview]
+  V4-202 [medium] q='信用卡最近花了哪些钱'
+    expected: [ccb.credit.card.transactions.query]
+    top1: None
+    candidates: []
+    MISSING: ccb.credit.card.transactions.query
+  V4-203 [medium] q='看看信用卡退款到账没'
+    expected: [ccb.credit.card.transactions.query]
+    top1: None
+    candidates: []
+    MISSING: ccb.credit.card.transactions.query
+  V4-205 [medium] q='信用卡额度能调高吗'
+    expected: [ccb.credit.card.limit-change]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview, ccb.credit.card.limit-change, ccb.credit.limit.overview]
+  V4-206 [hard  ] q='想降低信用卡额度'
+    expected: [ccb.credit.card.limit-change]
+    top1: ccb.credit.card.query
+    candidates: [ccb.credit.card.query, ccb.account.balance.query, ccb.credit.bill.overview, ccb.credit.repay.overview, ccb.credit.card.limit-change, ccb.credit.limit.overview]
+  V4-210 [hard  ] q='卡不见了怎么处理'
+    expected: [ccb.credit.card.loss-report]
+    top1: None
+    candidates: []
+    MISSING: ccb.credit.card.loss-report
+  V4-211 [hard  ] q='想办账单分期'
+    expected: [ccb.credit.installment.apply]
+    top1: ccb.credit.bill.overview
+    candidates: [ccb.credit.bill.overview, ccb.credit.installment.apply, ccb.credit.installment.overview, ccb.credit.bill.faq, ccb.credit.bill.repay, ccb.home.repayment.overview]
+  V4-212 [hard  ] q='信用卡能分几期'
+    expected: [ccb.credit.installment.overview]
+    top1: None
+    candidates: []
+    MISSING: ccb.credit.installment.overview
+  V4-222 [hard  ] q='改下自动还款的卡'
+    expected: [ccb.credit.auto-repay.setup]
+    top1: ccb.credit.auto-repay.overview
+    candidates: [ccb.credit.auto-repay.overview, ccb.credit.auto-repay.setup, ccb.home.loan.repayment, ccb.home.repayment.overview, ccb.credit.bill.overview, ccb.credit.bill.repay]
+  V4-229 [medium] q='看看最近的交易记录'
+    expected: [ccb.account.transactions.query]
+    top1: None
+    candidates: []
+    MISSING: ccb.account.transactions.query
+  V4-232 [medium] q='这个月钱花得太多了'
+    expected: [ccb.cashflow.spending-explain]
+    top1: None
+    candidates: []
+    MISSING: ccb.cashflow.spending-explain
+  V4-235 [hard  ] q='每期还多少'
+    expected: [ccb.home.loan.repayment]
+    top1: ccb.credit.repay.overview
+    candidates: [ccb.credit.repay.overview, ccb.credit.bill.overview, ccb.credit.card.query, ccb.home.repayment.overview, ccb.home.loan.repayment, ccb.home.loan.overview]
+  V4-243 [medium] q='还信用卡要手续费吗'
+    expected: [ccb.credit.repay.faq]
+    top1: ccb.credit.repay.repay
+    candidates: [ccb.credit.repay.repay, ccb.home.repayment.faq, ccb.home.repayment.repay, ccb.home.transfer.faq, ccb.credit.auto-repay.setup, ccb.credit.bill.faq]
+  V4-245 [hard  ] q='跨行还信用卡行吗'
+    expected: [ccb.home.repayment.faq]
+    top1: ccb.credit.repay.repay
+    candidates: [ccb.credit.repay.repay, ccb.home.repayment.faq, ccb.home.repayment.repay, ccb.credit.auto-repay.setup, ccb.credit.bill.faq, ccb.credit.bill.repay]
+

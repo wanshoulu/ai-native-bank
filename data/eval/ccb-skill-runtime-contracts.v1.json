@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "high-frequency-first",
+  "datasetId": "ccb-skill-runtime-contracts-v1",
+  "runtimeVersion": "0.1.17.post1",
+  "graph": {
+    "id": "ccb-mobile-bank-intents",
+    "version": "2.1.0",
+    "digest": "sha256:4d0f3ae32a79ed3eb8841b4b0afca10da23aaa071c42211dab761fba36f03837"
+  },
+  "skills": [],
+  "cases": []
+}

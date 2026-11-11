@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-harbor.local/schemas/ai-native-bank/provider-registry.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "providers"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["providerId", "providerType", "capabilityId", "version", "schemaDigest", "exposure", "requiredScopes", "health", "endpointBinding"],
+        "properties": {
+          "providerId": { "type": "string", "pattern": "^provider\\.[a-z0-9.-]+$" },
+          "providerType": { "enum": ["mcp", "user-action"] },
+          "capabilityId": { "type": "string", "pattern": "^bank\\.[a-z0-9.-]+$" },
+          "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+          "schemaDigest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+          "exposure": { "enum": ["model-callable", "user-action"] },
+          "requiredScopes": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+          "health": { "enum": ["ready", "degraded", "unavailable"] },
+          "endpointBinding": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["serverId", "toolName"],
+                "properties": {
+                  "serverId": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,95}$" },
+                  "toolName": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,95}$" }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["gatewayId", "action"],
+                "properties": {
+                  "gatewayId": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,95}$" },
+                  "action": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,95}$" }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

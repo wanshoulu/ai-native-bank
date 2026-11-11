@@ -1,0 +1,380 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "bank-memory-intent-v2-semantic",
+  "defaults": {
+    "read": null,
+    "write": null
+  },
+  "defaultRead": {
+    "purpose": "service_continuity",
+    "memoryTypes": ["user_profile", "semantic_memory", "episodic_memory", "summary"],
+    "predicates": [],
+    "queryHint": "用户银行服务办理记录、偏好和最近交互摘要",
+    "maxItems": 5,
+    "maxTokens": 800,
+    "sensitivityCeiling": "L2"
+  },
+  "domainPatterns": {
+    "ccb.wealth.": {
+      "purpose": "wealth_guidance",
+      "memoryTypes": ["user_profile", "semantic_memory", "episodic_memory"],
+      "predicates": [],
+      "queryHint": "理财投资 风险偏好 产品偏好 投资目标 投资期限 资金规划",
+      "maxItems": 6,
+      "maxTokens": 1200,
+      "sensitivityCeiling": "L2"
+    },
+    "ccb.cashflow.": {
+      "purpose": "monthly_fund_planning",
+      "memoryTypes": ["user_profile", "semantic_memory", "episodic_memory"],
+      "predicates": [],
+      "queryHint": "用户月度资金规划 收支情况 预算安排 薪资分配",
+      "maxItems": 6,
+      "maxTokens": 1200,
+      "sensitivityCeiling": "L2"
+    }
+  },
+  "intents": {
+    "ccb.cashflow.salary-plan": {
+      "read": {
+        "purpose": "monthly_fund_planning",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户月度资金规划和薪资收入分配的服务记录，包括预算安排和应急储备偏好",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "service_continuity"
+      }
+    },
+    "ccb.cashflow.spending-explain": {
+      "read": {
+        "purpose": "cashflow_explanation",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户支出消费分析和账单明细查询的服务记录，包括消费分类和资金变化解释",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "service_continuity"
+      }
+    },
+    "ccb.obligation.repay-all": {
+      "read": {
+        "purpose": "service_continuity",
+        "memoryTypes": [
+          "episodic_memory",
+          "summary"
+        ],
+        "predicates": [],
+        "queryHint": "用户还款操作记录和服务摘要，包括最近交互的还款详情",
+        "maxItems": 4,
+        "maxTokens": 800,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "service_continuity"
+      }
+    },
+    "ccb.home.repayment.repay": {
+      "read": {
+        "purpose": "service_continuity",
+        "memoryTypes": [
+          "episodic_memory",
+          "summary"
+        ],
+        "predicates": [],
+        "queryHint": "用户房贷还款操作记录和服务摘要，包括最近还款交互详情",
+        "maxItems": 4,
+        "maxTokens": 800,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "service_continuity"
+      }
+    },
+    "ccb.wealth.deposit.overview": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户存款和定期理财的服务记录，包括产品类型选择、收益利率和风险偏好",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.fund.overview": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户基金理财查询的服务记录，包括基金产品类型、风险等级和投资期限偏好",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.wealth-product.overview": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户理财产品查询和选择的服务记录，包括产品类型、收益利率、风险等级和投资期限偏好",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.advisor.recommend": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户理财推荐和投资建议的服务记录，包括投资目标、风险偏好、投资期限和产品类型选择",
+        "capabilityInputBindings": {
+          "bank.wealth.advisory.context.get": {
+            "investment_goal_preference": "investmentGoal",
+            "investment_horizon_months": "horizonMonths"
+          }
+        },
+        "maxItems": 8,
+        "maxTokens": 1500,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.transfer.create": {
+      "read": {
+        "purpose": "service_continuity",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户转账汇款操作记录和服务摘要，包括收款人信息和账户偏好",
+        "maxItems": 6,
+        "maxTokens": 1000,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "service_continuity"
+      }
+    },
+    "ccb.transfer.payee.query": {
+      "read": {
+        "purpose": "service_continuity",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户收款人查询记录，包括常用联系人和账户偏好信息",
+        "maxItems": 4,
+        "maxTokens": 600,
+        "sensitivityCeiling": "L2"
+      },
+      "write": null
+    },
+    "ccb.wealth.wealth-product.buy": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户理财产品购买的服务记录，包括产品类型、收益利率、风险等级和投资期限偏好",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.deposit.buy": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户定期存款购买的服务记录，包括存款期限、利率偏好和资金规划",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.fund.buy": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户基金购买的服务记录，包括基金产品类型、风险等级和投资期限偏好",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.dragon-money.buy": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户龙钞购买的服务记录，包括产品类型、风险偏好和投资期限",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    },
+    "ccb.wealth.overview.buy": {
+      "read": {
+        "purpose": "wealth_guidance",
+        "memoryTypes": [
+          "user_profile",
+          "semantic_memory",
+          "episodic_memory"
+        ],
+        "predicates": [],
+        "queryHint": "用户理财产品总览购买的服务记录，包括产品偏好、风险等级和投资目标",
+        "maxItems": 6,
+        "maxTokens": 1200,
+        "sensitivityCeiling": "L2"
+      },
+      "write": {
+        "statuses": [
+          "succeeded"
+        ],
+        "candidateType": "canonical_service_episode",
+        "predicate": "service_episode_summary",
+        "purpose": "wealth_guidance"
+      }
+    }
+  }
+}

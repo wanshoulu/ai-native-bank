@@ -1,0 +1,37 @@
+# dependencies
+node_modules/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# env & secrets
+.env
+.env.local
+*.key
+**/.api-tokens.json
+**/login.json
+
+# logs & runtime artifacts
+*.log
+logs/
+*.db.corrupt-*
+*.db.quarantine-*
+
+# 运行期生成（保留 git 分发版 seed）
+data/ai-native-bank/intent-graph/archive/
+data/ai-native-bank/usage-events*.json*
+services/ai-native-bank/agent-runtime/agent-workspaces/
+services/ai-native-bank/agent-runtime/data/ai-native-bank/mock-core.db
+services/ai-native-bank/agent-runtime/logs/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# backup
+*.bak
+*.bak-*

@@ -1,0 +1,5803 @@
+{
+ "schemaVersion": "1.0",
+ "reportType": "mock300-intent-recall-accuracy",
+ "graph": {
+  "graphId": "ccb-mobile-bank-intents",
+  "version": "2.1.0",
+  "digest": "sha256:7581f6ac251a626d6af78ceb787376097e3cfa54131f82b265685d42b759ad9e"
+ },
+ "engine": {
+  "component": "IntentGraphRepository.recall",
+  "pageContext": {},
+  "llmUsed": false,
+  "note": "与生产 MOA 链路一致；零候选/低分用例在生产由 LLM 语义扩召兜底"
+ },
+ "summary": {
+  "cases": 300,
+  "activeCases": 288,
+  "plannedCases": 12,
+  "top1Accuracy": 0.8507,
+  "top3HitRate": 1.0,
+  "candidateRecallRate": 1.0,
+  "zeroCandidateRate": 0.0,
+  "strictTop1Accuracy": 0.986,
+  "strictCaseCount": 214,
+  "plannedSuppressionRate": 1.0,
+  "activeTop1Hits": 245,
+  "activeRecallHits": 288,
+  "activeZeroCandidates": 0
+ },
+ "byDomain": {
+  "account": {
+   "cases": 9,
+   "top1": 9,
+   "recall": 9,
+   "zero": 0,
+   "top1Accuracy": 1.0,
+   "candidateRecallRate": 1.0
+  },
+  "cashflow": {
+   "cases": 5,
+   "top1": 5,
+   "recall": 5,
+   "zero": 0,
+   "top1Accuracy": 1.0,
+   "candidateRecallRate": 1.0
+  },
+  "credit": {
+   "cases": 77,
+   "top1": 66,
+   "recall": 77,
+   "zero": 0,
+   "top1Accuracy": 0.8571,
+   "candidateRecallRate": 1.0
+  },
+  "customer": {
+   "cases": 1,
+   "top1": 1,
+   "recall": 1,
+   "zero": 0,
+   "top1Accuracy": 1.0,
+   "candidateRecallRate": 1.0
+  },
+  "home": {
+   "cases": 45,
+   "top1": 42,
+   "recall": 45,
+   "zero": 0,
+   "top1Accuracy": 0.9333,
+   "candidateRecallRate": 1.0
+  },
+  "life": {
+   "cases": 42,
+   "top1": 27,
+   "recall": 42,
+   "zero": 0,
+   "top1Accuracy": 0.6429,
+   "candidateRecallRate": 1.0
+  },
+  "me": {
+   "cases": 44,
+   "top1": 43,
+   "recall": 44,
+   "zero": 0,
+   "top1Accuracy": 0.9773,
+   "candidateRecallRate": 1.0
+  },
+  "obligation": {
+   "cases": 2,
+   "top1": 2,
+   "recall": 2,
+   "zero": 0,
+   "top1Accuracy": 1.0,
+   "candidateRecallRate": 1.0
+  },
+  "transfer": {
+   "cases": 4,
+   "top1": 4,
+   "recall": 4,
+   "zero": 0,
+   "top1Accuracy": 1.0,
+   "candidateRecallRate": 1.0
+  },
+  "wealth": {
+   "cases": 59,
+   "top1": 46,
+   "recall": 59,
+   "zero": 0,
+   "top1Accuracy": 0.7797,
+   "candidateRecallRate": 1.0
+  }
+ },
+ "byExecutionMode": {
+  "confirm-required": {
+   "cases": 20,
+   "top1": 19,
+   "recall": 20,
+   "top1Accuracy": 0.95,
+   "candidateRecallRate": 1.0
+  },
+  "knowledge-only": {
+   "cases": 107,
+   "top1": 95,
+   "recall": 107,
+   "top1Accuracy": 0.8879,
+   "candidateRecallRate": 1.0
+  },
+  "navigation-only": {
+   "cases": 125,
+   "top1": 97,
+   "recall": 125,
+   "top1Accuracy": 0.776,
+   "candidateRecallRate": 1.0
+  },
+  "read-execute": {
+   "cases": 36,
+   "top1": 34,
+   "recall": 36,
+   "top1Accuracy": 0.9444,
+   "candidateRecallRate": 1.0
+  }
+ },
+ "failures": [
+  {
+   "caseId": "mock300-025",
+   "kind": "primary",
+   "intentId": "ccb.credit.cash-installment.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金分期",
+   "utterance": "进入现金分期",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash-installment.faq",
+    "ccb.credit.cash-installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-027",
+   "kind": "primary",
+   "intentId": "ccb.credit.cash.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金转出",
+   "utterance": "打开现金转出",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash.faq",
+    "ccb.credit.cash.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-029",
+   "kind": "primary",
+   "intentId": "ccb.credit.installment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "账单分期",
+   "utterance": "我想了解账单分期",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.apply",
+    "ccb.credit.installment.faq",
+    "ccb.credit.installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-034",
+   "kind": "primary",
+   "intentId": "ccb.credit.points.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "积分兑换时效",
+   "utterance": "介绍一下积分兑换时效",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.apply",
+    "ccb.credit.points.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-044",
+   "kind": "primary",
+   "intentId": "ccb.credit.security.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "管理支付安全",
+   "utterance": "带我去管理支付安全",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.security.faq",
+    "ccb.credit.security.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-053",
+   "kind": "primary",
+   "intentId": "ccb.home.benefit.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查权益记录",
+   "utterance": "查权益记录在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.benefits.overview",
+    "ccb.home.benefit.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-083",
+   "kind": "primary",
+   "intentId": "ccb.home.repayment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "还信用卡怎么还",
+   "utterance": "我想了解还信用卡怎么还",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.repayment.repay",
+    "ccb.home.repayment.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-084",
+   "kind": "primary",
+   "intentId": "ccb.home.repayment.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账单金额",
+   "utterance": "查查账单金额",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.overview",
+    "ccb.home.repayment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-097",
+   "kind": "primary",
+   "intentId": "ccb.life.car.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "加油停车与罚款",
+   "utterance": "进入加油停车与罚款",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.car.faq",
+    "ccb.life.car.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-099",
+   "kind": "primary",
+   "intentId": "ccb.life.coupon.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "品牌券与本地优惠",
+   "utterance": "打开品牌券与本地优惠",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.coupon.faq",
+    "ccb.life.coupon.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-101",
+   "kind": "primary",
+   "intentId": "ccb.life.electric.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的电费状态",
+   "utterance": "我的电费状态在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.electric.faq",
+    "ccb.life.electric.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-103",
+   "kind": "primary",
+   "intentId": "ccb.life.food.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "餐饮服务与优惠",
+   "utterance": "怎么进入餐饮服务与优惠",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.food.faq",
+    "ccb.life.food.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-105",
+   "kind": "primary",
+   "intentId": "ccb.life.gas.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "燃气账单与缴纳",
+   "utterance": "带我去燃气账单与缴纳",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.gas.faq",
+    "ccb.life.gas.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-111",
+   "kind": "primary",
+   "intentId": "ccb.life.heating.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "供暖账单与缴纳",
+   "utterance": "打开供暖账单与缴纳",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.heating.faq",
+    "ccb.life.heating.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-115",
+   "kind": "primary",
+   "intentId": "ccb.life.housing-fund.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "公积金要多久",
+   "utterance": "公积金要多久有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.housing-fund.apply",
+    "ccb.life.housing-fund.faq",
+    "ccb.life.housing-fund.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-116",
+   "kind": "primary",
+   "intentId": "ccb.life.housing-fund.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "公积金查询",
+   "utterance": "带我去公积金查询",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.housing-fund.apply",
+    "ccb.life.housing-fund.faq",
+    "ccb.life.housing-fund.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-118",
+   "kind": "primary",
+   "intentId": "ccb.life.medical.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "查医保状态",
+   "utterance": "我要用查医保状态",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-122",
+   "kind": "primary",
+   "intentId": "ccb.life.movie.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "影院选座与优惠购票",
+   "utterance": "打开影院选座与优惠购票",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.movie.faq",
+    "ccb.life.movie.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-126",
+   "kind": "primary",
+   "intentId": "ccb.life.property.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "物业账单与缴纳",
+   "utterance": "怎么进入物业账单与缴纳",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.property.faq",
+    "ccb.life.property.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-128",
+   "kind": "primary",
+   "intentId": "ccb.life.social.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "社保卡安全吗",
+   "utterance": "社保卡安全吗有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.social.apply",
+    "ccb.life.social.faq",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-129",
+   "kind": "primary",
+   "intentId": "ccb.life.social.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "养老和医保交了多少",
+   "utterance": "我要用养老和医保交了多少",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-133",
+   "kind": "primary",
+   "intentId": "ccb.life.video.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "影音会员",
+   "utterance": "打开影音会员",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.video.faq",
+    "ccb.life.video.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-135",
+   "kind": "primary",
+   "intentId": "ccb.life.water.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的水费状态",
+   "utterance": "我的水费状态在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.water.faq",
+    "ccb.life.water.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-175",
+   "kind": "primary",
+   "intentId": "ccb.me.settings.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的设置在哪看",
+   "utterance": "进入我的设置在哪看",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.settings.faq",
+    "ccb.me.settings.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-188",
+   "kind": "primary",
+   "intentId": "ccb.wealth.bond.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "储蓄国债与柜台债",
+   "utterance": "带我去储蓄国债与柜台债",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.bond.faq",
+    "ccb.wealth.bond.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-197",
+   "kind": "primary",
+   "intentId": "ccb.wealth.easy-repay.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "还款资金归集与管理",
+   "utterance": "打开还款资金归集与管理",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.easy-repay.faq",
+    "ccb.wealth.easy-repay.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-199",
+   "kind": "primary",
+   "intentId": "ccb.wealth.favorites.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "自选产品与行情提醒",
+   "utterance": "自选产品与行情提醒在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.favorites.faq",
+    "ccb.wealth.favorites.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-201",
+   "kind": "primary",
+   "intentId": "ccb.wealth.four-money.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "按资金用途进行配置",
+   "utterance": "按资金用途进行配置有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.four-money.apply",
+    "ccb.wealth.four-money.faq",
+    "ccb.wealth.four-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-202",
+   "kind": "primary",
+   "intentId": "ccb.wealth.four-money.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "按资金用途进行配置",
+   "utterance": "带我去按资金用途进行配置",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.four-money.apply",
+    "ccb.wealth.four-money.faq",
+    "ccb.wealth.four-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-212",
+   "kind": "primary",
+   "intentId": "ccb.wealth.guide.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "财富知识与入门引导",
+   "utterance": "怎么进入财富知识与入门引导",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.guide.faq",
+    "ccb.wealth.guide.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-214",
+   "kind": "primary",
+   "intentId": "ccb.wealth.income.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "日月年多周期收益",
+   "utterance": "介绍一下日月年多周期收益",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview",
+    "ccb.wealth.income.apply",
+    "ccb.wealth.income.faq",
+    "ccb.wealth.income.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-215",
+   "kind": "primary",
+   "intentId": "ccb.wealth.income.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "看看日收益",
+   "utterance": "我要用看看日收益",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview",
+    "ccb.wealth.income.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-217",
+   "kind": "primary",
+   "intentId": "ccb.wealth.insurance.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "保险安全吗",
+   "utterance": "保险安全吗有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.insurance.apply",
+    "ccb.wealth.insurance.faq",
+    "ccb.wealth.insurance.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-218",
+   "kind": "primary",
+   "intentId": "ccb.wealth.insurance.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "保险产品",
+   "utterance": "打开保险产品",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.insurance.apply",
+    "ccb.wealth.insurance.faq",
+    "ccb.wealth.insurance.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-222",
+   "kind": "primary",
+   "intentId": "ccb.wealth.overview.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "分析一下我的资产配置",
+   "utterance": "分析一下我的资产配置是什么",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.overview.buy",
+    "ccb.wealth.overview.faq",
+    "ccb.wealth.overview.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-226",
+   "kind": "primary",
+   "intentId": "ccb.wealth.portfolio.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "持仓安全吗",
+   "utterance": "持仓安全吗怎么办",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview",
+    "ccb.wealth.portfolio.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-229",
+   "kind": "primary",
+   "intentId": "ccb.wealth.portfolio.redeem",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "把理财赎回来",
+   "utterance": "进入把理财赎回来",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.redeem",
+    "ccb.wealth.portfolio.redeem"
+   ]
+  },
+  {
+   "caseId": "mock300-257",
+   "kind": "hard",
+   "intentId": "ccb.credit.card-manage.security-query",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "查安全设置",
+   "utterance": "查查查安全设置",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.security-settings.update",
+    "ccb.credit.card-manage.security-query",
+    "ccb.me.settings.faq",
+    "ccb.me.settings.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-266",
+   "kind": "hard",
+   "intentId": "ccb.credit.cash-installment.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金分期信息查询",
+   "utterance": "带我去现金分期信息查询",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash-installment.faq",
+    "ccb.credit.cash-installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-268",
+   "kind": "hard",
+   "intentId": "ccb.credit.cash.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "信用额度现金转出",
+   "utterance": "我要用信用额度现金转出",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash.faq",
+    "ccb.credit.cash.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-270",
+   "kind": "hard",
+   "intentId": "ccb.credit.installment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "账单分期与试算",
+   "utterance": "账单分期与试算怎么办",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.apply",
+    "ccb.credit.installment.faq",
+    "ccb.credit.installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-275",
+   "kind": "hard",
+   "intentId": "ccb.credit.points.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "积分兑换安全吗",
+   "utterance": "积分兑换安全吗有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.apply",
+    "ccb.credit.points.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-283",
+   "kind": "colloquial",
+   "intentId": "ccb.credit.card.loss-report",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "我的信用卡丢了，赶紧挂失",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.query",
+    "ccb.credit.card.loss-report"
+   ]
+  }
+ ],
+ "results": [
+  {
+   "caseId": "mock300-001",
+   "kind": "primary",
+   "intentId": "ccb.account.balance.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "卡里还有多少钱",
+   "utterance": "帮我查一下卡里还有多少钱",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.balance.query"
+   ]
+  },
+  {
+   "caseId": "mock300-002",
+   "kind": "primary",
+   "intentId": "ccb.account.detail.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "帮我查下账户资料",
+   "utterance": "我想查帮我查下账户资料",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.detail.query"
+   ]
+  },
+  {
+   "caseId": "mock300-003",
+   "kind": "primary",
+   "intentId": "ccb.account.transactions.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "银行卡流水",
+   "utterance": "银行卡流水怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.transactions.query"
+   ]
+  },
+  {
+   "caseId": "mock300-004",
+   "kind": "primary",
+   "intentId": "ccb.cashflow.salary-plan",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "工资规划",
+   "utterance": "请帮我查工资规划",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.cashflow.salary-plan"
+   ]
+  },
+  {
+   "caseId": "mock300-005",
+   "kind": "primary",
+   "intentId": "ccb.cashflow.spending-explain",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "支出分析",
+   "utterance": "看一下我的支出分析",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.cashflow.spending-explain"
+   ]
+  },
+  {
+   "caseId": "mock300-006",
+   "kind": "primary",
+   "intentId": "ccb.credit.apply.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "办卡要收费吗",
+   "utterance": "办卡要收费吗是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.apply.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-007",
+   "kind": "primary",
+   "intentId": "ccb.credit.apply.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "信用卡申请到哪了",
+   "utterance": "打开信用卡申请到哪了",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.apply.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-008",
+   "kind": "primary",
+   "intentId": "ccb.credit.auto-repay.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "自动还款怎么办理",
+   "utterance": "我想了解自动还款怎么办理",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.auto-repay.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-009",
+   "kind": "primary",
+   "intentId": "ccb.credit.auto-repay.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "自动还款信息",
+   "utterance": "自动还款信息在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.auto-repay.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-010",
+   "kind": "primary",
+   "intentId": "ccb.credit.auto-repay.setup",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "开通自动还款",
+   "utterance": "怎么进入开通自动还款",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.auto-repay.setup"
+   ]
+  },
+  {
+   "caseId": "mock300-011",
+   "kind": "primary",
+   "intentId": "ccb.credit.benefits.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "权益常见疑问",
+   "utterance": "权益常见疑问怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.benefits.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-012",
+   "kind": "primary",
+   "intentId": "ccb.credit.benefits.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下权益",
+   "utterance": "带我去查一下权益",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.benefits.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-013",
+   "kind": "primary",
+   "intentId": "ccb.credit.bill.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账单费用",
+   "utterance": "介绍一下账单费用",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-014",
+   "kind": "primary",
+   "intentId": "ccb.credit.bill.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查账单",
+   "utterance": "查查查账单",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-015",
+   "kind": "primary",
+   "intentId": "ccb.credit.bill.repay",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "还清账单",
+   "utterance": "我要用还清账单",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.repay"
+   ]
+  },
+  {
+   "caseId": "mock300-016",
+   "kind": "primary",
+   "intentId": "ccb.credit.card-manage.security-query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下交易安全",
+   "utterance": "帮我查一下查一下交易安全",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card-manage.security-query"
+   ]
+  },
+  {
+   "caseId": "mock300-017",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.activation",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "新卡怎么启用",
+   "utterance": "我要新卡怎么启用",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.activation"
+   ]
+  },
+  {
+   "caseId": "mock300-018",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "办卡要多久",
+   "utterance": "办卡要多久有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-019",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.limit-change",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "提高额度",
+   "utterance": "帮我提高额度",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.limit-change"
+   ]
+  },
+  {
+   "caseId": "mock300-020",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.loss-report",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "丢卡",
+   "utterance": "我想办理丢卡",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.loss-report"
+   ]
+  },
+  {
+   "caseId": "mock300-021",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "信用卡列表",
+   "utterance": "我想查信用卡列表",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.query"
+   ]
+  },
+  {
+   "caseId": "mock300-022",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.security-settings.update",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "怎么管理线上交易",
+   "utterance": "麻烦帮我怎么管理线上交易",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.security-settings.update"
+   ]
+  },
+  {
+   "caseId": "mock300-023",
+   "kind": "primary",
+   "intentId": "ccb.credit.card.transactions.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "信用卡明细",
+   "utterance": "信用卡明细怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.transactions.query"
+   ]
+  },
+  {
+   "caseId": "mock300-024",
+   "kind": "primary",
+   "intentId": "ccb.credit.cash-installment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金分期",
+   "utterance": "怎么办理现金分期",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash-installment.faq",
+    "ccb.credit.cash-installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-025",
+   "kind": "primary",
+   "intentId": "ccb.credit.cash-installment.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金分期",
+   "utterance": "进入现金分期",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash-installment.faq",
+    "ccb.credit.cash-installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-026",
+   "kind": "primary",
+   "intentId": "ccb.credit.cash.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金转出",
+   "utterance": "现金转出是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash.faq",
+    "ccb.credit.cash.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-027",
+   "kind": "primary",
+   "intentId": "ccb.credit.cash.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金转出",
+   "utterance": "打开现金转出",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash.faq",
+    "ccb.credit.cash.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-028",
+   "kind": "primary",
+   "intentId": "ccb.credit.installment.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "申请分期",
+   "utterance": "申请分期在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-029",
+   "kind": "primary",
+   "intentId": "ccb.credit.installment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "账单分期",
+   "utterance": "我想了解账单分期",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.apply",
+    "ccb.credit.installment.faq",
+    "ccb.credit.installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-030",
+   "kind": "primary",
+   "intentId": "ccb.credit.installment.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我能分多少期",
+   "utterance": "怎么进入我能分多少期",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-031",
+   "kind": "primary",
+   "intentId": "ccb.credit.limit.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "提额办理时间",
+   "utterance": "提额办理时间怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.limit.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-032",
+   "kind": "primary",
+   "intentId": "ccb.credit.limit.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "额度信息查询",
+   "utterance": "带我去额度信息查询",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.limit.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-033",
+   "kind": "primary",
+   "intentId": "ccb.credit.points.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "积分能换啥",
+   "utterance": "我要用积分能换啥",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-034",
+   "kind": "primary",
+   "intentId": "ccb.credit.points.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "积分兑换时效",
+   "utterance": "介绍一下积分兑换时效",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.apply",
+    "ccb.credit.points.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-035",
+   "kind": "primary",
+   "intentId": "ccb.credit.points.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我积分有多少",
+   "utterance": "进入我积分有多少",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-036",
+   "kind": "primary",
+   "intentId": "ccb.credit.profile.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "资料更新时效",
+   "utterance": "资料更新时效有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.profile.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-037",
+   "kind": "primary",
+   "intentId": "ccb.credit.profile.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "管理我的资料",
+   "utterance": "打开管理我的资料",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.profile.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-038",
+   "kind": "primary",
+   "intentId": "ccb.credit.progress.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "审核要多久",
+   "utterance": "怎么办理审核要多久",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.progress.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-039",
+   "kind": "primary",
+   "intentId": "ccb.credit.progress.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "卡寄到哪了",
+   "utterance": "卡寄到哪了在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.progress.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-040",
+   "kind": "primary",
+   "intentId": "ccb.credit.repay.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "还款时效",
+   "utterance": "还款时效是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.repay.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-041",
+   "kind": "primary",
+   "intentId": "ccb.credit.repay.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "还款试算",
+   "utterance": "请帮我查还款试算",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.repay.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-042",
+   "kind": "primary",
+   "intentId": "ccb.credit.repay.repay",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "用我的借记卡还",
+   "utterance": "怎么进入用我的借记卡还",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.repay.repay"
+   ]
+  },
+  {
+   "caseId": "mock300-043",
+   "kind": "primary",
+   "intentId": "ccb.credit.security.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "支付安全怎么弄",
+   "utterance": "我想了解支付安全怎么弄",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.security.faq",
+    "ccb.credit.security.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-044",
+   "kind": "primary",
+   "intentId": "ccb.credit.security.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "管理支付安全",
+   "utterance": "带我去管理支付安全",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.security.faq",
+    "ccb.credit.security.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-045",
+   "kind": "primary",
+   "intentId": "ccb.credit.service.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "找客服要钱吗",
+   "utterance": "找客服要钱吗怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.service.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-046",
+   "kind": "primary",
+   "intentId": "ccb.credit.service.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看客服状态",
+   "utterance": "我要用看看客服状态",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.service.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-047",
+   "kind": "primary",
+   "intentId": "ccb.credit.transactions.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "明细多久能出来",
+   "utterance": "介绍一下明细多久能出来",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.transactions.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-048",
+   "kind": "primary",
+   "intentId": "ccb.credit.transactions.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "明细现在啥情况",
+   "utterance": "进入明细现在啥情况",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.transactions.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-049",
+   "kind": "primary",
+   "intentId": "ccb.customer.profile.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我是几级客户",
+   "utterance": "看一下我的我是几级客户",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.customer.profile.query"
+   ]
+  },
+  {
+   "caseId": "mock300-050",
+   "kind": "primary",
+   "intentId": "ccb.home.account.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我想查账户",
+   "utterance": "打开我想查账户",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.account.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-051",
+   "kind": "primary",
+   "intentId": "ccb.home.account.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "办账户要多久",
+   "utterance": "办账户要多久有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.account.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-052",
+   "kind": "primary",
+   "intentId": "ccb.home.benefit.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "权益有啥条件",
+   "utterance": "怎么办理权益有啥条件",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.benefit.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-053",
+   "kind": "primary",
+   "intentId": "ccb.home.benefit.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查权益记录",
+   "utterance": "查权益记录在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.benefits.overview",
+    "ccb.home.benefit.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-054",
+   "kind": "primary",
+   "intentId": "ccb.home.branch.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "预约网点要多久",
+   "utterance": "预约网点要多久是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.branch.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-055",
+   "kind": "primary",
+   "intentId": "ccb.home.branch.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查网点记录",
+   "utterance": "怎么进入查网点记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.branch.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-056",
+   "kind": "primary",
+   "intentId": "ccb.home.calendar.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "待办办理要多久",
+   "utterance": "我想了解待办办理要多久",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.calendar.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-057",
+   "kind": "primary",
+   "intentId": "ccb.home.calendar.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的日历状态",
+   "utterance": "带我去我的日历状态",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.calendar.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-058",
+   "kind": "primary",
+   "intentId": "ccb.home.crossborder.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "跨境安全吗",
+   "utterance": "跨境安全吗怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.crossborder.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-059",
+   "kind": "primary",
+   "intentId": "ccb.home.crossborder.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的跨境业务",
+   "utterance": "我要用我的跨境业务",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.crossborder.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-060",
+   "kind": "primary",
+   "intentId": "ccb.home.custom.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "自定义首页时效",
+   "utterance": "介绍一下自定义首页时效",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.custom.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-061",
+   "kind": "primary",
+   "intentId": "ccb.home.custom.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "自定义首页记录",
+   "utterance": "进入自定义首页记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.custom.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-062",
+   "kind": "primary",
+   "intentId": "ccb.home.details.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "怎么开流水证明",
+   "utterance": "打开怎么开流水证明",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.details.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-063",
+   "kind": "primary",
+   "intentId": "ccb.home.details.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "流水证明时效",
+   "utterance": "流水证明时效有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.details.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-064",
+   "kind": "primary",
+   "intentId": "ccb.home.family.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "亲子账户怎么开",
+   "utterance": "怎么办理亲子账户怎么开",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.family.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-065",
+   "kind": "primary",
+   "intentId": "ccb.home.family.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "亲子账户最近有啥变化",
+   "utterance": "亲子账户最近有啥变化在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.family.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-066",
+   "kind": "primary",
+   "intentId": "ccb.home.fund.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "基金费用怎么收",
+   "utterance": "基金费用怎么收是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.fund.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-067",
+   "kind": "primary",
+   "intentId": "ccb.home.fund.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "基金信息怎么查",
+   "utterance": "怎么进入基金信息怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.fund.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-068",
+   "kind": "primary",
+   "intentId": "ccb.home.housing.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "房贷办理多久能批",
+   "utterance": "我想了解房贷办理多久能批",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.housing.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-069",
+   "kind": "primary",
+   "intentId": "ccb.home.housing.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "房贷信息怎么查",
+   "utterance": "带我去房贷信息怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.housing.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-070",
+   "kind": "primary",
+   "intentId": "ccb.home.limit.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "测额多久能出结果",
+   "utterance": "测额多久能出结果怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.limit.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-071",
+   "kind": "primary",
+   "intentId": "ccb.home.limit.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "测额信息怎么查",
+   "utterance": "我要用测额信息怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.limit.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-072",
+   "kind": "primary",
+   "intentId": "ccb.home.loan.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "贷款办理多久能批",
+   "utterance": "介绍一下贷款办理多久能批",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.loan.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-073",
+   "kind": "primary",
+   "intentId": "ccb.home.loan.measure",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "帮我算算能贷多少",
+   "utterance": "进入帮我算算能贷多少",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.loan.measure"
+   ]
+  },
+  {
+   "caseId": "mock300-074",
+   "kind": "primary",
+   "intentId": "ccb.home.loan.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看房贷和信用贷",
+   "utterance": "打开看看房贷和信用贷",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.loan.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-075",
+   "kind": "primary",
+   "intentId": "ccb.home.loan.repayment",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看每期还多少",
+   "utterance": "看看每期还多少在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.loan.repayment"
+   ]
+  },
+  {
+   "caseId": "mock300-076",
+   "kind": "primary",
+   "intentId": "ccb.home.medical.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "医保办理要多久",
+   "utterance": "医保办理要多久有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.medical.faq",
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-077",
+   "kind": "primary",
+   "intentId": "ccb.home.medical.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的医保信息",
+   "utterance": "怎么进入我的医保信息",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.medical.overview",
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-078",
+   "kind": "primary",
+   "intentId": "ccb.home.payroll.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "发薪理财建议",
+   "utterance": "带我去发薪理财建议",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.payroll.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-079",
+   "kind": "primary",
+   "intentId": "ccb.home.payroll.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "代发工资要多久",
+   "utterance": "怎么办理代发工资要多久",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.payroll.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-080",
+   "kind": "primary",
+   "intentId": "ccb.home.payroll.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下发薪记录",
+   "utterance": "我要用查一下发薪记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.payroll.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-081",
+   "kind": "primary",
+   "intentId": "ccb.home.pension.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "养老金收费吗",
+   "utterance": "养老金收费吗是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.pension.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-082",
+   "kind": "primary",
+   "intentId": "ccb.home.pension.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查养老金记录",
+   "utterance": "进入查养老金记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.pension.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-083",
+   "kind": "primary",
+   "intentId": "ccb.home.repayment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "还信用卡怎么还",
+   "utterance": "我想了解还信用卡怎么还",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.repayment.repay",
+    "ccb.home.repayment.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-084",
+   "kind": "primary",
+   "intentId": "ccb.home.repayment.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账单金额",
+   "utterance": "查查账单金额",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.overview",
+    "ccb.home.repayment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-085",
+   "kind": "primary",
+   "intentId": "ccb.home.repayment.repay",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "还本月账单",
+   "utterance": "我想还本月账单",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.repayment.repay"
+   ]
+  },
+  {
+   "caseId": "mock300-086",
+   "kind": "primary",
+   "intentId": "ccb.home.scan.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "扫码支付规则",
+   "utterance": "扫码支付规则怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.scan.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-087",
+   "kind": "primary",
+   "intentId": "ccb.home.scan.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的扫码记录",
+   "utterance": "打开我的扫码记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.scan.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-088",
+   "kind": "primary",
+   "intentId": "ccb.home.social.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "社保安全吗",
+   "utterance": "介绍一下社保安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.social.faq",
+    "ccb.life.social.apply",
+    "ccb.life.social.faq",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-089",
+   "kind": "primary",
+   "intentId": "ccb.home.social.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "社保状态怎么查",
+   "utterance": "社保状态怎么查在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.social.overview",
+    "ccb.life.social.apply",
+    "ccb.life.social.faq",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-090",
+   "kind": "primary",
+   "intentId": "ccb.home.transfer.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "失败",
+   "utterance": "失败有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.transfer.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-091",
+   "kind": "primary",
+   "intentId": "ccb.home.utility.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我要缴费",
+   "utterance": "怎么进入我要缴费",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.utility.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-092",
+   "kind": "primary",
+   "intentId": "ccb.home.utility.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "缴费安全吗",
+   "utterance": "怎么办理缴费安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.utility.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-093",
+   "kind": "primary",
+   "intentId": "ccb.home.utility.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查待缴费用",
+   "utterance": "带我去查待缴费用",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.utility.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-094",
+   "kind": "primary",
+   "intentId": "ccb.life.campus.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "校园服务安全吗",
+   "utterance": "校园服务安全吗是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.campus.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-095",
+   "kind": "primary",
+   "intentId": "ccb.life.campus.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看学费交到哪了",
+   "utterance": "我要用看看学费交到哪了",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.campus.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-096",
+   "kind": "primary",
+   "intentId": "ccb.life.car.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "加油停车有什么限制",
+   "utterance": "我想了解加油停车有什么限制",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.car.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-097",
+   "kind": "primary",
+   "intentId": "ccb.life.car.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "加油停车与罚款",
+   "utterance": "进入加油停车与罚款",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.car.faq",
+    "ccb.life.car.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-098",
+   "kind": "primary",
+   "intentId": "ccb.life.coupon.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "品牌券与本地优惠",
+   "utterance": "品牌券与本地优惠怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.coupon.faq",
+    "ccb.life.coupon.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-099",
+   "kind": "primary",
+   "intentId": "ccb.life.coupon.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "品牌券与本地优惠",
+   "utterance": "打开品牌券与本地优惠",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.coupon.faq",
+    "ccb.life.coupon.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-100",
+   "kind": "primary",
+   "intentId": "ccb.life.electric.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "电费收费吗",
+   "utterance": "介绍一下电费收费吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.electric.faq",
+    "ccb.life.electric.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-101",
+   "kind": "primary",
+   "intentId": "ccb.life.electric.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的电费状态",
+   "utterance": "我的电费状态在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.electric.faq",
+    "ccb.life.electric.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-102",
+   "kind": "primary",
+   "intentId": "ccb.life.food.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "餐饮服务与优惠",
+   "utterance": "餐饮服务与优惠有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.food.faq",
+    "ccb.life.food.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-103",
+   "kind": "primary",
+   "intentId": "ccb.life.food.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "餐饮服务与优惠",
+   "utterance": "怎么进入餐饮服务与优惠",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.food.faq",
+    "ccb.life.food.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-104",
+   "kind": "primary",
+   "intentId": "ccb.life.gas.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "燃气账单与缴纳",
+   "utterance": "怎么办理燃气账单与缴纳",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.gas.faq",
+    "ccb.life.gas.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-105",
+   "kind": "primary",
+   "intentId": "ccb.life.gas.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "燃气账单与缴纳",
+   "utterance": "带我去燃气账单与缴纳",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.gas.faq",
+    "ccb.life.gas.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-106",
+   "kind": "primary",
+   "intentId": "ccb.life.government.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "政务安全吗",
+   "utterance": "政务安全吗是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.government.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-107",
+   "kind": "primary",
+   "intentId": "ccb.life.government.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查政务",
+   "utterance": "我要用查政务",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.government.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-108",
+   "kind": "primary",
+   "intentId": "ccb.life.health.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "医疗安全吗",
+   "utterance": "我想了解医疗安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.health.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-109",
+   "kind": "primary",
+   "intentId": "ccb.life.health.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查医疗",
+   "utterance": "进入查医疗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.health.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-110",
+   "kind": "primary",
+   "intentId": "ccb.life.heating.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "供暖安全吗",
+   "utterance": "供暖安全吗怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.heating.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-111",
+   "kind": "primary",
+   "intentId": "ccb.life.heating.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "供暖账单与缴纳",
+   "utterance": "打开供暖账单与缴纳",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.heating.faq",
+    "ccb.life.heating.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-112",
+   "kind": "primary",
+   "intentId": "ccb.life.history.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "历史缴费与电子回单",
+   "utterance": "介绍一下历史缴费与电子回单",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.history.faq",
+    "ccb.life.history.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-113",
+   "kind": "primary",
+   "intentId": "ccb.life.history.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "缴费历史在哪看",
+   "utterance": "缴费历史在哪看在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.history.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-114",
+   "kind": "primary",
+   "intentId": "ccb.life.housing-fund.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我想办提取",
+   "utterance": "怎么进入我想办提取",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.housing-fund.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-115",
+   "kind": "primary",
+   "intentId": "ccb.life.housing-fund.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "公积金要多久",
+   "utterance": "公积金要多久有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.housing-fund.apply",
+    "ccb.life.housing-fund.faq",
+    "ccb.life.housing-fund.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-116",
+   "kind": "primary",
+   "intentId": "ccb.life.housing-fund.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "公积金查询",
+   "utterance": "带我去公积金查询",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.housing-fund.apply",
+    "ccb.life.housing-fund.faq",
+    "ccb.life.housing-fund.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-117",
+   "kind": "primary",
+   "intentId": "ccb.life.medical.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "医保要多久",
+   "utterance": "怎么办理医保要多久",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-118",
+   "kind": "primary",
+   "intentId": "ccb.life.medical.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "查医保状态",
+   "utterance": "我要用查医保状态",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-119",
+   "kind": "primary",
+   "intentId": "ccb.life.mobile.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "充值时效",
+   "utterance": "充值时效是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.mobile.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-120",
+   "kind": "primary",
+   "intentId": "ccb.life.mobile.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下充值",
+   "utterance": "进入查一下充值",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.mobile.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-121",
+   "kind": "primary",
+   "intentId": "ccb.life.movie.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "影院选座与优惠购票",
+   "utterance": "我想了解影院选座与优惠购票",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.movie.faq",
+    "ccb.life.movie.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-122",
+   "kind": "primary",
+   "intentId": "ccb.life.movie.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "影院选座与优惠购票",
+   "utterance": "打开影院选座与优惠购票",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.movie.faq",
+    "ccb.life.movie.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-123",
+   "kind": "primary",
+   "intentId": "ccb.life.my-payment.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "缴费办理要求",
+   "utterance": "缴费办理要求怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.my-payment.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-124",
+   "kind": "primary",
+   "intentId": "ccb.life.my-payment.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看缴费信息",
+   "utterance": "看看缴费信息在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.my-payment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-125",
+   "kind": "primary",
+   "intentId": "ccb.life.property.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "物业账单与缴纳",
+   "utterance": "介绍一下物业账单与缴纳",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.property.faq",
+    "ccb.life.property.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-126",
+   "kind": "primary",
+   "intentId": "ccb.life.property.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "物业账单与缴纳",
+   "utterance": "怎么进入物业账单与缴纳",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.property.faq",
+    "ccb.life.property.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-127",
+   "kind": "primary",
+   "intentId": "ccb.life.social.apply",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "申请电子社保卡",
+   "utterance": "带我去申请电子社保卡",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.social.apply",
+    "ccb.life.social.faq",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-128",
+   "kind": "primary",
+   "intentId": "ccb.life.social.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "社保卡安全吗",
+   "utterance": "社保卡安全吗有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.social.apply",
+    "ccb.life.social.faq",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-129",
+   "kind": "primary",
+   "intentId": "ccb.life.social.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "养老和医保交了多少",
+   "utterance": "我要用养老和医保交了多少",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.medical.faq",
+    "ccb.life.medical.overview",
+    "ccb.life.social.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-130",
+   "kind": "primary",
+   "intentId": "ccb.life.travel.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "这个收不收费",
+   "utterance": "怎么办理这个收不收费",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.travel.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-131",
+   "kind": "primary",
+   "intentId": "ccb.life.travel.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看出行记录",
+   "utterance": "进入看看出行记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.travel.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-132",
+   "kind": "primary",
+   "intentId": "ccb.life.video.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "影音会员",
+   "utterance": "影音会员是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.video.faq",
+    "ccb.life.video.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-133",
+   "kind": "primary",
+   "intentId": "ccb.life.video.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "影音会员",
+   "utterance": "打开影音会员",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.video.faq",
+    "ccb.life.video.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-134",
+   "kind": "primary",
+   "intentId": "ccb.life.water.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "水费安全吗",
+   "utterance": "我想了解水费安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.water.faq",
+    "ccb.life.water.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-135",
+   "kind": "primary",
+   "intentId": "ccb.life.water.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的水费状态",
+   "utterance": "我的水费状态在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.water.faq",
+    "ccb.life.water.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-136",
+   "kind": "primary",
+   "intentId": "ccb.me.about.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "办这个要花多少钱",
+   "utterance": "办这个要花多少钱怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.about.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-137",
+   "kind": "primary",
+   "intentId": "ccb.me.about.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看关于信息",
+   "utterance": "怎么进入看看关于信息",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.about.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-138",
+   "kind": "primary",
+   "intentId": "ccb.me.accounts.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账户收费吗",
+   "utterance": "介绍一下账户收费吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.accounts.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-139",
+   "kind": "primary",
+   "intentId": "ccb.me.accounts.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账户历史记录",
+   "utterance": "带我去账户历史记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.accounts.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-140",
+   "kind": "primary",
+   "intentId": "ccb.me.address.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "地址安全提示",
+   "utterance": "地址安全提示有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.address.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-141",
+   "kind": "primary",
+   "intentId": "ccb.me.address.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "地址历史记录",
+   "utterance": "我要用地址历史记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.address.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-142",
+   "kind": "primary",
+   "intentId": "ccb.me.assets.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "帮我分析资产",
+   "utterance": "进入帮我分析资产",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.assets.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-143",
+   "kind": "primary",
+   "intentId": "ccb.me.assets.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "资产安全提示",
+   "utterance": "怎么办理资产安全提示",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.assets.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-144",
+   "kind": "primary",
+   "intentId": "ccb.me.assets.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下净资产",
+   "utterance": "打开查一下净资产",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.assets.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-145",
+   "kind": "primary",
+   "intentId": "ccb.me.benefits.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "权益安全吗",
+   "utterance": "权益安全吗是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.benefits.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-146",
+   "kind": "primary",
+   "intentId": "ccb.me.benefits.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "权益状态查询",
+   "utterance": "权益状态查询在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.benefits.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-147",
+   "kind": "primary",
+   "intentId": "ccb.me.branch.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "网点安全吗",
+   "utterance": "我想了解网点安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.branch.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-148",
+   "kind": "primary",
+   "intentId": "ccb.me.branch.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "网点状态查询",
+   "utterance": "怎么进入网点状态查询",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.branch.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-149",
+   "kind": "primary",
+   "intentId": "ccb.me.calendar.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "添加提醒",
+   "utterance": "带我去添加提醒",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.calendar.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-150",
+   "kind": "primary",
+   "intentId": "ccb.me.calendar.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "日历安全吗",
+   "utterance": "日历安全吗怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.calendar.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-151",
+   "kind": "primary",
+   "intentId": "ccb.me.calendar.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "还款提醒查看",
+   "utterance": "我要用还款提醒查看",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.calendar.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-152",
+   "kind": "primary",
+   "intentId": "ccb.me.cards.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "银行卡安全吗",
+   "utterance": "介绍一下银行卡安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.cards.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-153",
+   "kind": "primary",
+   "intentId": "ccb.me.cards.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我绑了几张卡",
+   "utterance": "进入我绑了几张卡",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.cards.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-154",
+   "kind": "primary",
+   "intentId": "ccb.me.help.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "安全吗这个",
+   "utterance": "安全吗这个有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.help.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-155",
+   "kind": "primary",
+   "intentId": "ccb.me.help.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "客服在哪找",
+   "utterance": "打开客服在哪找",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.help.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-156",
+   "kind": "primary",
+   "intentId": "ccb.me.income-expense.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "年度账单在哪",
+   "utterance": "年度账单在哪在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.income-expense.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-157",
+   "kind": "primary",
+   "intentId": "ccb.me.income-expense.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "多久更新一次",
+   "utterance": "怎么办理多久更新一次",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.income-expense.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-158",
+   "kind": "primary",
+   "intentId": "ccb.me.income-expense.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "钱都花哪了",
+   "utterance": "怎么进入钱都花哪了",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.income-expense.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-159",
+   "kind": "primary",
+   "intentId": "ccb.me.logout.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "退出要多久",
+   "utterance": "退出要多久是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.logout.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-160",
+   "kind": "primary",
+   "intentId": "ccb.me.logout.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我要退出登录",
+   "utterance": "带我去我要退出登录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.logout.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-161",
+   "kind": "primary",
+   "intentId": "ccb.me.manager.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "办起来快不快",
+   "utterance": "我想了解办起来快不快",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.manager.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-162",
+   "kind": "primary",
+   "intentId": "ccb.me.manager.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看历史记录",
+   "utterance": "我要用看看历史记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.manager.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-163",
+   "kind": "primary",
+   "intentId": "ccb.me.messages.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "免打扰怎么开",
+   "utterance": "进入免打扰怎么开",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.messages.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-164",
+   "kind": "primary",
+   "intentId": "ccb.me.messages.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "消息安全吗",
+   "utterance": "消息安全吗怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.messages.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-165",
+   "kind": "primary",
+   "intentId": "ccb.me.messages.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下消息",
+   "utterance": "打开查一下消息",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.messages.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-166",
+   "kind": "primary",
+   "intentId": "ccb.me.privacy.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "授权要收费吗",
+   "utterance": "介绍一下授权要收费吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.privacy.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-167",
+   "kind": "primary",
+   "intentId": "ccb.me.privacy.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "个人信息管理",
+   "utterance": "个人信息管理在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.privacy.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-168",
+   "kind": "primary",
+   "intentId": "ccb.me.proof.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "开证明安全吗",
+   "utterance": "开证明安全吗有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.proof.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-169",
+   "kind": "primary",
+   "intentId": "ccb.me.proof.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下证明进度",
+   "utterance": "怎么进入查一下证明进度",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.proof.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-170",
+   "kind": "primary",
+   "intentId": "ccb.me.security.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "改密码要收费吗",
+   "utterance": "怎么办理改密码要收费吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.security.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-171",
+   "kind": "primary",
+   "intentId": "ccb.me.security.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "设备管理记录在哪",
+   "utterance": "带我去设备管理记录在哪",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.security.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-172",
+   "kind": "primary",
+   "intentId": "ccb.me.senior.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "大字版怎么收费",
+   "utterance": "大字版怎么收费是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.senior.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-173",
+   "kind": "primary",
+   "intentId": "ccb.me.senior.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "大字版记录在哪",
+   "utterance": "我要用大字版记录在哪",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.senior.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-174",
+   "kind": "primary",
+   "intentId": "ccb.me.settings.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "登录设置怎么弄",
+   "utterance": "我想了解登录设置怎么弄",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.settings.faq",
+    "ccb.me.settings.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-175",
+   "kind": "primary",
+   "intentId": "ccb.me.settings.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "我的设置在哪看",
+   "utterance": "进入我的设置在哪看",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.settings.faq",
+    "ccb.me.settings.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-176",
+   "kind": "primary",
+   "intentId": "ccb.me.tasks.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "会员任务怎么收费",
+   "utterance": "会员任务怎么收费怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.tasks.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-177",
+   "kind": "primary",
+   "intentId": "ccb.me.tasks.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的任务状态",
+   "utterance": "打开我的任务状态",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.tasks.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-178",
+   "kind": "primary",
+   "intentId": "ccb.me.version.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "换版本要收费不",
+   "utterance": "介绍一下换版本要收费不",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.version.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-179",
+   "kind": "primary",
+   "intentId": "ccb.me.version.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的版本信息",
+   "utterance": "我的版本信息在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.version.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-180",
+   "kind": "primary",
+   "intentId": "ccb.obligation.pay-selected",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "就还这个",
+   "utterance": "办一下就还这个",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.obligation.pay-selected"
+   ]
+  },
+  {
+   "caseId": "mock300-181",
+   "kind": "primary",
+   "intentId": "ccb.obligation.repay-all",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "统一还款",
+   "utterance": "我要统一还款",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.obligation.repay-all"
+   ]
+  },
+  {
+   "caseId": "mock300-182",
+   "kind": "primary",
+   "intentId": "ccb.transfer.create",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "打款",
+   "utterance": "帮我打款",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.transfer.create"
+   ]
+  },
+  {
+   "caseId": "mock300-183",
+   "kind": "primary",
+   "intentId": "ccb.transfer.payee.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "收款人列表",
+   "utterance": "帮我查一下收款人列表",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.transfer.payee.query"
+   ]
+  },
+  {
+   "caseId": "mock300-184",
+   "kind": "primary",
+   "intentId": "ccb.wealth.advisor.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "智能顾问",
+   "utterance": "智能顾问有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.advisor.faq",
+    "ccb.wealth.advisor.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-185",
+   "kind": "primary",
+   "intentId": "ccb.wealth.advisor.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的顾问信息",
+   "utterance": "怎么进入我的顾问信息",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.advisor.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-186",
+   "kind": "primary",
+   "intentId": "ccb.wealth.advisor.recommend",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财推荐",
+   "utterance": "我想查理财推荐",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.advisor.recommend"
+   ]
+  },
+  {
+   "caseId": "mock300-187",
+   "kind": "primary",
+   "intentId": "ccb.wealth.bond.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "储蓄国债与柜台债",
+   "utterance": "怎么办理储蓄国债与柜台债",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.bond.faq",
+    "ccb.wealth.bond.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-188",
+   "kind": "primary",
+   "intentId": "ccb.wealth.bond.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "储蓄国债与柜台债",
+   "utterance": "带我去储蓄国债与柜台债",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.bond.faq",
+    "ccb.wealth.bond.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-189",
+   "kind": "primary",
+   "intentId": "ccb.wealth.deposit.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "存入定期",
+   "utterance": "我要用存入定期",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.deposit.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-190",
+   "kind": "primary",
+   "intentId": "ccb.wealth.deposit.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "存款怎么办",
+   "utterance": "存款怎么办是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.deposit.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-191",
+   "kind": "primary",
+   "intentId": "ccb.wealth.deposit.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下存款",
+   "utterance": "查一下存款怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.deposit.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-192",
+   "kind": "primary",
+   "intentId": "ccb.wealth.dragon-money.auto-invest",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "工资卡自动转",
+   "utterance": "进入工资卡自动转",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.auto-invest"
+   ]
+  },
+  {
+   "caseId": "mock300-193",
+   "kind": "primary",
+   "intentId": "ccb.wealth.dragon-money.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "购买天天利",
+   "utterance": "我想办理购买天天利",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-194",
+   "kind": "primary",
+   "intentId": "ccb.wealth.dragon-money.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "龙钱宝安全吗",
+   "utterance": "我想了解龙钱宝安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.faq",
+    "ccb.wealth.dragon-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-195",
+   "kind": "primary",
+   "intentId": "ccb.wealth.dragon-money.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财查询",
+   "utterance": "请帮我查理财查询",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-196",
+   "kind": "primary",
+   "intentId": "ccb.wealth.easy-repay.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "还款资金归集与管理",
+   "utterance": "还款资金归集与管理怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.easy-repay.faq",
+    "ccb.wealth.easy-repay.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-197",
+   "kind": "primary",
+   "intentId": "ccb.wealth.easy-repay.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "还款资金归集与管理",
+   "utterance": "打开还款资金归集与管理",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.easy-repay.faq",
+    "ccb.wealth.easy-repay.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-198",
+   "kind": "primary",
+   "intentId": "ccb.wealth.favorites.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "自选产品与行情提醒",
+   "utterance": "介绍一下自选产品与行情提醒",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.favorites.faq",
+    "ccb.wealth.favorites.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-199",
+   "kind": "primary",
+   "intentId": "ccb.wealth.favorites.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "自选产品与行情提醒",
+   "utterance": "自选产品与行情提醒在哪里",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.favorites.faq",
+    "ccb.wealth.favorites.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-200",
+   "kind": "primary",
+   "intentId": "ccb.wealth.four-money.apply",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "按资金用途进行配置",
+   "utterance": "怎么进入按资金用途进行配置",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.four-money.apply",
+    "ccb.wealth.four-money.faq",
+    "ccb.wealth.four-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-201",
+   "kind": "primary",
+   "intentId": "ccb.wealth.four-money.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "按资金用途进行配置",
+   "utterance": "按资金用途进行配置有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.four-money.apply",
+    "ccb.wealth.four-money.faq",
+    "ccb.wealth.four-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-202",
+   "kind": "primary",
+   "intentId": "ccb.wealth.four-money.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "按资金用途进行配置",
+   "utterance": "带我去按资金用途进行配置",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.four-money.apply",
+    "ccb.wealth.four-money.faq",
+    "ccb.wealth.four-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-203",
+   "kind": "primary",
+   "intentId": "ccb.wealth.fund.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "买点基金",
+   "utterance": "我要用买点基金",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.fund.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-204",
+   "kind": "primary",
+   "intentId": "ccb.wealth.fund.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "基金安全吗",
+   "utterance": "怎么办理基金安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.fund.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-205",
+   "kind": "primary",
+   "intentId": "ccb.wealth.fund.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "基金都有哪些",
+   "utterance": "看一下我的基金都有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.fund.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-206",
+   "kind": "primary",
+   "intentId": "ccb.wealth.fx.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "外币行情与交易",
+   "utterance": "外币行情与交易是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.fx.faq",
+    "ccb.wealth.fx.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-207",
+   "kind": "primary",
+   "intentId": "ccb.wealth.fx.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看外汇状态",
+   "utterance": "进入看看外汇状态",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.fx.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-208",
+   "kind": "primary",
+   "intentId": "ccb.wealth.gold.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "积存购买",
+   "utterance": "打开积存购买",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.gold.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-209",
+   "kind": "primary",
+   "intentId": "ccb.wealth.gold.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "积存金有啥要求",
+   "utterance": "我想了解积存金有啥要求",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.gold.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-210",
+   "kind": "primary",
+   "intentId": "ccb.wealth.gold.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "现在金价多少",
+   "utterance": "现在金价多少在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.gold.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-211",
+   "kind": "primary",
+   "intentId": "ccb.wealth.guide.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "财富知识与入门引导",
+   "utterance": "财富知识与入门引导怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.guide.faq",
+    "ccb.wealth.guide.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-212",
+   "kind": "primary",
+   "intentId": "ccb.wealth.guide.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "财富知识与入门引导",
+   "utterance": "怎么进入财富知识与入门引导",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.guide.faq",
+    "ccb.wealth.guide.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-213",
+   "kind": "primary",
+   "intentId": "ccb.wealth.income.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "哪个产品赚得多",
+   "utterance": "带我去哪个产品赚得多",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.income.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-214",
+   "kind": "primary",
+   "intentId": "ccb.wealth.income.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "日月年多周期收益",
+   "utterance": "介绍一下日月年多周期收益",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview",
+    "ccb.wealth.income.apply",
+    "ccb.wealth.income.faq",
+    "ccb.wealth.income.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-215",
+   "kind": "primary",
+   "intentId": "ccb.wealth.income.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "看看日收益",
+   "utterance": "我要用看看日收益",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview",
+    "ccb.wealth.income.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-216",
+   "kind": "primary",
+   "intentId": "ccb.wealth.insurance.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的保障需求",
+   "utterance": "进入我的保障需求",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.insurance.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-217",
+   "kind": "primary",
+   "intentId": "ccb.wealth.insurance.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "保险安全吗",
+   "utterance": "保险安全吗有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.insurance.apply",
+    "ccb.wealth.insurance.faq",
+    "ccb.wealth.insurance.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-218",
+   "kind": "primary",
+   "intentId": "ccb.wealth.insurance.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "保险产品",
+   "utterance": "打开保险产品",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.insurance.apply",
+    "ccb.wealth.insurance.faq",
+    "ccb.wealth.insurance.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-219",
+   "kind": "primary",
+   "intentId": "ccb.wealth.member.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "会员费用怎么算",
+   "utterance": "怎么办理会员费用怎么算",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.member.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-220",
+   "kind": "primary",
+   "intentId": "ccb.wealth.member.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的会员等级",
+   "utterance": "我的会员等级在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.member.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-221",
+   "kind": "primary",
+   "intentId": "ccb.wealth.overview.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "买点理财",
+   "utterance": "怎么进入买点理财",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.overview.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-222",
+   "kind": "primary",
+   "intentId": "ccb.wealth.overview.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "分析一下我的资产配置",
+   "utterance": "分析一下我的资产配置是什么",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.overview.buy",
+    "ccb.wealth.overview.faq",
+    "ccb.wealth.overview.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-223",
+   "kind": "primary",
+   "intentId": "ccb.wealth.overview.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "资产情况总览",
+   "utterance": "查查资产情况总览",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.overview.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-224",
+   "kind": "primary",
+   "intentId": "ccb.wealth.pension.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "养老金费用怎么算",
+   "utterance": "我想了解养老金费用怎么算",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.pension.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-225",
+   "kind": "primary",
+   "intentId": "ccb.wealth.pension.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看养老金记录",
+   "utterance": "带我去看看养老金记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.pension.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-226",
+   "kind": "primary",
+   "intentId": "ccb.wealth.portfolio.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "持仓安全吗",
+   "utterance": "持仓安全吗怎么办",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview",
+    "ccb.wealth.portfolio.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-227",
+   "kind": "primary",
+   "intentId": "ccb.wealth.portfolio.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财赚了多少",
+   "utterance": "帮我查一下理财赚了多少",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.portfolio.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-228",
+   "kind": "primary",
+   "intentId": "ccb.wealth.portfolio.records",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财到期记录",
+   "utterance": "我要用理财到期记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.portfolio.records"
+   ]
+  },
+  {
+   "caseId": "mock300-229",
+   "kind": "primary",
+   "intentId": "ccb.wealth.portfolio.redeem",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "把理财赎回来",
+   "utterance": "进入把理财赎回来",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.redeem",
+    "ccb.wealth.portfolio.redeem"
+   ]
+  },
+  {
+   "caseId": "mock300-230",
+   "kind": "primary",
+   "intentId": "ccb.wealth.redeem",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "怎么赎回理财",
+   "utterance": "麻烦帮我怎么赎回理财",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.redeem"
+   ]
+  },
+  {
+   "caseId": "mock300-231",
+   "kind": "primary",
+   "intentId": "ccb.wealth.save.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "消费后自动小额攒钱",
+   "utterance": "介绍一下消费后自动小额攒钱",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.save.faq",
+    "ccb.wealth.save.overview",
+    "ccb.wealth.save.setup"
+   ]
+  },
+  {
+   "caseId": "mock300-232",
+   "kind": "primary",
+   "intentId": "ccb.wealth.save.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "消费攒钱规则",
+   "utterance": "打开消费攒钱规则",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.save.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-233",
+   "kind": "primary",
+   "intentId": "ccb.wealth.save.setup",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "攒钱规则怎么调",
+   "utterance": "攒钱规则怎么调在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.save.setup"
+   ]
+  },
+  {
+   "caseId": "mock300-234",
+   "kind": "primary",
+   "intentId": "ccb.wealth.settlement.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "结汇时效是多久",
+   "utterance": "结汇时效是多久有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.settlement.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-235",
+   "kind": "primary",
+   "intentId": "ccb.wealth.settlement.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看购汇历史",
+   "utterance": "怎么进入看看购汇历史",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.settlement.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-236",
+   "kind": "primary",
+   "intentId": "ccb.wealth.wealth-product.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "选个理财买",
+   "utterance": "我想选个理财买",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.wealth-product.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-237",
+   "kind": "primary",
+   "intentId": "ccb.wealth.wealth-product.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财安全吗",
+   "utterance": "怎么办理理财安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.wealth-product.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-238",
+   "kind": "primary",
+   "intentId": "ccb.wealth.wealth-product.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财货架看看",
+   "utterance": "我想查理财货架看看",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.wealth-product.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-239",
+   "kind": "hard",
+   "intentId": "ccb.account.balance.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "现在卡上还剩多少",
+   "utterance": "请帮我查现在卡上还剩多少",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.balance.query"
+   ]
+  },
+  {
+   "caseId": "mock300-240",
+   "kind": "hard",
+   "intentId": "ccb.cashflow.spending-explain",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "分析支出",
+   "utterance": "看一下我的分析支出",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.cashflow.spending-explain"
+   ]
+  },
+  {
+   "caseId": "mock300-241",
+   "kind": "hard",
+   "intentId": "ccb.credit.bill.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账单到期日",
+   "utterance": "查查账单到期日",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-242",
+   "kind": "hard",
+   "intentId": "ccb.home.repayment.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "还款日是哪天",
+   "utterance": "帮我查一下还款日是哪天",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.repayment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-243",
+   "kind": "hard",
+   "intentId": "ccb.transfer.create",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "转给",
+   "utterance": "我要转给",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.transfer.create"
+   ]
+  },
+  {
+   "caseId": "mock300-244",
+   "kind": "hard",
+   "intentId": "ccb.wealth.dragon-money.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "理财收益",
+   "utterance": "我想查理财收益",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-245",
+   "kind": "hard",
+   "intentId": "ccb.account.detail.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下账户的详情",
+   "utterance": "查一下账户的详情怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.detail.query"
+   ]
+  },
+  {
+   "caseId": "mock300-246",
+   "kind": "hard",
+   "intentId": "ccb.account.transactions.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "查一下交易记录",
+   "utterance": "请帮我查查一下交易记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.transactions.query"
+   ]
+  },
+  {
+   "caseId": "mock300-247",
+   "kind": "hard",
+   "intentId": "ccb.cashflow.salary-plan",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "月度资金安排",
+   "utterance": "看一下我的月度资金安排",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.cashflow.salary-plan"
+   ]
+  },
+  {
+   "caseId": "mock300-248",
+   "kind": "hard",
+   "intentId": "ccb.credit.apply.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "信用卡办理要多久",
+   "utterance": "我想了解信用卡办理要多久",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.apply.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-249",
+   "kind": "hard",
+   "intentId": "ccb.credit.apply.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看我的办卡记录",
+   "utterance": "我要用看看我的办卡记录",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.apply.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-250",
+   "kind": "hard",
+   "intentId": "ccb.credit.auto-repay.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "自动还款要收费吗",
+   "utterance": "自动还款要收费吗怎么办",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.auto-repay.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-251",
+   "kind": "hard",
+   "intentId": "ccb.credit.auto-repay.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "自动还款怎么查",
+   "utterance": "进入自动还款怎么查",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.auto-repay.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-252",
+   "kind": "hard",
+   "intentId": "ccb.credit.auto-repay.setup",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "绑定自动还款",
+   "utterance": "打开绑定自动还款",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.auto-repay.setup"
+   ]
+  },
+  {
+   "caseId": "mock300-253",
+   "kind": "hard",
+   "intentId": "ccb.credit.benefits.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "权益有费用吗",
+   "utterance": "介绍一下权益有费用吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.benefits.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-254",
+   "kind": "hard",
+   "intentId": "ccb.credit.benefits.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看权益状态",
+   "utterance": "看看权益状态在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.benefits.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-255",
+   "kind": "hard",
+   "intentId": "ccb.credit.bill.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账单常见疑问",
+   "utterance": "账单常见疑问有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-256",
+   "kind": "hard",
+   "intentId": "ccb.credit.bill.repay",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "账单还款",
+   "utterance": "怎么进入账单还款",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.repay"
+   ]
+  },
+  {
+   "caseId": "mock300-257",
+   "kind": "hard",
+   "intentId": "ccb.credit.card-manage.security-query",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "查安全设置",
+   "utterance": "查查查安全设置",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.security-settings.update",
+    "ccb.credit.card-manage.security-query",
+    "ccb.me.settings.faq",
+    "ccb.me.settings.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-258",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.activation",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "新卡启用方法",
+   "utterance": "帮我新卡启用方法",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.activation"
+   ]
+  },
+  {
+   "caseId": "mock300-259",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "用卡安全须知",
+   "utterance": "怎么办理用卡安全须知",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-260",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.limit-change",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "降低额度",
+   "utterance": "我想办理降低额度",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.limit-change"
+   ]
+  },
+  {
+   "caseId": "mock300-261",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.loss-report",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "卡片丢失",
+   "utterance": "麻烦帮我卡片丢失",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.loss-report"
+   ]
+  },
+  {
+   "caseId": "mock300-262",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我的卡有哪些",
+   "utterance": "帮我查一下我的卡有哪些",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.query"
+   ]
+  },
+  {
+   "caseId": "mock300-263",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.security-settings.update",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "非接",
+   "utterance": "我想非接",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.security-settings.update"
+   ]
+  },
+  {
+   "caseId": "mock300-264",
+   "kind": "hard",
+   "intentId": "ccb.credit.card.transactions.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "消费明细查询",
+   "utterance": "我想查消费明细查询",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.transactions.query"
+   ]
+  },
+  {
+   "caseId": "mock300-265",
+   "kind": "hard",
+   "intentId": "ccb.credit.cash-installment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金分期规则",
+   "utterance": "现金分期规则是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash-installment.faq",
+    "ccb.credit.cash-installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-266",
+   "kind": "hard",
+   "intentId": "ccb.credit.cash-installment.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金分期信息查询",
+   "utterance": "带我去现金分期信息查询",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash-installment.faq",
+    "ccb.credit.cash-installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-267",
+   "kind": "hard",
+   "intentId": "ccb.credit.cash.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "现金转出安全吗",
+   "utterance": "我想了解现金转出安全吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash.faq",
+    "ccb.credit.cash.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-268",
+   "kind": "hard",
+   "intentId": "ccb.credit.cash.overview",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "信用额度现金转出",
+   "utterance": "我要用信用额度现金转出",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.cash.faq",
+    "ccb.credit.cash.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-269",
+   "kind": "hard",
+   "intentId": "ccb.credit.installment.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "我要分期还款",
+   "utterance": "进入我要分期还款",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-270",
+   "kind": "hard",
+   "intentId": "ccb.credit.installment.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "账单分期与试算",
+   "utterance": "账单分期与试算怎么办",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.apply",
+    "ccb.credit.installment.faq",
+    "ccb.credit.installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-271",
+   "kind": "hard",
+   "intentId": "ccb.credit.installment.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "看看分期期数",
+   "utterance": "打开看看分期期数",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.installment.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-272",
+   "kind": "hard",
+   "intentId": "ccb.credit.limit.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "提额条件是什么",
+   "utterance": "介绍一下提额条件是什么",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.limit.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-273",
+   "kind": "hard",
+   "intentId": "ccb.credit.limit.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "额度进度怎么查",
+   "utterance": "额度进度怎么查在哪里",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.limit.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-274",
+   "kind": "hard",
+   "intentId": "ccb.credit.points.apply",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "积分换礼品",
+   "utterance": "怎么进入积分换礼品",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.apply"
+   ]
+  },
+  {
+   "caseId": "mock300-275",
+   "kind": "hard",
+   "intentId": "ccb.credit.points.faq",
+   "lifecycle": "active",
+   "strict": false,
+   "term": "积分兑换安全吗",
+   "utterance": "积分兑换安全吗有哪些",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.apply",
+    "ccb.credit.points.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-276",
+   "kind": "hard",
+   "intentId": "ccb.credit.points.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "积分怎么获得",
+   "utterance": "带我去积分怎么获得",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.points.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-277",
+   "kind": "hard",
+   "intentId": "ccb.credit.profile.faq",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "改资料要收费吗",
+   "utterance": "怎么办理改资料要收费吗",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.profile.faq"
+   ]
+  },
+  {
+   "caseId": "mock300-278",
+   "kind": "termset",
+   "intentId": "ccb.wealth.redeem",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "理财和赎回",
+   "utterance": "理财和赎回",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.redeem"
+   ]
+  },
+  {
+   "caseId": "mock300-279",
+   "kind": "colloquial",
+   "intentId": "ccb.transfer.create",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "给王芳转五百块钱",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.transfer.create"
+   ]
+  },
+  {
+   "caseId": "mock300-280",
+   "kind": "colloquial",
+   "intentId": "ccb.account.balance.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "帮我看下卡里的余额还有多少",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.balance.query"
+   ]
+  },
+  {
+   "caseId": "mock300-281",
+   "kind": "colloquial",
+   "intentId": "ccb.account.transactions.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "帮我看看最近账户流水",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.transactions.query"
+   ]
+  },
+  {
+   "caseId": "mock300-282",
+   "kind": "colloquial",
+   "intentId": "ccb.account.detail.query",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "我想看下账户信息",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.account.detail.query"
+   ]
+  },
+  {
+   "caseId": "mock300-283",
+   "kind": "colloquial",
+   "intentId": "ccb.credit.card.loss-report",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "我的信用卡丢了，赶紧挂失",
+   "top1": false,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.card.query",
+    "ccb.credit.card.loss-report"
+   ]
+  },
+  {
+   "caseId": "mock300-284",
+   "kind": "colloquial",
+   "intentId": "ccb.credit.bill.repay",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "我要还清账单，别逾期",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.repay"
+   ]
+  },
+  {
+   "caseId": "mock300-285",
+   "kind": "colloquial",
+   "intentId": "ccb.credit.bill.overview",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "查一下我的信用卡账单",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.bill.overview",
+    "ccb.credit.card.query"
+   ]
+  },
+  {
+   "caseId": "mock300-286",
+   "kind": "colloquial",
+   "intentId": "ccb.wealth.deposit.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "我想存个定期",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.deposit.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-287",
+   "kind": "colloquial",
+   "intentId": "ccb.wealth.dragon-money.buy",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "帮我申购龙钱宝",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.wealth.dragon-money.buy"
+   ]
+  },
+  {
+   "caseId": "mock300-288",
+   "kind": "colloquial",
+   "intentId": "ccb.cashflow.spending-explain",
+   "lifecycle": "active",
+   "strict": true,
+   "term": "",
+   "utterance": "这个月钱花哪了",
+   "top1": true,
+   "top3": true,
+   "recalled": true,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.cashflow.spending-explain"
+   ]
+  },
+  {
+   "caseId": "mock300-289",
+   "kind": "planned-suppression",
+   "intentId": "ccb.credit.apply.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "在线办理",
+   "utterance": "我要在线办理",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": true,
+   "candidateIntentIds": []
+  },
+  {
+   "caseId": "mock300-290",
+   "kind": "planned-suppression",
+   "intentId": "ccb.credit.profile.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "资料管理",
+   "utterance": "我要资料管理",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.credit.profile.faq",
+    "ccb.credit.profile.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-291",
+   "kind": "planned-suppression",
+   "intentId": "ccb.home.benefit.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "权益中心",
+   "utterance": "我要权益中心",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.benefit.faq",
+    "ccb.home.benefit.overview",
+    "ccb.me.benefits.faq",
+    "ccb.me.benefits.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-292",
+   "kind": "planned-suppression",
+   "intentId": "ccb.home.family.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "亲子服务",
+   "utterance": "我要亲子服务",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.family.faq",
+    "ccb.home.family.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-293",
+   "kind": "planned-suppression",
+   "intentId": "ccb.home.pension.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "养老金融",
+   "utterance": "我要养老金融",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.pension.faq",
+    "ccb.home.pension.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-294",
+   "kind": "planned-suppression",
+   "intentId": "ccb.life.coupon.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "领券中心",
+   "utterance": "我要领券中心",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.coupon.faq",
+    "ccb.life.coupon.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-295",
+   "kind": "planned-suppression",
+   "intentId": "ccb.life.health.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "医疗健康",
+   "utterance": "我要医疗健康",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.health.faq",
+    "ccb.life.health.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-296",
+   "kind": "planned-suppression",
+   "intentId": "ccb.life.movie.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "电影票",
+   "utterance": "我要电影票",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.movie.faq",
+    "ccb.life.movie.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-297",
+   "kind": "planned-suppression",
+   "intentId": "ccb.life.water.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "水费",
+   "utterance": "我要水费",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.life.water.faq",
+    "ccb.life.water.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-298",
+   "kind": "planned-suppression",
+   "intentId": "ccb.me.branch.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "网点服务",
+   "utterance": "我要网点服务",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.home.branch.faq",
+    "ccb.home.branch.overview",
+    "ccb.me.branch.faq",
+    "ccb.me.branch.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-299",
+   "kind": "planned-suppression",
+   "intentId": "ccb.me.privacy.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "隐私管理",
+   "utterance": "我要隐私管理",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.privacy.faq",
+    "ccb.me.privacy.overview"
+   ]
+  },
+  {
+   "caseId": "mock300-300",
+   "kind": "planned-suppression",
+   "intentId": "ccb.me.tasks.apply",
+   "lifecycle": "planned",
+   "strict": true,
+   "term": "任务中心",
+   "utterance": "我要任务中心",
+   "top1": false,
+   "top3": false,
+   "recalled": false,
+   "zeroCandidates": false,
+   "candidateIntentIds": [
+    "ccb.me.tasks.faq",
+    "ccb.me.tasks.overview"
+   ]
+  }
+ ]
+}

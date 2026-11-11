@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0",
+  "version": "1.0.0",
+  "scope": "Mock 手机银行演示环境",
+  "entries": [
+    {
+      "id": "faq.account.available-vs-ledger",
+      "intentId": "ccb.home.account.faq",
+      "questionPatterns": ["可用余额和账面余额有什么区别", "账面余额为什么不能用"],
+      "answer": "可用余额是当前可直接使用的金额，账面余额还可能包含冻结、在途或待处理金额；具体状态请以账户详情为准。",
+      "recommendedActionKeys": ["home.account.apply"]
+    },
+    {
+      "id": "faq.account.abnormal-status",
+      "intentId": "ccb.home.account.faq",
+      "questionPatterns": ["账户状态异常怎么办", "银行卡状态异常"],
+      "answer": "账户状态异常可能与挂失、冻结或身份信息核验有关。请先查看账户状态；涉及解除限制时需按页面提示完成身份核验。",
+      "recommendedActionKeys": ["home.account.apply"]
+    },
+    {
+      "id": "faq.account.transactions",
+      "intentId": "ccb.home.details.faq",
+      "questionPatterns": ["怎么查账户明细", "怎么查银行卡流水"],
+      "answer": "可在账户明细中按账户和时间范围查询交易记录；Mock 环境展示脱敏交易数据。",
+      "recommendedActionKeys": ["home.details.apply"]
+    },
+    {
+      "id": "faq.transfer.arrival-time",
+      "intentId": "ccb.home.transfer.faq",
+      "questionPatterns": ["转账多久到账", "转账什么时候到", "转账多久到帐", "请问转账多长时间能到"],
+      "answer": "转账处理时间取决于转账方式、收款银行和当前交易状态，请以转账记录显示的结果为准。",
+      "recommendedActionKeys": ["transfer.transfer.create", "transfer.payee.query"]
+    },
+    {
+      "id": "faq.transfer.limit",
+      "intentId": "ccb.home.transfer.faq",
+      "questionPatterns": ["转账限额是多少", "怎么查转账限额"],
+      "answer": "可用限额会受账户类型、认证方式和风险控制影响，请在发起转账前查看页面显示的当前限额。",
+      "recommendedActionKeys": ["transfer.transfer.create"]
+    },
+    {
+      "id": "faq.transfer.fee",
+      "intentId": "ccb.home.transfer.faq",
+      "questionPatterns": ["转账收手续费吗", "转账费用是多少", "转账费怎么收"],
+      "answer": "是否收费取决于转账渠道、金额和服务规则；Mock 环境不会实际扣费，请以办理页面展示为准。",
+      "recommendedActionKeys": ["transfer.transfer.create"]
+    },
+    {
+      "id": "faq.transfer.pending-or-failed",
+      "intentId": "ccb.home.transfer.faq",
+      "questionPatterns": ["转账一直处理中怎么办", "转账失败怎么办"],
+      "answer": "请先在转账记录中核对最终状态。状态未知时不要重复提交；失败交易可根据页面原因修正后重新发起。",
+      "recommendedActionKeys": ["transfer.payee.query"]
+    },
+    {
+      "id": "faq.credit.activation",
+      "intentId": "ccb.credit.card.faq",
+      "questionPatterns": ["信用卡怎么激活", "新卡怎么开卡"],
+      "answer": "信用卡激活需要选择本人卡片并完成身份核验；提交前请确认卡片和个人信息无误。",
+      "recommendedActionKeys": ["credit.card.activation"]
+    },
+    {
+      "id": "faq.credit.loss-report",
+      "intentId": "ccb.credit.card.faq",
+      "questionPatterns": ["信用卡丢了怎么办", "信用卡怎么挂失"],
+      "answer": "卡片遗失后应尽快办理挂失。挂失会改变卡片状态，必须选择具体卡片并由本人确认。",
+      "recommendedActionKeys": ["credit.card.loss-report"]
+    },
+    {
+      "id": "faq.credit.limit-change",
+      "intentId": "ccb.credit.card.faq",
+      "questionPatterns": ["信用卡怎么调额", "怎么提高信用卡额度"],
+      "answer": "额度调整是否可申请取决于卡片状态和当前评估结果；提交申请前需选择卡片并由本人确认。",
+      "recommendedActionKeys": ["credit.card.limit-change"]
+    },
+    {
+      "id": "faq.credit.transactions",
+      "intentId": "ccb.credit.card.faq",
+      "questionPatterns": ["怎么查信用卡明细", "怎么查信用卡消费记录"],
+      "answer": "可选择本人信用卡查询消费、退款和入账记录；页面仅展示脱敏交易信息。",
+      "recommendedActionKeys": ["credit.card.query"]
+    },
+    {
+      "id": "faq.credit.dispute",
+      "intentId": "ccb.credit.card.faq",
+      "questionPatterns": ["信用卡有异常交易怎么办", "信用卡消费不是我的"],
+      "answer": "发现非本人交易时请先核对卡片和交易明细，并尽快通过卡片管理采取安全措施；不要泄露验证码或完整卡号。",
+      "recommendedActionKeys": ["credit.card.query", "credit.card.loss-report"]
+    }
+  ]
+}

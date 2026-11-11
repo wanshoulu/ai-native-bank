@@ -1,0 +1,423 @@
+{
+  "schemaVersion": "1.0",
+  "profiles": [
+    {
+      "id": "wealth-advisory-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "理财建议分析过程",
+      "initialText": "正在准备理财建议分析…",
+      "skillIds": [
+        "bank.wealth-advisory"
+      ],
+      "intentIds": [
+        "ccb.wealth.advisor.recommend"
+      ],
+      "completionSummary": "已生成财富建议方案 · 已核验 6 类数据来源及方案金额、起购与期限约束",
+      "failureSummary": "本次分析未完成，尚未形成理财建议",
+      "steps": [
+        {
+          "id": "understand",
+          "label": "正在理解您的投资需求",
+          "completedLabel": "已理解您的投资需求"
+        },
+        {
+          "id": "constraints",
+          "label": "正在梳理计划金额、期限与流动性需求",
+          "completedLabel": "已梳理本次投资目标与约束"
+        },
+        {
+          "id": "risk",
+          "label": "正在查询您的风险等级",
+          "completedLabel": "已核验您的风险测评"
+        },
+        {
+          "id": "funds",
+          "label": "正在汇总您的可用资金与现金流",
+          "completedLabel": "已核验您的可用资金与现金流"
+        },
+        {
+          "id": "portfolio",
+          "label": "正在查询您的持仓与投资历史",
+          "completedLabel": "已核验您的持仓与投资历史"
+        },
+        {
+          "id": "catalog",
+          "label": "正在检索当前在售产品",
+          "completedLabel": "已检索当前在售产品目录"
+        },
+        {
+          "id": "suitability",
+          "label": "正在校验风险、期限、金额与起购规则",
+          "completedLabel": "已完成方案约束校验"
+        },
+        {
+          "id": "advice",
+          "label": "正在生成主方案与备选方案",
+          "completedLabel": "已生成可选择的财富建议方案"
+        }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "running" }
+          ]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "constraints", "state": "running" }
+          ]
+        },
+        {
+          "stage": "business_skill.started",
+          "match": { "skillId": "bank.wealth-advisory" },
+          "updates": [
+            { "stepId": "constraints", "state": "completed" },
+            { "stepId": "risk", "state": "running" },
+            { "stepId": "funds", "state": "running" },
+            { "stepId": "portfolio", "state": "running" },
+            { "stepId": "catalog", "state": "running" }
+          ]
+        },
+        {
+          "stage": "business_skill.completed",
+          "match": { "skillId": "bank.wealth-advisory" },
+          "updates": [
+            { "stepId": "risk", "state": "completed" },
+            { "stepId": "funds", "state": "completed" },
+            { "stepId": "portfolio", "state": "completed" },
+            { "stepId": "catalog", "state": "completed" },
+            { "stepId": "suitability", "state": "running" }
+          ]
+        },
+        {
+          "stage": "plan.validated",
+          "match": {},
+          "updates": [
+            { "stepId": "suitability", "state": "completed" },
+            { "stepId": "advice", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "advice", "state": "completed" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spending-analysis-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "支出分析过程",
+      "initialText": "正在准备支出分析…",
+      "skillIds": ["bank.spending-analysis"],
+      "intentIds": ["ccb.cashflow.spending-explain"],
+      "completionSummary": "已完成支出对比分析 · 已排除内部转账并冲抵退款",
+      "failureSummary": "本次支出分析未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解分析需求", "completedLabel": "已理解分析需求" },
+        { "id": "collect", "label": "正在获取交易流水", "completedLabel": "已获取交易流水" },
+        { "id": "compare", "label": "正在对比本月与上月支出", "completedLabel": "已完成支出对比" },
+        { "id": "summary", "label": "正在生成分析结论", "completedLabel": "已生成分析结论" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "collect", "state": "running" }
+          ]
+        },
+        {
+          "stage": "business_skill.started",
+          "match": { "skillId": "bank.spending-analysis" },
+          "updates": [
+            { "stepId": "collect", "state": "completed" },
+            { "stepId": "compare", "state": "running" }
+          ]
+        },
+        {
+          "stage": "business_skill.completed",
+          "match": { "skillId": "bank.spending-analysis" },
+          "updates": [
+            { "stepId": "compare", "state": "completed" },
+            { "stepId": "summary", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [{ "stepId": "summary", "state": "completed" }]
+        }
+      ]
+    },
+    {
+      "id": "transfer-remittance-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "转账汇款处理过程",
+      "initialText": "正在准备转账…",
+      "skillIds": ["bank.transfer-remittance"],
+      "intentIds": ["ccb.transfer.create"],
+      "completionSummary": "转账已完成 · 资金已到账",
+      "failureSummary": "本次转账未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解转账需求", "completedLabel": "已理解转账需求" },
+        { "id": "validate", "label": "正在验证收款人信息", "completedLabel": "已验证收款人信息" },
+        { "id": "confirm", "label": "等待本人确认", "completedLabel": "已确认转账" },
+        { "id": "execute", "label": "正在执行转账", "completedLabel": "转账已完成" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "validate", "state": "running" }
+          ]
+        },
+        {
+          "stage": "business_skill.completed",
+          "match": { "skillId": "bank.transfer-remittance" },
+          "updates": [
+            { "stepId": "validate", "state": "completed" },
+            { "stepId": "confirm", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "confirm", "state": "completed" },
+            { "stepId": "execute", "state": "completed" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credit-card-repayment-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "信用卡还款处理过程",
+      "initialText": "正在准备信用卡还款…",
+      "skillIds": ["bank.credit-card-management"],
+      "intentIds": ["ccb.home.repayment.repay"],
+      "completionSummary": "信用卡还款已完成",
+      "failureSummary": "本次还款未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解还款需求", "completedLabel": "已理解还款需求" },
+        { "id": "query", "label": "正在查询账单信息", "completedLabel": "已查询账单信息" },
+        { "id": "confirm", "label": "等待本人确认", "completedLabel": "已确认还款" },
+        { "id": "execute", "label": "正在执行还款", "completedLabel": "还款已完成" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "query", "state": "running" }
+          ]
+        },
+        {
+          "stage": "business_skill.completed",
+          "match": { "skillId": "bank.credit-card-management" },
+          "updates": [
+            { "stepId": "query", "state": "completed" },
+            { "stepId": "confirm", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "confirm", "state": "completed" },
+            { "stepId": "execute", "state": "completed" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "account-inquiry-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "账户查询过程",
+      "initialText": "正在查询账户信息…",
+      "skillIds": ["bank.account-inquiry"],
+      "intentIds": ["ccb.account.balance.query", "ccb.account.transactions.query"],
+      "completionSummary": "账户信息查询完成",
+      "failureSummary": "本次查询未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解查询需求", "completedLabel": "已理解查询需求" },
+        { "id": "query", "label": "正在查询账户数据", "completedLabel": "已查询账户数据" },
+        { "id": "summary", "label": "正在整理结果", "completedLabel": "已整理结果" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "query", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "query", "state": "completed" },
+            { "stepId": "summary", "state": "completed" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wealth-management-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "理财管理过程",
+      "initialText": "正在处理理财业务…",
+      "skillIds": ["bank.wealth-management"],
+      "intentIds": ["ccb.wealth.dragon-money.overview", "ccb.wealth.dragon-money.buy", "ccb.wealth.wealth-product.overview", "ccb.wealth.wealth-product.buy"],
+      "completionSummary": "理财业务处理完成",
+      "failureSummary": "本次理财业务未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解需求", "completedLabel": "已理解需求" },
+        { "id": "query", "label": "正在查询理财信息", "completedLabel": "已查询理财信息" },
+        { "id": "summary", "label": "正在整理结果", "completedLabel": "已整理结果" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "query", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "query", "state": "completed" },
+            { "stepId": "summary", "state": "completed" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cashflow-planning-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "资金规划过程",
+      "initialText": "正在准备资金规划…",
+      "skillIds": ["bank.cashflow-planning"],
+      "intentIds": ["ccb.cashflow.salary-plan"],
+      "completionSummary": "资金规划已完成 · 已生成可调整方案",
+      "failureSummary": "本次资金规划未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解资金安排需求", "completedLabel": "已理解资金安排需求" },
+        { "id": "analyze", "label": "正在分析收支与待还", "completedLabel": "已分析收支与待还" },
+        { "id": "plan", "label": "正在生成安排方案", "completedLabel": "已生成安排方案" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "analyze", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "analyze", "state": "completed" },
+            { "stepId": "plan", "state": "completed" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obligation-management-v1",
+      "version": "1.0.0",
+      "status": "active",
+      "title": "待办管理过程",
+      "initialText": "正在处理待办事项…",
+      "skillIds": ["bank.obligation-management"],
+      "intentIds": ["ccb.obligation.repay-all", "ccb.obligation.pay-selected"],
+      "completionSummary": "待办事项处理完成",
+      "failureSummary": "本次待办处理未完成",
+      "steps": [
+        { "id": "understand", "label": "正在理解待办需求", "completedLabel": "已理解待办需求" },
+        { "id": "query", "label": "正在查询待办列表", "completedLabel": "已查询待办列表" },
+        { "id": "confirm", "label": "等待本人确认", "completedLabel": "已确认办理" },
+        { "id": "execute", "label": "正在执行办理", "completedLabel": "办理已完成" }
+      ],
+      "transitions": [
+        {
+          "stage": "request.accepted",
+          "match": {},
+          "updates": [{ "stepId": "understand", "state": "running" }]
+        },
+        {
+          "stage": "user_agent.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "understand", "state": "completed" },
+            { "stepId": "query", "state": "running" }
+          ]
+        },
+        {
+          "stage": "run.completed",
+          "match": {},
+          "updates": [
+            { "stepId": "query", "state": "completed" },
+            { "stepId": "confirm", "state": "completed" },
+            { "stepId": "execute", "state": "completed" }
+          ]
+        }
+      ]
+    }
+  ]
+}

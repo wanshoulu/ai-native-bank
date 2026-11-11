@@ -1,0 +1,574 @@
+﻿python : test_candidate_slot_contract_is_deeply_immutable (tests.test_intent_graph.IntentGraphRepositoryTest) ... ERROR
+At line:15 char:4137
++ ... t-runtime ; python -u -m unittest tests.test_intent_graph tests.test_ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_candidate_...Test) ... ERROR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_dragon_money_purchase_language_ranks_purchase_intent_first (tests.test_intent_graph.IntentGraphRepositoryTest) ...
+ ERROR
+test_explicit_advisory_goal_precedes_overlapping_catalogue_language (tests.test_intent_graph.IntentGraphRepositoryTest)
+ ... ERROR
+test_generic_wealth_discovery_prefers_product_list_not_purchase (tests.test_intent_graph.IntentGraphRepositoryTest) ...
+ ERROR
+test_graph_expand_adds_sibling_intents_via_offers_edge (tests.test_intent_graph.IntentGraphRepositoryTest)
+Graph expansion adds menu siblings that lexical matching missed. ... ERROR
+test_graph_expand_disabled_returns_lexical_only (tests.test_intent_graph.IntentGraphRepositoryTest)
+graph_expand=False preserves pre-expansion behaviour (rollback). ... ERROR
+test_loaded_graph_and_navigation_snapshots_are_deeply_immutable (tests.test_intent_graph.IntentGraphRepositoryTest) ...
+ ERROR
+test_loads_verified_ccb_graph_and_exposes_version (tests.test_intent_graph.IntentGraphRepositoryTest) ... ERROR
+test_missing_intent_binding_fails_closed (tests.test_intent_graph.IntentGraphRepositoryTest) ... ERROR
+test_projects_authoritative_candidate_and_registered_action_keys (tests.test_intent_graph.IntentGraphRepositoryTest) ..
+. ERROR
+test_ready_candidate_exposes_versioned_skill_and_task_policy (tests.test_intent_graph.IntentGraphRepositoryTest) ... ER
+ROR
+test_recall_keeps_bounded_candidates_for_multi_intent_and_negative_examples (tests.test_intent_graph.IntentGraphReposit
+oryTest) ... ERROR
+test_recall_uses_intent_semantics_and_page_context_without_defaulting_balance (tests.test_intent_graph.IntentGraphRepos
+itoryTest) ... ERROR
+test_rejects_knowledge_only_intent_with_slots_or_capability_bindings (tests.test_intent_graph.IntentGraphRepositoryTest
+) ... ERROR
+test_rejects_tampered_digest (tests.test_intent_graph.IntentGraphRepositoryTest) ... ERROR
+test_runtime_capability_catalog_must_cover_every_recalled_binding (tests.test_intent_graph.IntentGraphRepositoryTest) .
+.. ERROR
+test_selected_wealth_plan_handoff_prefers_governed_purchase_intent (tests.test_intent_graph.IntentGraphRepositoryTest) 
+... ERROR
+test_transfer_candidate_exposes_graph_slot_contract (tests.test_intent_graph.IntentGraphRepositoryTest) ... ERROR
+test_wealth_advice_catalogue_and_purchase_remain_separate (tests.test_intent_graph.IntentGraphRepositoryTest) ... ERROR
+ERROR
+test_adjacent_names_with_per_payee_marker_have_resolved_amount_scope (tests.test_intent_shape.IntentShapeAnalyzerTests)
+ ... ok
+test_adjacent_three_and_two_character_names_are_split_without_examples (tests.test_intent_shape.IntentShapeAnalyzerTest
+s) ... ok
+test_adjacent_two_character_payee_names_preserve_two_business_goals (tests.test_intent_shape.IntentShapeAnalyzerTests) 
+... ok
+test_compound_surname_four_character_name_remains_one_business_goal (tests.test_intent_shape.IntentShapeAnalyzerTests) 
+... ok
+test_distinct_business_actions_are_multi_intent (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_explicit_per_payee_transfer_preserves_two_business_goals (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_prompt_projection_contains_only_shape_evidence (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_punctuation_only_input_is_authoritative_non_task (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_single_transfer_is_single_intent (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_total_amount_marker_is_not_treated_as_unresolved_scope (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_unspecified_amount_scope_is_a_task_level_ambiguity (tests.test_intent_shape.IntentShapeAnalyzerTests) ... ok
+test_runtime_evaluation_rejects_a_stale_dataset_graph_digest (tests.test_intent_conformance_eval.IntentConformanceEvalu
+ationTest) ... ERROR
+test_runtime_evaluation_rejects_unbounded_or_unknown_case_input (tests.test_intent_conformance_eval.IntentConformanceEv
+aluationTest) ... ERROR
+test_runtime_graph_recall_executes_every_published_contract_case (tests.test_intent_conformance_eval.IntentConformanceE
+valuationTest) ... ERROR
+test_credit_card_multi_instance_is_preserved_as_non_authoritative_evidence (tests.test_cross_domain_generalization.Cros
+sDomainGeneralizationTests) ... ok
+test_distinct_account_queries_are_non_authoritative_multi_intent_evidence (tests.test_cross_domain_generalization.Cross
+DomainGeneralizationTests) ... ok
+test_shape_evidence_does_not_assign_a_domain_intent (tests.test_cross_domain_generalization.CrossDomainGeneralizationTe
+sts) ... ok
+
+======================================================================
+ERROR: test_candidate_slot_contract_is_deeply_immutable (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_dragon_money_purchase_language_ranks_purchase_intent_first (tests.test_intent_graph.IntentGraphRepositoryTe
+st)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_explicit_advisory_goal_precedes_overlapping_catalogue_language (tests.test_intent_graph.IntentGraphReposito
+ryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_generic_wealth_discovery_prefers_product_list_not_purchase (tests.test_intent_graph.IntentGraphRepositoryTe
+st)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_graph_expand_adds_sibling_intents_via_offers_edge (tests.test_intent_graph.IntentGraphRepositoryTest)
+Graph expansion adds menu siblings that lexical matching missed.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_graph_expand_disabled_returns_lexical_only (tests.test_intent_graph.IntentGraphRepositoryTest)
+graph_expand=False preserves pre-expansion behaviour (rollback).
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_loaded_graph_and_navigation_snapshots_are_deeply_immutable (tests.test_intent_graph.IntentGraphRepositoryTe
+st)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_loads_verified_ccb_graph_and_exposes_version (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_missing_intent_binding_fails_closed (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_projects_authoritative_candidate_and_registered_action_keys (tests.test_intent_graph.IntentGraphRepositoryT
+est)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_ready_candidate_exposes_versioned_skill_and_task_policy (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_recall_keeps_bounded_candidates_for_multi_intent_and_negative_examples (tests.test_intent_graph.IntentGraph
+RepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_recall_uses_intent_semantics_and_page_context_without_defaulting_balance (tests.test_intent_graph.IntentGra
+phRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_rejects_knowledge_only_intent_with_slots_or_capability_bindings (tests.test_intent_graph.IntentGraphReposit
+oryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_rejects_tampered_digest (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_runtime_capability_catalog_must_cover_every_recalled_binding (tests.test_intent_graph.IntentGraphRepository
+Test)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_selected_wealth_plan_handoff_prefers_governed_purchase_intent (tests.test_intent_graph.IntentGraphRepositor
+yTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_transfer_candidate_exposes_graph_slot_contract (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_wealth_advice_catalogue_and_purchase_remain_separate (tests.test_intent_graph.IntentGraphRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 23, in setUp
+    self.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: setUpClass (tests.test_intent_graph.IntentRecallHeldOutRegressionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 302, in load
+    payload = json.loads(graph_path.read_text(encoding="utf-8"))
+  File "D:\software\python\lib\pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "D:\software\python\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\data\\ai-native-bank\\intent-graph\\ccb-mobile-bank-int
+ents.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_graph.py", line 354, in setUpClass
+    cls.repository = IntentGraphRepository.load(GRAPH_PATH)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 304, in load
+    raise IntentGraphError("intent graph cannot be loaded") from exc
+app.intent_graph.IntentGraphError: intent graph cannot be loaded
+
+======================================================================
+ERROR: test_runtime_evaluation_rejects_a_stale_dataset_graph_digest (tests.test_intent_conformance_eval.IntentConforman
+ceEvaluationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_conformance_eval.py", line 48, in tes
+t_runtime_evaluation_rejects_a_stale_dataset_graph_digest
+    evaluate_intent_conformance(
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_conformance_eval.py", line 144, in evaluate_
+intent_conformance
+    repository = IntentGraphRepository.load(graph_file)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 305, in load
+    _validate_graph(payload)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 687, in _validate_graph
+    raise IntentGraphError("knowledge-only intent isolation is invalid")
+app.intent_graph.IntentGraphError: knowledge-only intent isolation is invalid
+
+======================================================================
+ERROR: test_runtime_evaluation_rejects_unbounded_or_unknown_case_input (tests.test_intent_conformance_eval.IntentConfor
+manceEvaluationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_conformance_eval.py", line 60, in tes
+t_runtime_evaluation_rejects_unbounded_or_unknown_case_input
+    evaluate_intent_conformance(
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_conformance_eval.py", line 144, in evaluate_
+intent_conformance
+    repository = IntentGraphRepository.load(graph_file)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 305, in load
+    _validate_graph(payload)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 687, in _validate_graph
+    raise IntentGraphError("knowledge-only intent isolation is invalid")
+app.intent_graph.IntentGraphError: knowledge-only intent isolation is invalid
+
+======================================================================
+ERROR: test_runtime_graph_recall_executes_every_published_contract_case (tests.test_intent_conformance_eval.IntentConfo
+rmanceEvaluationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\tests\test_intent_conformance_eval.py", line 24, in tes
+t_runtime_graph_recall_executes_every_published_contract_case
+    report = evaluate_intent_conformance(
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_conformance_eval.py", line 144, in evaluate_
+intent_conformance
+    repository = IntentGraphRepository.load(graph_file)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 305, in load
+    _validate_graph(payload)
+  File "D:\project\vscode\services\ai-native-bank\agent-runtime\app\intent_graph.py", line 687, in _validate_graph
+    raise IntentGraphError("knowledge-only intent isolation is invalid")
+app.intent_graph.IntentGraphError: knowledge-only intent isolation is invalid
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.238s
+
+FAILED (errors=23)

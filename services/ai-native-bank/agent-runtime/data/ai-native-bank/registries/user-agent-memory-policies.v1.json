@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "bank-memory-user-v2-semantic",
+  "defaults": {
+    "read": null,
+    "writeHint": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    }
+  },
+  "reads": {
+    "service_personalization": {
+      "memoryTypes": [
+        "user_profile",
+        "semantic_memory"
+      ],
+      "predicates": [],
+      "queryHint": "用户服务偏好 语言风格 交互风格 服务渠道 操作习惯 还款时间 缴费习惯 积分使用",
+      "maxItems": 5,
+      "maxTokens": 400,
+      "sensitivityCeiling": "L1"
+    },
+    "service_continuity": {
+      "memoryTypes": [
+        "episodic_memory",
+        "summary"
+      ],
+      "predicates": [],
+      "queryHint": "服务记录 会话摘要 最近交互 上下文延续 服务episode",
+      "maxItems": 3,
+      "maxTokens": 320,
+      "sensitivityCeiling": "L2"
+    },
+    "wealth_guidance": {
+      "memoryTypes": [
+        "user_profile",
+        "semantic_memory",
+        "summary"
+      ],
+      "predicates": [],
+      "queryHint": "理财投资 风险偏好 产品偏好 投资目标 投资期限 预算支出 资金规划 应急储备 薪资分配 不喜欢高风险 不喜欢稳健",
+      "maxItems": 5,
+      "maxTokens": 500,
+      "sensitivityCeiling": "L2"
+    },
+    "session_context": {
+      "memoryTypes": [
+        "variable"
+      ],
+      "predicates": [],
+      "maxItems": 20,
+      "maxTokens": 500,
+      "sensitivityCeiling": "L1"
+    }
+  },
+  "writeHints": {
+    "preferred_language": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "response_style": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "recommendation_opt_out": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "monthly_living_budget": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "emergency_reserve_preference": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "spending_explanation_preference": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "risk_preference": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "preferred_wealth_product_type": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "monthly_spending_pattern": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "salary_allocation_habit": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "frequent_operation_pattern": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "preferred_service_channel": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "preferred_repayment_timing": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "utility_payment_habit": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "points_usage_preference": {
+      "candidateType": "user_preference",
+      "purpose": "service_personalization",
+      "requiresConsent": true
+    },
+    "dislikes_high_risk_investments": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "dislikes_steady_growth_products": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "dislikes_steady_growth_wealth_products": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "investment_goal_preference": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    },
+    "investment_horizon_months": {
+      "candidateType": "user_preference",
+      "purpose": "wealth_guidance",
+      "requiresConsent": true
+    }
+  },
+  "consents": {
+    "preference_memory": {
+      "predicates": [
+        "preferred_language",
+        "response_style",
+        "monthly_living_budget",
+        "emergency_reserve_preference",
+        "spending_explanation_preference",
+        "investment_goal_preference",
+        "investment_horizon_months",
+        "frequent_operation_pattern",
+        "preferred_service_channel",
+        "preferred_repayment_timing",
+        "utility_payment_habit",
+        "salary_allocation_habit",
+        "points_usage_preference",
+        "risk_preference",
+        "preferred_wealth_product_type",
+        "monthly_spending_pattern",
+        "dislikes_high_risk_investments",
+        "dislikes_steady_growth_products",
+        "dislikes_steady_growth_wealth_products"
+      ]
+    },
+    "marketing": {
+      "predicates": [
+        "marketing_consent"
+      ]
+    },
+    "recommendation": {
+      "predicates": [
+        "recommendation_opt_out"
+      ]
+    }
+  }
+}
