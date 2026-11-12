@@ -39,10 +39,10 @@ AI 原生手机银行原型：用户一句话，Agent 完成意图识别 → 任
 ```bash
 git clone https://github.com/wanshoulu/ai-native-bank.git
 cd ai-native-bank
-npm install && npm start     # → http://127.0.0.1:3000
+npm install && npm start     # → http://127.0.0.1:3012
 ```
 
-浏览器打开即是手机原型（mock 客户「陈先生」）。点首页的 ✦「进入智能服务」体验对话链路。
+浏览器打开即是手机原型（mock 客户「陈先生」）。点首页的 ✦「进入智能服务」体验对话链路。默认端口 `3012` 而非 `3000`：本机 `3000` 通常是 AI Harbor 主站的端口，独立部署用不同端口可避免 `EADDRINUSE`；需改端口时设置 `PORT`。
 
 **完整对话智能（可选，起 Python 运行时）：**
 
@@ -79,11 +79,11 @@ flowchart TB
 
 ```bash
 # 1. 创建会话（30 分钟空闲过期）
-curl -X POST http://127.0.0.1:3000/api/ai-bank/v1/agent-sessions -d '{}'
+curl -X POST http://127.0.0.1:3012/api/ai-bank/v1/agent-sessions -d '{}'
 # → 201 {"data":{"id":"conv_xxx","status":"active",...}}
 
 # 2. 发一句话（意图识别 → 编排 → 执行 → 回复）
-curl -X POST http://127.0.0.1:3000/api/ai-bank/v1/agent-runs \
+curl -X POST http://127.0.0.1:3012/api/ai-bank/v1/agent-runs \
   -d '{"conversationId":"conv_xxx","message":"帮我查一下余额"}'
 # → 回复含意图结果、执行状态与下一步建议
 ```

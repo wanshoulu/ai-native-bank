@@ -7,7 +7,7 @@
  *
  * 启动：
  *   npm install          # 0 个 npm 依赖（纯 Node 内置模块）
- *   npm start            # http://127.0.0.1:3000
+ *   npm start            # http://127.0.0.1:3012
  *   PORT=8080 npm start
  *
  * 可选 Python 运行时（多轮深意图 / agent-runtime）：
@@ -26,7 +26,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT || 3012);
 const HOST = process.env.HOST || '127.0.0.1';
 
 const { handleAiNativeBankRequest } = require('./routes/ai-native-bank-api');
@@ -62,6 +62,7 @@ const server = http.createServer(function (req, res) {
   const u = new URL(req.url, 'http://localhost');
   const pathname = u.pathname;
   try {
+    if (pathname === '/favicon.ico') { res.writeHead(204); return res.end(); }
     if (pathname === '/healthz' || pathname === '/api/health') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({ ok: true, service: 'ai-native-bank', time: Date.now() }));

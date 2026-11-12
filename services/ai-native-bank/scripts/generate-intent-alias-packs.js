@@ -14,7 +14,7 @@
  *
  * Usage: node services/ai-native-bank/scripts/generate-intent-alias-packs.js
  * Env:
- *   AI_BANK_HARBOR_BASE_URL   default http://localhost:3000
+ *   AI_BANK_HARBOR_BASE_URL   default http://localhost:3012
  *   AI_BANK_ALIAS_PACK_OUT    default data/ai-native-bank/intent-graph/alias-packs.v2.1.json
  *   AI_BANK_RUNTIME_CONTAINER default ai-native-bank-agent-runtime
  *   AI_BANK_RUNTIME_TOKEN_FILE default /run/ai-bank-secrets/runtime-token
@@ -27,7 +27,7 @@ const { spawnSync } = require('node:child_process');
 
 const GRAPH_ID = 'ccb-mobile-bank-intents';
 const GRAPH_PATH = path.join(__dirname, '..', '..', '..', 'data', 'ai-native-bank', 'intent-graph', 'graph.ccb.intents.v1.0.0.json');
-const BASE_URL = (process.env.AI_BANK_HARBOR_BASE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+const BASE_URL = (process.env.AI_BANK_HARBOR_BASE_URL || 'http://localhost:3012').replace(/\/+$/, '');
 const CHAT_URL = `${BASE_URL}/api/ai-bank/v1/internal/model/v1/chat/completions`;
 const OUT_PATH = process.env.AI_BANK_ALIAS_PACK_OUT
   || path.join(__dirname, '..', '..', '..', 'data', 'ai-native-bank', 'intent-graph', 'alias-packs.v2.1.json');

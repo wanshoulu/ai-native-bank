@@ -139,7 +139,7 @@ const API_ROUTES = {
   // 内部模型网关 — 本服务自引用端点（/api/ai-bank/v1/internal/model/v1/*），Docker / 生产环境使用：
   // Python runtime 容器内直连云厂商不可达，经 Node 主服务网关转发（带内部服务令牌）
   'internal-gateway-chat': {
-    host: process.env.AI_BANK_INTERNAL_URL || process.env.AI_HARBOR_INTERNAL_URL || 'http://localhost:3000',
+    host: process.env.AI_BANK_INTERNAL_URL || process.env.AI_HARBOR_INTERNAL_URL || 'http://localhost:3012',
     path: '/api/ai-bank/v1/internal/model/v1/chat/completions',
     model: 'qwen3.7-flash',
     getKey: () => {
@@ -154,7 +154,7 @@ const API_ROUTES = {
     provider: 'internal-gateway',
   },
   'internal-gateway-embedding': {
-    host: process.env.AI_BANK_INTERNAL_URL || process.env.AI_HARBOR_INTERNAL_URL || 'http://localhost:3000',
+    host: process.env.AI_BANK_INTERNAL_URL || process.env.AI_HARBOR_INTERNAL_URL || 'http://localhost:3012',
     path: '/api/ai-bank/v1/internal/model/v1/embeddings',
     model: 'qwen3.7-text-embedding-flash',
     getKey: () => {
